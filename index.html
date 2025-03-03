@@ -159,7 +159,7 @@
     <div class="top-container">
       <div class="left-panel" id="leftPanel">
         <div id="speakerNameOverlay" class="speaker-name-overlay"></div>
-        <img id="speakerImage" src="" alt="Speaker Image">
+        <img id="speakerImage" src="ready.webp" alt="Speaker Image" onerror="this.src='ready.webp';">
       </div>
       <div class="right-panel" id="conversation">
         <!-- 대화 내용은 JS로 추가됩니다. -->
@@ -375,7 +375,7 @@
       const seg = conversation[index];
       
       updateConversationUI(index);
-      // JSON의 키(예: "drlee")를 사용해 이미지 경로 설정
+      // JSON의 키(예: "drlee")를 사용해 이미지 경로 설정, 기본 image는 ready.webp에서 덮어씁니다.
       document.getElementById('speakerImage').src = audioBasePath + seg.speaker + ".webp";
       document.getElementById('speakerNameOverlay').textContent = persons[seg.speaker].name;
       
