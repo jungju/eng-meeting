@@ -3,6 +3,7 @@
   let persons = {}, conv = [], idx = 0, playing = false,
       globalRepeat = false, segmentRepeat = false, sett = false,
       left = true, txtSize = '1.2em', showKorean = true,
+      highlightEnabled = false, // 기본적으로 하이라이트 비활성화
       audio = new Audio(), curT = 0;
       
   onMount(async () => {
@@ -35,6 +36,7 @@
   
   $: hl = conv[idx] ? (() => {
     const s = conv[idx];
+    if (!highlightEnabled) return s.text;
     if (!audio.duration) return s.text;
     let f = Math.min((curT + 0.2) / audio.duration, 1),
         w = s.text.split(" "), c = Math.floor(w.length * f);
@@ -42,6 +44,7 @@
   })() : "";
   
   function toggleSpeaker(k) { persons[k].hideEnglish = !persons[k].hideEnglish; }
+  function toggleHighlight() { highlightEnabled = !highlightEnabled; }
 </script>
 
 <main class="main-container">
@@ -79,13 +82,16 @@
       {segmentRepeat ? "구간 반복 ON" : "구간 반복 OFF"}
     </button>
     <button class="toggle-btn" on:click={() => showKorean = !showKorean}>
-      {showKorean ? "한글발음 OFF" : "한글발음 ON"}
+      {showKorean ? "한글발음 ON" : "한글발음 OFF"}
     </button>
     <button class="toggle-btn" on:click={() => txtSize = txtSize === '1.2em' ? '2em' : '1.2em'}>
       {txtSize === '1.2em' ? "글씨크게 OFF" : "글씨크게 ON"}
     </button>
     <button class="toggle-btn" on:click={() => left = !left}>
       {left ? "사진 보임" : "사진 숨김"}
+    </button>
+    <button class="toggle-btn" on:click={() => toggleHighlight()}>
+      {highlightEnabled ? "하이라이트 ON" : "하이라이트 OFF"}
     </button>
     <button on:click={() => sett = true}>설정</button>
   </div>
@@ -109,6 +115,7 @@
     </div>
   {/if}
 </main>
+
 
 <style>
   html,body { margin:0; padding:0; overflow:hidden; height:100%; font-family:Arial,sans-serif; }
