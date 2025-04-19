@@ -113,10 +113,6 @@
   }
 </style>
 
-<div class="page-header">
-  <h1>문장 학습</h1>
-</div>
-
 {#if sentences.length}
   {#each sentences as s, i}
     <div id={`s-${i}`} class="sentence {i === current ? 'active' : ''}" on:click={() => play(i)}>

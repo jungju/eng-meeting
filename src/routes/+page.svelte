@@ -6,7 +6,6 @@
   ];
 </script>
 
-<h1 class="text-2xl font-bold mb-4">Select Content</h1>
 <ul class="space-y-2">
   {#each links as link}
     <li>

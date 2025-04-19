@@ -6,8 +6,9 @@
 
   const title = derived(page, ($page) => {
     const path = $page.url.pathname;
-    if (path.startsWith('/dialogue')) return '🎧 Dialogue Player';
-    if (path.startsWith('/sentence')) return '📝 Sentence Trainer';
+    const id = $page.url.searchParams.get('id');
+    if (path.startsWith('/dialogue')) return `🎧 Dialogue Player${id ? ' - ' + id : ''}`;
+    if (path.startsWith('/sentence')) return `📝 Sentence Trainer${id ? ' - ' + id : ''}`;
     return '🏠 Home';
   });
 </script>
