@@ -1,50 +1,71 @@
 <script>
-  import { onMount } from 'svelte';
-  let persons = {}, conv = [], idx = 0, playing = false,
-      globalRepeat = false, segmentRepeat = false, sett = false,
-      left = true, txtSize = '1.2em', showKorean = true,
-      highlightEnabled = false, // 기본적으로 하이라이트 비활성화
-      audio = new Audio(), curT = 0;
-      
+  import { onMount, tick } from 'svelte';
+  import { page } from '$app/stores';
+
+  let persons = {};
+  let conv = [];
+  let idx = 0;
+  let playing = false;
+  let repeatMode = 'none'; // none | all | segment
+  let left = true;
+  let txtSize = '1.2em';
+  let showKorean = true;
+  let highlightEnabled = false;
+  let audio;
+  let curT = 0;
+  const id = $page.url.searchParams.get('id') || '';
+
   onMount(async () => {
-    const r = await fetch('meet1.json');
-    const d = await r.json();
-    persons = d.persons;
-    for (let k in persons)
+    const res = await fetch(`/dialogue/${id}/dialogue.json`);
+    const data = await res.json();
+    persons = data.persons;
+    for (let k in persons) {
       if (persons[k].hideEnglish === undefined) persons[k].hideEnglish = false;
-    conv = d.conversation;
-    conv.forEach((s, i) => s.filePath = `./meet1/${String(i+1).padStart(2, '0')}.mp3`);
+    }
+    conv = data.conversation;
+    conv.forEach((s, i) => s.filePath = `/dialogue/${id}/${String(i + 1).padStart(2, '0')}.mp3`);
+    await tick();
+    audio = new Audio();
+    audio.addEventListener('timeupdate', () => curT = audio.currentTime);
+    audio.onended = () => {
+      if (repeatMode === 'segment') playSeg(idx);
+      else if (idx < conv.length - 1) playSeg(idx + 1);
+      else if (repeatMode === 'all') { idx = 0; playSeg(0); }
+      else playing = false;
+    };
   });
-  
-  audio.addEventListener('timeupdate', () => curT = audio.currentTime);
-  
-  function playSeg(i) {
+
+  async function playSeg(i) {
     if (i >= conv.length) { playing = false; return; }
     idx = i;
+    await tick();
+    document.getElementById(`segment-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     let s = conv[i];
     audio.src = s.filePath;
     audio.muted = persons[s.speaker].muted || persons[s.speaker].hideEnglish;
-    playing = true; audio.play();
+    playing = true;
+    audio.play();
   }
-  
-  audio.onended = () => {
-    if (segmentRepeat) playSeg(idx);
-    else if (idx < conv.length - 1) playSeg(idx + 1);
-    else if (globalRepeat) { idx = 0; playSeg(0); }
-    else playing = false;
-  };
-  
+
   $: hl = conv[idx] ? (() => {
     const s = conv[idx];
     if (!highlightEnabled) return s.text;
     if (!audio.duration) return s.text;
     let f = Math.min((curT + 0.2) / audio.duration, 1),
         w = s.text.split(" "), c = Math.floor(w.length * f);
-    return `<span style="color:red;">${w.slice(0, c).join(" ")}</span> ${w.slice(c).join(" ")}`;
+    return `<span style=\"color:red;\">${w.slice(0, c).join(" ")}</span> ${w.slice(c).join(" ")}`;
   })() : "";
-  
+
   function toggleSpeaker(k) { persons[k].hideEnglish = !persons[k].hideEnglish; }
   function toggleHighlight() { highlightEnabled = !highlightEnabled; }
+
+  function handleImgError(event) {
+    event.target.src = 'ready.webp';
+  }
+
+  function toggleRepeat() {
+    repeatMode = repeatMode === 'none' ? 'all' : repeatMode === 'all' ? 'segment' : 'none';
+  }
 </script>
 
 <main class="main-container">
@@ -54,12 +75,16 @@
         <div class="speaker-name-overlay">
           {conv[idx] ? persons[conv[idx].speaker].name : ''}
         </div>
-        <img src={conv[idx] ? `./meet1/${conv[idx].speaker}.webp` : 'ready.webp'} alt="Speaker Image" onerror="this.src='ready.webp'">
+        <img
+          src={conv[idx] ? `/dialogue/${id}/${conv[idx].speaker}.webp` : 'ready.webp'}
+          alt="Speaker Image"
+          on:error={handleImgError}
+        />
       </div>
     {/if}
     <div class="right-panel" style="width:{left ? '60%' : '100%'}">
       {#each conv as s, i}
-        <div class="segment {i === idx ? 'active' : ''}" on:click={() => { audio.pause(); playSeg(i); }}>
+        <div id={`segment-${i}`} class="segment {i === idx ? 'active' : ''}" on:click={() => { audio.pause(); playSeg(i); }}>
           <div class="speaker-name">{persons[s.speaker]?.name}:</div>
           <div class="dialogue-text" style="font-size:{txtSize}">
             {@html i === idx ? hl : s.text}
@@ -71,51 +96,27 @@
       {/each}
     </div>
   </div>
-  <div class="right-controls">
-    <button on:click={() => { playing ? (audio.pause(), playing = false) : playSeg(idx); }}>
+  <div class="right-controls" style="gap: 10px">
+    <button on:click={() => { playing ? (audio.pause(), playing = false) : playSeg(idx); }} style="font-size: 1.1em; padding: 10px 16px; height: 48px;">
       {playing ? "재생 중" : "재생"}
     </button>
-    <button class="toggle-btn" on:click={() => globalRepeat = !globalRepeat}>
-      {globalRepeat ? "전체 반복 ON" : "전체 반복 OFF"}
+    <button class="toggle-btn" on:click={toggleRepeat} style="font-size: 1.1em; padding: 10px 16px; height: 48px;">
+      🔁 반복 모드: {repeatMode === 'none' ? '없음' : repeatMode === 'all' ? '전체' : '구간'}
     </button>
-    <button class="toggle-btn" on:click={() => segmentRepeat = !segmentRepeat}>
-      {segmentRepeat ? "구간 반복 ON" : "구간 반복 OFF"}
-    </button>
-    <button class="toggle-btn" on:click={() => showKorean = !showKorean}>
+    <button class="toggle-btn" on:click={() => showKorean = !showKorean} style="font-size: 1.1em; padding: 10px 16px; height: 48px;">
       {showKorean ? "한글발음 ON" : "한글발음 OFF"}
     </button>
-    <button class="toggle-btn" on:click={() => txtSize = txtSize === '1.2em' ? '2em' : '1.2em'}>
+    <button class="toggle-btn" on:click={() => txtSize = txtSize === '1.2em' ? '2em' : '1.2em'} style="font-size: 1.1em; padding: 10px 16px; height: 48px;">
       {txtSize === '1.2em' ? "글씨크게 OFF" : "글씨크게 ON"}
     </button>
-    <button class="toggle-btn" on:click={() => left = !left}>
+    <button class="toggle-btn" on:click={() => left = !left} style="font-size: 1.1em; padding: 10px 16px; height: 48px;">
       {left ? "사진 보임" : "사진 숨김"}
     </button>
-    <button class="toggle-btn" on:click={() => toggleHighlight()}>
+    <button class="toggle-btn" on:click={toggleHighlight} style="font-size: 1.1em; padding: 10px 16px; height: 48px;">
       {highlightEnabled ? "하이라이트 ON" : "하이라이트 OFF"}
     </button>
-    <button on:click={() => sett = true}>설정</button>
   </div>
-  {#if sett}
-    <div class="modal" on:click={() => sett = false}>
-      <div class="modal-content" on:click|stopPropagation>
-        <span class="close-button" on:click={() => sett = false}>&times;</span>
-        <h3>설정</h3>
-        <h4>대화자 옵션</h4>
-        <ul class="option-list">
-          {#each Object.entries(persons) as [k, p]}
-            <li>
-              <label>
-                <input type="checkbox" checked={p.hideEnglish} on:change={() => toggleSpeaker(k)}>
-                {p.name} (음소거 및 영어 숨김)
-              </label>
-            </li>
-          {/each}
-        </ul>
-      </div>
-    </div>
-  {/if}
 </main>
-
 
 <style>
   html,body { margin:0; padding:0; overflow:hidden; height:100%; font-family:Arial,sans-serif; }

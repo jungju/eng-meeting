@@ -1,8 +1,8 @@
 <!-- src/routes/+page.svelte -->
 <script>
   const links = [
-    { id: 'x1', label: 'Sentence Group x1', type: 'sentence' },
-    { id: 'talk123', label: 'Dialogue Example talk123', type: 'dialogue' }
+    { id: 'uni', label: 'Sentence Group uni', type: 'sentence' },
+    { id: 'meet1', label: 'Dialogue Example meet1', type: 'dialogue' }
   ];
 </script>
 

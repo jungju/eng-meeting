@@ -10,7 +10,7 @@
   const id = $page.url.searchParams.get('id') || '';
 
   onMount(async () => {
-    const res = await fetch(`/${id}/sentences.json`);
+    const res = await fetch(`/sentence/${id}/sentences.json`);
     const data = await res.json();
     sentences = data.sentences;
   });
@@ -21,7 +21,7 @@
     await tick();
     document.getElementById(`s-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     audio?.pause();
-    audio = new Audio(`/${id}/${String(i + 1).padStart(2, '0')}.mp3`);
+    audio = new Audio(`/sentence/${id}/${String(i + 1).padStart(2, '0')}.mp3`);
     audio.play();
     isPlaying = true;
     audio.onended = () => {
