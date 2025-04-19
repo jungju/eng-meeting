@@ -1,5 +1,5 @@
 <script>
-  import { onMount, tick } from 'svelte';
+  import {onMount,tick, onDestroy} from 'svelte'
   import { page } from '$app/stores';
   import { base } from '$app/paths';
 
@@ -22,6 +22,10 @@
       }));
     }
   });
+
+  onDestroy(() => {
+    audio?.pause()
+  })
 
   async function playSeg(i) {
     if (i<0||i>=conv.length){playing=false;return;}
