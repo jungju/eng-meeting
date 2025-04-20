@@ -4,7 +4,8 @@
 
   const links = [
     { id: 'uni', label: 'Sentence Group uni', type: 'sentence' },
-    { id: 'meet1', label: 'Dialogue Example meet1', type: 'dialogue' }
+    { id: 'meet1', label: 'Dialogue Example meet1', type: 'dialogue' },
+    { id: 'uni', label: 'uni homework', type: 'sentencemd' }
   ];
 </script>
 

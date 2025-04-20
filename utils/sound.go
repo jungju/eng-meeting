@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	r := "../static/sentence/uni"
+	r := "../static/assets/sentence/uni"
 	d := filepath.Join(r, "audio")
 	os.MkdirAll(d, 0755)
 
@@ -19,10 +19,17 @@ func main() {
 	var s struct{ Sentences []string }
 	json.Unmarshal(b, &s)
 
-	u := "https://api.elevenlabs.io/v1/text-to-speech/JBFqnCBsd6RMkjVDRZzb?output_format=mp3_44100_128"
+	u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
 
 	for i, t := range s.Sentences {
-		j, _ := json.Marshal(map[string]string{"text": t, "model_id": "eleven_multilingual_v2"})
+		j, _ := json.Marshal(map[string]interface{}{
+			"text":     t,
+			"model_id": "eleven_multilingual_v2",
+			"voice_settings": map[string]interface{}{
+				"speed": 0.7,
+			},
+		})
+
 		req, _ := http.NewRequest("POST", u, bytes.NewBuffer(j))
 		req.Header.Set("xi-api-key", os.Getenv("ELEVENLABS_API_KEY"))
 		req.Header.Set("Content-Type", "application/json")
