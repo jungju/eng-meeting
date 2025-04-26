@@ -6,6 +6,9 @@ export const prerender = true;
   import { derived } from 'svelte/store';
   import { base } from '$app/paths';
   import '../app.css';
+  import {onMount} from 'svelte';
+  
+  onMount(()=>{navigator.serviceWorker?.register('/service-worker.js')});
 
   const title = derived(page, ($page) => {
     const path = $page.url.pathname;
