@@ -35,9 +35,9 @@ function toggleBlankMode(){
   if(b){
     o=[...s]
     s=s.map(t=>{
-      const w=t.split(' '),c=Math.min(3,Math.max(2,Math.floor(Math.random()*3))),idxs=[]
+      const w=t.split(' '),l=w.length,c=l<=2?1:l>=10?3:2,idxs=[]
       while(idxs.length<c){
-        const ri=Math.floor(Math.random()*w.length)
+        const ri=Math.floor(Math.random()*l)
         if(!idxs.includes(ri))idxs.push(ri)
       }
       idxs.forEach(i=>w[i]='____')
