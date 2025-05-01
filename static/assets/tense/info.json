@@ -1,0 +1,43 @@
+[
+    {
+      "id": "sentences1",
+      "file_en": "sentences1-1.json",
+      "file_ko": "sentences1-2.json",
+      "type": "일반 동사",
+      "base": "eat",
+      "description": "일반 동사 eat을 기반으로 한 문장 세트"
+    },
+    {
+      "id": "sentences2",
+      "file_en": "sentences2-1.json",
+      "file_ko": "sentences2-2.json",
+      "type": "be 동사",
+      "base": "nice",
+      "description": "be동사 + 형용사 nice를 기반으로 한 문장 세트"
+    },
+    {
+      "id": "sentences3",
+      "file_en": "sentences3-1.json",
+      "file_ko": "sentences3-2.json",
+      "type": "be 동사",
+      "base": "tired",
+      "description": "be동사 + 형용사 tired를 기반으로 한 문장 세트"
+    },
+    {
+      "id": "sentences4",
+      "file_en": "sentences4-1.json",
+      "file_ko": "sentences4-2.json",
+      "type": "be 동사",
+      "base": "sleepy",
+      "description": "be동사 + 형용사 sleepy를 기반으로 한 문장 세트"
+    },
+    {
+      "id": "sentences5",
+      "file_en": "sentences5-1.json",
+      "file_ko": "sentences5-2.json",
+      "type": "일반 동사",
+      "base": "play",
+      "description": "일반 동사 play를 기반으로 한 문장 세트"
+    }
+  ]
+  
