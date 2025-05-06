@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grammar Tense Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    td:first-child, th:first-child {
+      background-color: #fafafa;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Grammar Tense Table – "eat breakfast"</h2>
+  <table id="tense-table"></table>
+
+  <script>
+    const subjects = ["I", "You", "He", "We", "They"];
+
+    const headers = [
+      "Subject",
+      "Present",
+      "Past",
+      "Future",
+      "Present Progressive",
+      "Past Progressive",
+      "Future Progressive",
+      "Present Perfect",
+      "Past Perfect",
+      "Future Perfect"
+    ];
+
+    const sentences = [
+      "I eat breakfast.",
+      "I ate breakfast.",
+      "I will eat breakfast.",
+      "I am eating breakfast.",
+      "I was eating breakfast.",
+      "I will be eating breakfast.",
+      "I have eaten breakfast.",
+      "I had eaten breakfast.",
+      "I will have eaten breakfast.",
+
+      "You eat breakfast.",
+      "You ate breakfast.",
+      "You will eat breakfast.",
+      "You are eating breakfast.",
+      "You were eating breakfast.",
+      "You will be eating breakfast.",
+      "You have eaten breakfast.",
+      "You had eaten breakfast.",
+      "You will have eaten breakfast.",
+
+      "He eats breakfast.",
+      "He ate breakfast.",
+      "He will eat breakfast.",
+      "He is eating breakfast.",
+      "He was eating breakfast.",
+      "He will be eating breakfast.",
+      "He has eaten breakfast.",
+      "He had eaten breakfast.",
+      "He will have eaten breakfast.",
+
+      "We eat breakfast.",
+      "We ate breakfast.",
+      "We will eat breakfast.",
+      "We are eating breakfast.",
+      "We were eating breakfast.",
+      "We will be eating breakfast.",
+      "We have eaten breakfast.",
+      "We had eaten breakfast.",
+      "We will have eaten breakfast.",
+
+      "They eat breakfast.",
+      "They ate breakfast.",
+      "They will eat breakfast.",
+      "They are eating breakfast.",
+      "They were eating breakfast.",
+      "They will be eating breakfast.",
+      "They have eaten breakfast.",
+      "They had eaten breakfast.",
+      "They will have eaten breakfast."
+    ];
+
+    const table = document.getElementById("tense-table");
+
+    // Header row
+    const headerRow = document.createElement("tr");
+    headers.forEach(h => {
+      const th = document.createElement("th");
+      th.textContent = h;
+      headerRow.appendChild(th);
+    });
+    table.appendChild(headerRow);
+
+    // Fill rows (each subject + 9 sentences)
+    subjects.forEach((subject, i) => {
+      const tr = document.createElement("tr");
+
+      const subjectCell = document.createElement("td");
+      subjectCell.textContent = subject;
+      tr.appendChild(subjectCell);
+
+      for (let j = 0; j < 9; j++) {
+        const td = document.createElement("td");
+        td.textContent = sentences[i * 9 + j];
+        tr.appendChild(td);
+      }
+
+      table.appendChild(tr);
+    });
+  </script>
+</body>
+</html>
