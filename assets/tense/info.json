@@ -1,41 +1,41 @@
 [
   { "id": "sentences1",        "file_en": "sentences1-1.json",        "file_ko": "sentences1-2.json",        "type": "일반 동사", "base": "eat",   "description": "일반 동사 eat을 기반으로 한 긍정문 세트" },
-  { "id": "sentences1_neg",    "file_en": "sentences1-neg-1.json",    "file_ko": "sentences1-neg-2.json",    "type": "일반 동사", "base": "eat",   "description": "일반 동사 eat을 활용한 부정문 세트" },
-  { "id": "sentences1_q",      "file_en": "sentences1-q-1.json",      "file_ko": "sentences1-q-2.json",      "type": "일반 동사", "base": "eat2",   "description": "일반 동사 eat을 활용한 의문문 세트" },
+  { "id": "sentences1_neg",    "file_en": "sentences1-neg-1.json",    "file_ko": "sentences1-neg-2.json",    "type": "일반 동사", "base": "eat N",   "description": "일반 동사 eat을 활용한 부정문 세트" },
+  { "id": "sentences1_q",      "file_en": "sentences1-q-1.json",      "file_ko": "sentences1-q-2.json",      "type": "일반 동사", "base": "eat Q",   "description": "일반 동사 eat을 활용한 의문문 세트" },
 
   { "id": "sentences2",        "file_en": "sentences2-1.json",        "file_ko": "sentences2-2.json",        "type": "be 동사",  "base": "nice",  "description": "be동사 + 형용사 nice를 기반으로 한 긍정문 세트" },
-  { "id": "sentences2_neg",    "file_en": "sentences2-neg-1.json",    "file_ko": "sentences2-neg-2.json",    "type": "be 동사",  "base": "nice",  "description": "be동사 nice를 활용한 부정문 세트" },
-  { "id": "sentences2_q",      "file_en": "sentences2-q-1.json",      "file_ko": "sentences2-q-2.json",      "type": "be 동사",  "base": "nice",  "description": "be동사 nice를 활용한 의문문 세트" },
+  { "id": "sentences2_neg",    "file_en": "sentences2-neg-1.json",    "file_ko": "sentences2-neg-2.json",    "type": "be 동사",  "base": "nice N",  "description": "be동사 nice를 활용한 부정문 세트" },
+  { "id": "sentences2_q",      "file_en": "sentences2-q-1.json",      "file_ko": "sentences2-q-2.json",      "type": "be 동사",  "base": "nice Q",  "description": "be동사 nice를 활용한 의문문 세트" },
 
   { "id": "sentences3",        "file_en": "sentences3-1.json",        "file_ko": "sentences3-2.json",        "type": "be 동사",  "base": "tired", "description": "be동사 + 형용사 tired를 기반으로 한 긍정문 세트" },
-  { "id": "sentences3_neg",    "file_en": "sentences3-neg-1.json",    "file_ko": "sentences3-neg-2.json",    "type": "be 동사",  "base": "tired", "description": "be동사 tired를 활용한 부정문 세트" },
-  { "id": "sentences3_q",      "file_en": "sentences3-q-1.json",      "file_ko": "sentences3-q-2.json",      "type": "be 동사",  "base": "tired", "description": "be동사 tired를 활용한 의문문 세트" },
+  { "id": "sentences3_neg",    "file_en": "sentences3-neg-1.json",    "file_ko": "sentences3-neg-2.json",    "type": "be 동사",  "base": "tired N", "description": "be동사 tired를 활용한 부정문 세트" },
+  { "id": "sentences3_q",      "file_en": "sentences3-q-1.json",      "file_ko": "sentences3-q-2.json",      "type": "be 동사",  "base": "tired Q", "description": "be동사 tired를 활용한 의문문 세트" },
 
   { "id": "sentences4",        "file_en": "sentences4-1.json",        "file_ko": "sentences4-2.json",        "type": "be 동사",  "base": "sleepy","description": "be동사 + 형용사 sleepy를 기반으로 한 긍정문 세트" },
-  { "id": "sentences4_neg",    "file_en": "sentences4-neg-1.json",    "file_ko": "sentences4-neg-2.json",    "type": "be 동사",  "base": "sleepy","description": "be동사 sleepy를 활용한 부정문 세트" },
-  { "id": "sentences4_q",      "file_en": "sentences4-q-1.json",      "file_ko": "sentences4-q-2.json",      "type": "be 동사",  "base": "sleepy","description": "be동사 sleepy를 활용한 의문문 세트" },
+  { "id": "sentences4_neg",    "file_en": "sentences4-neg-1.json",    "file_ko": "sentences4-neg-2.json",    "type": "be 동사",  "base": "sleepy N","description": "be동사 sleepy를 활용한 부정문 세트" },
+  { "id": "sentences4_q",      "file_en": "sentences4-q-1.json",      "file_ko": "sentences4-q-2.json",      "type": "be 동사",  "base": "sleepy Q","description": "be동사 sleepy를 활용한 의문문 세트" },
 
   { "id": "sentences5",        "file_en": "sentences5-1.json",        "file_ko": "sentences5-2.json",        "type": "일반 동사", "base": "play",  "description": "일반 동사 play를 기반으로 한 긍정문 세트" },
-  { "id": "sentences5_neg",    "file_en": "sentences5-neg-1.json",    "file_ko": "sentences5-neg-2.json",    "type": "일반 동사", "base": "play",  "description": "일반 동사 play를 활용한 부정문 세트" },
-  { "id": "sentences5_q",      "file_en": "sentences5-q-1.json",      "file_ko": "sentences5-q-2.json",      "type": "일반 동사", "base": "play",  "description": "일반 동사 play를 활용한 의문문 세트" },
+  { "id": "sentences5_neg",    "file_en": "sentences5-neg-1.json",    "file_ko": "sentences5-neg-2.json",    "type": "일반 동사", "base": "play N",  "description": "일반 동사 play를 활용한 부정문 세트" },
+  { "id": "sentences5_q",      "file_en": "sentences5-q-1.json",      "file_ko": "sentences5-q-2.json",      "type": "일반 동사", "base": "play Q",  "description": "일반 동사 play를 활용한 의문문 세트" },
 
   { "id": "sentences6",        "file_en": "sentences6-1.json",        "file_ko": "sentences6-2.json",        "type": "일반 동사", "base": "go",    "description": "일반 동사 go를 기반으로 한 긍정문 세트" },
-  { "id": "sentences6_neg",    "file_en": "sentences6-neg-1.json",    "file_ko": "sentences6-neg-2.json",    "type": "일반 동사", "base": "go",    "description": "일반 동사 go를 활용한 부정문 세트" },
-  { "id": "sentences6_q",      "file_en": "sentences6-q-1.json",      "file_ko": "sentences6-q-2.json",      "type": "일반 동사", "base": "go",    "description": "일반 동사 go를 활용한 의문문 세트" },
+  { "id": "sentences6_neg",    "file_en": "sentences6-neg-1.json",    "file_ko": "sentences6-neg-2.json",    "type": "일반 동사", "base": "go N",    "description": "일반 동사 go를 활용한 부정문 세트" },
+  { "id": "sentences6_q",      "file_en": "sentences6-q-1.json",      "file_ko": "sentences6-q-2.json",      "type": "일반 동사", "base": "go Q",    "description": "일반 동사 go를 활용한 의문문 세트" },
 
   { "id": "sentences7",        "file_en": "sentences7-1.json",        "file_ko": "sentences7-2.json",        "type": "일반 동사", "base": "have",  "description": "일반 동사 have를 기반으로 한 긍정문 세트" },
-  { "id": "sentences7_neg",    "file_en": "sentences7-neg-1.json",    "file_ko": "sentences7-neg-2.json",    "type": "일반 동사", "base": "have",  "description": "일반 동사 have를 활용한 부정문 세트" },
-  { "id": "sentences7_q",      "file_en": "sentences7-q-1.json",      "file_ko": "sentences7-q-2.json",      "type": "일반 동사", "base": "have",  "description": "일반 동사 have를 활용한 의문문 세트" },
+  { "id": "sentences7_neg",    "file_en": "sentences7-neg-1.json",    "file_ko": "sentences7-neg-2.json",    "type": "일반 동사", "base": "have N",  "description": "일반 동사 have를 활용한 부정문 세트" },
+  { "id": "sentences7_q",      "file_en": "sentences7-q-1.json",      "file_ko": "sentences7-q-2.json",      "type": "일반 동사", "base": "have Q",  "description": "일반 동사 have를 활용한 의문문 세트" },
 
   { "id": "sentences8",        "file_en": "sentences8-1.json",        "file_ko": "sentences8-2.json",        "type": "일반 동사", "base": "make",  "description": "일반 동사 make를 기반으로 한 긍정문 세트" },
-  { "id": "sentences8_neg",    "file_en": "sentences8-neg-1.json",    "file_ko": "sentences8-neg-2.json",    "type": "일반 동사", "base": "make",  "description": "일반 동사 make를 활용한 부정문 세트" },
-  { "id": "sentences8_q",      "file_en": "sentences8-q-1.json",      "file_ko": "sentences8-q-2.json",      "type": "일반 동사", "base": "make",  "description": "일반 동사 make를 활용한 의문문 세트" },
+  { "id": "sentences8_neg",    "file_en": "sentences8-neg-1.json",    "file_ko": "sentences8-neg-2.json",    "type": "일반 동사", "base": "make N",  "description": "일반 동사 make를 활용한 부정문 세트" },
+  { "id": "sentences8_q",      "file_en": "sentences8-q-1.json",      "file_ko": "sentences8-q-2.json",      "type": "일반 동사", "base": "make Q",  "description": "일반 동사 make를 활용한 의문문 세트" },
 
   { "id": "sentences9",        "file_en": "sentences9-1.json",        "file_ko": "sentences9-2.json",        "type": "일반 동사", "base": "read",  "description": "일반 동사 read를 기반으로 한 긍정문 세트" },
-  { "id": "sentences9_neg",    "file_en": "sentences9-neg-1.json",    "file_ko": "sentences9-neg-2.json",    "type": "일반 동사", "base": "read",  "description": "일반 동사 read를 활용한 부정문 세트" },
-  { "id": "sentences9_q",      "file_en": "sentences9-q-1.json",      "file_ko": "sentences9-q-2.json",      "type": "일반 동사", "base": "read",  "description": "일반 동사 read를 활용한 의문문 세트" },
+  { "id": "sentences9_neg",    "file_en": "sentences9-neg-1.json",    "file_ko": "sentences9-neg-2.json",    "type": "일반 동사", "base": "read N",  "description": "일반 동사 read를 활용한 부정문 세트" },
+  { "id": "sentences9_q",      "file_en": "sentences9-q-1.json",      "file_ko": "sentences9-q-2.json",      "type": "일반 동사", "base": "read Q",  "description": "일반 동사 read를 활용한 의문문 세트" },
 
   { "id": "sentences10",       "file_en": "sentences10-1.json",       "file_ko": "sentences10-2.json",       "type": "일반 동사", "base": "study", "description": "일반 동사 study를 기반으로 한 긍정문 세트" },
-  { "id": "sentences10_neg",   "file_en": "sentences10-neg-1.json",   "file_ko": "sentences10-neg-2.json",   "type": "일반 동사", "base": "study", "description": "일반 동사 study를 활용한 부정문 세트" },
-  { "id": "sentences10_q",     "file_en": "sentences10-q-1.json",     "file_ko": "sentences10-q-2.json",     "type": "일반 동사", "base": "study2", "description": "일반 동사 study를 활용한 의문문 세트" }
+  { "id": "sentences10_neg",   "file_en": "sentences10-neg-1.json",   "file_ko": "sentences10-neg-2.json",   "type": "일반 동사", "base": "study N", "description": "일반 동사 study를 활용한 부정문 세트" },
+  { "id": "sentences10_q",     "file_en": "sentences10-q-1.json",     "file_ko": "sentences10-q-2.json",     "type": "일반 동사", "base": "study Q", "description": "일반 동사 study를 활용한 의문문 세트" }
 ]
