@@ -170,7 +170,7 @@
     z-index: 100;
   }
   .footer button{
-    width: 120px; height: 48px;
+    width: 90px; height: 28px;
     background: #444; color: #fff;
     border: none; border-radius: 4px;
     cursor: pointer; font-size: 1rem;
