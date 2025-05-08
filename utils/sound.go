@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	r := "../static/assets/sentence/uni"
+	r := "../static/assets/sentence/question"
 	d := filepath.Join(r, "audio")
 	os.MkdirAll(d, 0755)
 
@@ -22,9 +22,6 @@ func main() {
 	u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
 
 	for i, t := range s.Sentences {
-		if i != 127 {
-			continue
-		}
 		j, _ := json.Marshal(map[string]interface{}{
 			"text":     t,
 			"model_id": "eleven_multilingual_v2",
