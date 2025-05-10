@@ -148,7 +148,7 @@
 <style>
   /* ───────── 테이블 ───────── */
   table { border-collapse: collapse; width: 100%; min-width: 800px; margin-bottom: 120px; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  th, td { border: 1px solid #ccc; padding: 3px; text-align: center; }
   th { background: #333; color: #fff; }
   td:first-child { background: #333; color: #fff; font-weight: 600; }
 
@@ -163,17 +163,17 @@
   .footer{
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #222;
-    padding: 12px 20px;
+    padding: 5px 8px;
     display: flex; flex-wrap: wrap;
-    gap: 12px; align-items: center; justify-content: center;
+    gap: 2px; align-items: center; justify-content: center;
     min-height: 92px;
     z-index: 100;
   }
   .footer button{
-    width: 90px; height: 28px;
+    width: 75px; height: 25px;
     background: #444; color: #fff;
     border: none; border-radius: 4px;
-    cursor: pointer; font-size: 1rem;
+    cursor: pointer; font-size: 0.8rem;
   }
   .footer button.active  { background: #2a9d8f; color: #000; }
   .footer button.korean  { background: #d4af37; color: #000; }
@@ -182,7 +182,7 @@
   /* Info 버튼 고정 */
   .info-btn{
     position: absolute;
-    left: 16px;
+    left: 12px;
     bottom: 12px;
   }
 </style>
@@ -192,7 +192,7 @@
     <table>
       <thead>
         <tr>
-          <th>Subject</th>
+          <th>S</th>
           {#each hd as h}<th>{h}</th>{/each}
         </tr>
       </thead>

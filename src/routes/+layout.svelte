@@ -22,11 +22,11 @@
   <base href="{base}/" />
 </svelte:head>
 
-<header style="position:fixed; top:0; left:0; right:0; height:50px; background:#f5f5f5; border-bottom:1px solid #ccc; display:flex; align-items:center; justify-content:space-between; padding:0 20px; z-index:1000;">
+<header style="position:fixed; top:0; left:0; right:0; height:45px; background:#f5f5f5; border-bottom:1px solid #ccc; display:flex; align-items:center; justify-content:space-between; padding:0 20px; z-index:1000;">
   <h1 style="margin:0; font-size:1.2rem;">{$title}</h1>
   <button on:click={() => goto('/')} style="font-size:1em; padding:6px 12px; border-radius:6px; cursor:pointer;">🏠 홈으로</button>
 </header>
 
-<main style="margin-top:50px; padding:20px;">
+<main style="margin-top:30px; padding:15px;">
   <slot />
 </main>
