@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	r := "../static/assets/sentence/question"
+	r := "../static/assets/sentence/uni-may"
 	d := filepath.Join(r, "audio")
 	os.MkdirAll(d, 0755)
 
