@@ -164,13 +164,14 @@
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #222;
     padding: 5px 8px;
+    padding-bottom: 20px;
     display: flex; flex-wrap: wrap;
     gap: 2px; align-items: center; justify-content: center;
     min-height: 92px;
     z-index: 100;
   }
   .footer button{
-    width: 68px; height: 15px;
+    width: 70px; height: 18px;
     background: #444; color: #fff;
     border: none; border-radius: 4px;
     cursor: pointer; font-size: 0.7rem;
@@ -183,7 +184,7 @@
   .info-btn{
     position: absolute;
     left: 12px;
-    bottom: 5px;
+    bottom: 25px;
   }
 </style>
 
@@ -246,7 +247,7 @@
   </button>
 
   <!-- 세트(최대 30) 버튼 -->
-  <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+  <div style="display:flex; flex-wrap:wrap; gap:5px; justify-content:center;">
     {#each info as it}
       <button
         on:click={() => {
