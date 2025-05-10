@@ -147,10 +147,10 @@
 
 <style>
   /* ───────── 테이블 ───────── */
-  table { border-collapse: collapse; width: 100%; min-width: 800px; margin-bottom: 120px; }
-  th, td { border: 1px solid #ccc; padding: 3px; text-align: center; }
-  th { background: #333; color: #fff; }
-  td:first-child { background: #333; color: #fff; font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; min-width: 800px; margin-bottom: 120px; font-size: 1.1rem; }
+  th, td { border: 1px solid #ccc; padding: 2px; text-align: center; }
+  th { background: #333; color: #fff;  font-size: 0.7rem; }
+  td:first-child { background: #333; color: #fff; font-weight: 600;  font-size: 0.7rem;}
 
   td.click { cursor: pointer; }
   td.play  { background: #fffae6; }
@@ -170,10 +170,10 @@
     z-index: 100;
   }
   .footer button{
-    width: 75px; height: 25px;
+    width: 68px; height: 15px;
     background: #444; color: #fff;
     border: none; border-radius: 4px;
-    cursor: pointer; font-size: 0.8rem;
+    cursor: pointer; font-size: 0.7rem;
   }
   .footer button.active  { background: #2a9d8f; color: #000; }
   .footer button.korean  { background: #d4af37; color: #000; }
@@ -183,7 +183,7 @@
   .info-btn{
     position: absolute;
     left: 12px;
-    bottom: 12px;
+    bottom: 5px;
   }
 </style>
 
