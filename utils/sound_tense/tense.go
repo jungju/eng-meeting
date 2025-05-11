@@ -16,16 +16,17 @@ func main() {
 	d := filepath.Join(r, "audio")
 	os.MkdirAll(d, 0755)
 	files := []string{
-		"sentences1-q-neg-1.json",
-		"sentences2-q-neg-1.json",
-		"sentences3-q-neg-1.json",
-		"sentences4-q-neg-1.json",
-		"sentences5-q-neg-1.json",
-		"sentences6-q-neg-1.json",
-		"sentences7-q-neg-1.json",
-		"sentences8-q-neg-1.json",
-		"sentences9-q-neg-1.json",
-		"sentences10-q-neg-1.json",
+		"sentences1-q-1.json",
+		// "sentences1-q-neg-1.json",
+		// "sentences2-q-neg-1.json",
+		// "sentences3-q-neg-1.json",
+		// "sentences4-q-neg-1.json",
+		// "sentences5-q-neg-1.json",
+		// "sentences6-q-neg-1.json",
+		// "sentences7-q-neg-1.json",
+		// "sentences8-q-neg-1.json",
+		// "sentences9-q-neg-1.json",
+		// "sentences10-q-neg-1.json",
 		// "sentences1-neg-1.json",
 		// "sentences1-neg-2.json",
 		// "sentences1-q-1.json",
@@ -92,6 +93,9 @@ func main() {
 		}
 		prefix := strings.TrimPrefix(strings.TrimSuffix(fn, ".json"), "sentences")
 		for i, text := range ss {
+			if i+1 != 43 {
+				continue
+			}
 			body, _ := json.Marshal(map[string]interface{}{
 				"text":           text,
 				"model_id":       "eleven_multilingual_v2",
