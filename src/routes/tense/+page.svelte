@@ -147,7 +147,7 @@
 
 <style>
   /* ───────── 테이블 ───────── */
-  table { border-collapse: collapse; width: 100%; min-width: 800px; margin-bottom: 120px; font-size: 1.1rem; }
+  table { border-collapse: collapse; width: 100%; min-width: 800px; margin-bottom: 120px; font-size: 1.2rem; }
   th, td { border: 1px solid #ccc; padding: 2px; text-align: center; }
   th { background: #333; color: #fff;  font-size: 0.7rem; }
   td:first-child { background: #333; color: #fff; font-weight: 600;  font-size: 0.7rem;}
