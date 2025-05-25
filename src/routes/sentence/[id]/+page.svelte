@@ -17,14 +17,28 @@ onMount(async()=>{
 })
 onDestroy(()=>{a?.pause()})
 async function play(i){
-  if(i<0||i>=s.length)return
-  idx=i;await tick()
-  document.getElementById(`s-${i}`)?.scrollIntoView({behavior:'smooth',block:'center'})
-  a?.pause()
-  a=new Audio(`${ASSET_BASE}/audio/${String(i+1).padStart(2,'0')}.mp3`)
-  a.onended=()=>r==='one'?play(idx):idx<s.length-1?play(idx+1):r==='all'?play(0):(p=false)
-  p=true;a.play()
-}
+    if (i < 0 || i >= s.length) return
+    idx = i; await tick()
+    document.getElementById(`s-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    a?.pause()
+    a = new Audio(`${ASSET_BASE}/audio/${String(i + 1).padStart(2, '0')}.mp3`)
+    a.onended = () => {
+      const next = () => {
+        if (r === 'one') {
+          play(idx)
+        } else if (idx < s.length - 1) {
+          play(idx + 1)
+        } else if (r === 'all') {
+          play(0)
+        } else {
+          p = false
+        }
+      }
+      setTimeout(next, 2000)
+    }
+    p = true
+    a.play()
+  }
 function tPlay(){a?a.paused?(a.play(),p=true):(a.pause(),p=false):play(0)}
 function tRepeat(){r=r==='none'?'one':r==='one'?'all':'none'}
 function tSize(){l=!l}

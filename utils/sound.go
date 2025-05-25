@@ -22,7 +22,7 @@ func main() {
 	u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
 
 	for i, t := range s.Sentences {
-		if i+1 <= 28 {
+		if i+1 <= 60 {
 			continue
 		}
 		j, _ := json.Marshal(map[string]interface{}{
