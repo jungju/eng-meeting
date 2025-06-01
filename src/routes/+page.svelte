@@ -10,6 +10,12 @@
         { id: "uni", label: "uni homework", type: "sentencemd" },
         { label: "Tense", type: "tense" },
         { id: "einstein", label: "Albert Einstein", type: "sentence" },
+
+        { id: "ididntexpect", label: "I didn't expect to V~", type: "sentence" },
+        { id: "iknewyou", label: "I knew you'd V", type: "sentence" },
+        { id: "imusedto", label: "I'm used to Ving", type: "sentence" },
+        { id: "itshardformeto", label: "It's hard for me to V", type: "sentence" },
+        { id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence" },
     ];
 </script>
 
