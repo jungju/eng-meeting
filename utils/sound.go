@@ -19,7 +19,8 @@ func main() {
 	var s struct{ Sentences []string }
 	json.Unmarshal(b, &s)
 
-	u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
+	//u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
+	u := "https://api.elevenlabs.io/v1/text-to-speech/aRlmTYIQo6Tlg5SlulGC?output_format=mp3_44100_128" // 어린 여자 목소리
 
 	for i, t := range s.Sentences {
 		j, _ := json.Marshal(map[string]interface{}{
