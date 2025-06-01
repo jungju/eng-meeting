@@ -2,13 +2,14 @@
     import { base as b } from "$app/paths";
     const l = [
         { id: "uni", label: "Sentence Group uni", type: "sentence" },
-        { id: "uni-may", label: "Sentence Group uni may", type: "sentence" },
+        // { id: "uni-may", label: "Sentence Group uni may", type: "sentence" },
         { id: "question", label: "Question", type: "sentence" },
         { id: "wh-question-word", label: "wh-question-word", type: "sentence" },
         { id: "wirye", label: "wirye", type: "sentence" },
         { id: "meet1", label: "Dialogue Example meet1", type: "dialogue" },
         { id: "uni", label: "uni homework", type: "sentencemd" },
         { label: "Tense", type: "tense" },
+        { id: "einstein", label: "Albert Einstein", type: "sentence" },
     ];
 </script>
 
