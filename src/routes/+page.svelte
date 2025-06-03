@@ -18,7 +18,7 @@
         { id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence" },
 
         { id: "ysword1", label: "YunSol Vocabulary Practice 6/3", type: "sentence" },
-        { id: "ysword12", label: "YunSol Vocabulary Practice Ex 6/3", type: "sentence" },
+        { id: "ysword1e", label: "YunSol Vocabulary Practice Ex 6/3", type: "sentence" },
         
     ];
 </script>
