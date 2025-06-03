@@ -1,33 +1,53 @@
 <script>
-    import { base as b } from "$app/paths";
-    const l = [
-        { id: "uni", label: "Sentence Group uni", type: "sentence" },
-        // { id: "uni-may", label: "Sentence Group uni may", type: "sentence" },
-        { id: "question", label: "Question", type: "sentence" },
-        { id: "wh-question-word", label: "wh-question-word", type: "sentence" },
-        { id: "wirye", label: "wirye", type: "sentence" },
-        { id: "meet1", label: "Dialogue Example meet1", type: "dialogue" },
-        { id: "uni", label: "uni homework", type: "sentencemd" },
-        { label: "Tense", type: "tense" },
-        { id: "einstein", label: "Albert Einstein", type: "sentence" },
+	import { base as b } from "$app/paths";
 
-        { id: "ididntexpect", label: "I didn't expect to V~", type: "sentence" },
-        { id: "iknewyou", label: "I knew you'd V", type: "sentence" },
-        { id: "imusedto", label: "I'm used to Ving", type: "sentence" },
-        { id: "itshardformeto", label: "It's hard for me to V", type: "sentence" },
-        { id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence" },
+	const l = [
+		// Academy 그룹
+		{ id: "uni", label: "Sentence Group uni", type: "sentence", group: "Academy" },
+		{ id: "uni", label: "uni homework", type: "sentencemd", group: "Academy" },
+		{ id: "wirye", label: "wirye", type: "sentence", group: "Academy" },		
 
-        { id: "ysword1", label: "YunSol Vocabulary Practice 6/3", type: "sentence" },
-        { id: "ysword1e", label: "YunSol Vocabulary Practice Ex 6/3", type: "sentence" },
-        
-    ];
+		// YS 그룹
+		{ id: "einstein", label: "Albert Einstein", type: "sentence", group: "YS" },
+		{ id: "ysword1", label: "YS Vocabulary Practice 6/3", type: "sentence", group: "YS" },
+		{ id: "ysword1e", label: "YS Vocabulary Practice Ex 6/3", type: "sentence", group: "YS" },
+        { id: "ysword1", label: "YS Vocabulary Practice 6/3 Test", type: "flash", group: "YS" },
+
+		// Dialogues
+		{ id: "meet1", label: "Dialogue Example meet1", type: "dialogue", group: "My" },
+        { id: "question", label: "Question", type: "sentence", group: "My" },
+		{ id: "wh-question-word", label: "wh-question-word", type: "sentence", group: "My" },
+
+		// Grammar Patterns
+		{ id: "ididntexpect", label: "I didn't expect to V~", type: "sentence", group: "Grammar Patterns" },
+		{ id: "iknewyou", label: "I knew you'd V", type: "sentence", group: "Grammar Patterns" },
+		{ id: "imusedto", label: "I'm used to Ving", type: "sentence", group: "Grammar Patterns" },
+		{ id: "itshardformeto", label: "It's hard for me to V", type: "sentence", group: "Grammar Patterns" },
+		{ id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence", group: "Grammar Patterns" },
+		{ label: "Tense", type: "tense", group: "Grammar Patterns" }
+	];
+
+	// 그룹별로 항목 분류
+	const grouped = {};
+	l.forEach(item => {
+		const g = item.group || "Others";
+		if (!grouped[g]) grouped[g] = [];
+		grouped[g].push(item);
+	});
 </script>
 
-<ul>
-    {#each l as x}<li>
-            <a
-                href={`${b}/${x.type}${x.id ? `/${x.id}` : ""}`}
-                class="text-blue-500 hover:underline">{x.label}</a
-            >
-        </li>{/each}
-</ul>
+{#each Object.entries(grouped) as [groupName, items]}
+	<h2 class="text-xl font-bold mt-6 mb-2">{groupName}</h2>
+	<ul class="mb-4">
+		{#each items as x}
+			<li class="mb-1 text-lg">
+				<a
+					href={`${b}/${x.type}${x.id ? `/${x.id}` : ""}`}
+					class="text-blue-500 hover:underline"
+				>
+					{x.label}
+				</a>
+			</li>
+		{/each}
+	</ul>
+{/each}
