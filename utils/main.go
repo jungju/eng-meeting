@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	r := "../static/assets/sentence/ysword1"
+	r := "../static/assets/sentence/ivealwayswanted"
 	d := filepath.Join(r, "audio")
 	os.MkdirAll(d, 0755)
 
@@ -20,7 +20,8 @@ func main() {
 	json.Unmarshal(b, &s)
 
 	//u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
-	u := "https://api.elevenlabs.io/v1/text-to-speech/aRlmTYIQo6Tlg5SlulGC?output_format=mp3_44100_128" // 어린 여자 목소리
+	//u := "https://api.elevenlabs.io/v1/text-to-speech/qJT4OuZyfpn7QbUnrLln?output_format=mp3_44100_128" // 어린 여자 목소리
+	u := "https://api.elevenlabs.io/v1/text-to-speech/XfNU2rGpBa01ckF309OY?output_format=mp3_44100_128" // 선생님 같은 목소리
 
 	for i, t := range s.Sentences {
 		j, _ := json.Marshal(map[string]interface{}{
@@ -43,6 +44,6 @@ func main() {
 		io.Copy(f, res.Body)
 		res.Body.Close()
 		f.Close()
-		fmt.Printf("ok %02d\n", i+1)
+		fmt.Printf("ok %02d - %s\n", i+1, r)
 	}
 }
