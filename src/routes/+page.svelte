@@ -16,6 +16,9 @@
         { id: "imusedto", label: "I'm used to Ving", type: "sentence" },
         { id: "itshardformeto", label: "It's hard for me to V", type: "sentence" },
         { id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence" },
+
+        { id: "ysword1", label: "YunSol Vocabulary Practice 6/3", type: "sentence" },
+        
     ];
 </script>
 
