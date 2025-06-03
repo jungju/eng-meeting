@@ -102,21 +102,77 @@
 
 <audio bind:this={player} playsinline preload="auto"></audio>
 
+<!-- ✅ script 부분 그대로 (생략) -->
+
 <style>
-.wrapper{position:absolute;top:50px;bottom:120px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+/* ─── 레이아웃 ─────────────────────────────────────────────── */
+.wrapper{
+	position:absolute;
+	top:50px;bottom:120px;left:0;right:0;
+	display:flex;flex-direction:column;
+	align-items:center;justify-content:center;
+}
+
+/* ─── 문장 박스 ─────────────────────────────────────────────── */
 .sentence-box{
-	width:60vw;max-width:900px;min-width:320px;min-height:16rem;
-	padding:4.5rem 2rem 4.5rem;border:3px solid #ccc;border-radius:1.5rem;
-	position:relative;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(59,130,246,.6)}70%{box-shadow:0 0 0 25px rgba(59,130,246,0)}100%{box-shadow:0 0 0 0 rgba(59,130,246,0)}}
+	width:80vw;                 /* 화면 기준 80% */
+	max-width:900px;
+	min-width:260px;
+	height:clamp(12rem,45vh,22rem); /* 세로 45% 를 넘지 않음 */
+	padding:2.5rem 1.5rem;
+	border:3px solid #ccc;border-radius:1.2rem;
+	position:relative;
+	display:flex;align-items:center;justify-content:center;
+	text-align:center;cursor:pointer;user-select:none;
+}
+@keyframes pulse{
+	0%{box-shadow:0 0 0 0 rgba(59,130,246,.6)}
+	70%{box-shadow:0 0 0 25px rgba(59,130,246,0)}
+	100%{box-shadow:0 0 0 0 rgba(59,130,246,0)}
+}
 .playing{animation:pulse 1.6s infinite}
-.order-big{position:absolute;top:1rem;left:50%;transform:translateX(-50%);font-size:4.2rem;font-weight:800;color:#2563eb}
-.remain-big{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);font-size:3rem;font-weight:700;color:#16a34a}
-.eng,.kor,.placeholder{font-size:3.4rem;line-height:1.35;margin:0}
-.kor{color:#374151}.placeholder{color:#9ca3af}
-.next-btn{margin-top:2.2rem;padding:1.2rem 3.4rem;font-size:2.4rem;border-radius:64px;background:#1d4ed8;color:#fff;border:none;cursor:pointer}
+
+/* 순서/타이머 */
+.order-big{
+	position:absolute;top:.6rem;left:50%;transform:translateX(-50%);
+	font-size:clamp(2.6rem,6vw,4rem);font-weight:800;color:#2563eb;
+}
+.remain-big{
+	position:absolute;bottom:.6rem;left:50%;transform:translateX(-50%);
+	font-size:clamp(1.8rem,4.5vw,3rem);font-weight:700;color:#16a34a;
+}
+
+/* 문장 글꼴 (반응형) */
+.eng,.kor,.placeholder{
+	font-size:clamp(1.8rem,4.5vw,3.2rem);
+	line-height:1.33;margin:0;
+}
+.kor{color:#374151}
+.placeholder{color:#9ca3af}
+
+/* ─── NEXT 버튼 ────────────────────────────────────────────── */
+.next-btn{
+	margin-top:2rem;padding:1rem 3rem;
+	font-size:clamp(1.4rem,4vw,2.2rem);
+	border-radius:60px;background:#1d4ed8;color:#fff;border:none;cursor:pointer;
+}
 .next-btn:hover{background:#2563eb}
-.controls{position:fixed;left:0;right:0;bottom:0;height:90px;display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:1rem 1.5rem;background:#fff;border-top:1px solid #d1d5db}
-.gap-group{display:flex;gap:.5rem}button.selected{font-weight:700;border:2px solid #1d4ed8}
+
+/* ─── 컨트롤 바 ────────────────────────────────────────────── */
+.controls{
+	position:fixed;left:0;right:0;bottom:0;
+	height:80px;display:flex;align-items:center;justify-content:center;
+	gap:1rem;padding:1rem;
+	background:#fff;border-top:1px solid #d1d5db;
+}
+.gap-group{display:flex;gap:.5rem}
+button.selected{font-weight:700;border:2px solid #1d4ed8}
 audio{display:none}
+
+/* ─── iPad 세로(768px↓) 최적화 ─────────────────────────────── */
+@media (max-height:768px){
+	.sentence-box{height:clamp(10rem,50vh,18rem);padding:2rem 1rem;}
+	.next-btn{margin-top:1.5rem;}
+}
 </style>
+
