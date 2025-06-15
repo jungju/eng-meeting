@@ -5,45 +5,114 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 )
 
+/* ────── ✨ Easily‑tweakable settings (top of file) ✨ ────── */
+var (
+	// Folder that contains sentences.json and where MP3 sub‑folders will be created.
+	basePath = "../static/assets/sentence/ysword3" // 🔄 change as needed
+
+	/* English voice candidates (ElevenLabs voice IDs)
+	   - "XfNU2rGpBa01ckF309OY" : Teacher‑like voice
+	   - "qJT4OuZyfpn7QbUnrLln": Young girl voice
+	   - "UgBBYS2sOqTuMpoF3BR0": Calm narrator voice
+	*/
+	voiceIDEn = "XfNU2rGpBa01ckF309OY" // 🔄 choose English voice ID
+
+	/* Korean voice candidates (ElevenLabs voice IDs)
+	   - "KO_ID_1" : Korean male
+	   - "KO_ID_2" : Korean female (soft tone)
+	*/
+	voiceIDKo = "xi3rF0t7dg7uN2M0WUhr" // 🔄 choose Korean voice ID
+
+	modelID   = "eleven_multilingual_v2" // TTS model
+	speechSPD = 0.7                      // Reading speed (0.5‑2.0)
+)
+
+/* ─────────────────────────────────────────────────────────── */
+
 func main() {
-	r := "../static/assets/sentence/uni-hw"
-	d := filepath.Join(r, "audio")
-	os.MkdirAll(d, 0755)
+	// Show date/time & file for every log entry.
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	b, _ := os.ReadFile(filepath.Join(r, "sentences.json"))
-	var s struct{ Sentences []string }
-	json.Unmarshal(b, &s)
-
-	//u := "https://api.elevenlabs.io/v1/text-to-speech/UgBBYS2sOqTuMpoF3BR0?output_format=mp3_44100_128"
-	//u := "https://api.elevenlabs.io/v1/text-to-speech/qJT4OuZyfpn7QbUnrLln?output_format=mp3_44100_128" // 어린 여자 목소리
-	u := "https://api.elevenlabs.io/v1/text-to-speech/XfNU2rGpBa01ckF309OY?output_format=mp3_44100_128" // 선생님 같은 목소리
-
-	for i, t := range s.Sentences {
-		j, _ := json.Marshal(map[string]interface{}{
-			"text":     t,
-			"model_id": "eleven_multilingual_v2",
-			"voice_settings": map[string]interface{}{
-				"speed": 0.7,
-			},
-		})
-
-		req, _ := http.NewRequest("POST", u, bytes.NewBuffer(j))
-		req.Header.Set("xi-api-key", os.Getenv("ELEVENLABS_API_KEY"))
-		req.Header.Set("Content-Type", "application/json")
-		res, err := http.DefaultClient.Do(req)
-		if err != nil || res.StatusCode != 200 {
-			fmt.Printf("fail %02d: %v\n", i+1, err)
-			continue
+	dirEn := filepath.Join(basePath, "audio")  // English MP3s
+	dirKo := filepath.Join(basePath, "audiok") // Korean MP3s
+	for _, p := range []string{dirEn, dirKo} {
+		if err := os.MkdirAll(p, 0o755); err != nil {
+			log.Fatalf("mkdir %s: %v", p, err)
 		}
-		f, _ := os.Create(filepath.Join(d, fmt.Sprintf("%02d.mp3", i+1)))
-		io.Copy(f, res.Body)
-		res.Body.Close()
-		f.Close()
-		fmt.Printf("ok %02d - %s\n", i+1, r)
 	}
+
+	// 1) Load JSON with sentences and Korean translations
+	data, err := os.ReadFile(filepath.Join(basePath, "sentences.json"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	var pack struct {
+		Sentences []string `json:"sentences"`
+		Korean    []string `json:"korean"`
+	}
+	if err := json.Unmarshal(data, &pack); err != nil {
+		log.Fatal(err)
+	}
+
+	// 2) English TTS → audio/
+	for i, t := range pack.Sentences {
+		out := filepath.Join(dirEn, fmt.Sprintf("%02d.mp3", i+1))
+		if err := saveTTS(voiceIDEn, t, out); err != nil {
+			log.Printf("ENG %02d ❌ %v", i+1, err)
+		} else {
+			log.Printf("ENG %02d ✅ saved to %s", i+1, out)
+		}
+	}
+
+	// 3) Korean TTS → audiok/
+	for i, t := range pack.Korean {
+		out := filepath.Join(dirKo, fmt.Sprintf("%02d.mp3", i+1))
+		if err := saveTTS(voiceIDKo, t, out); err != nil {
+			log.Printf("KOR %02d ❌ %v", i+1, err)
+		} else {
+			log.Printf("KOR %02d ✅ saved to %s", i+1, out)
+		}
+	}
+}
+
+// saveTTS converts "text" to speech with ElevenLabs and writes MP3 to outfile.
+func saveTTS(voiceID, text, outfile string) error {
+	payload, _ := json.Marshal(map[string]any{
+		"text":     text,
+		"model_id": modelID,
+		"voice_settings": map[string]any{
+			"speed": speechSPD,
+		},
+	})
+	url := fmt.Sprintf(
+		"https://api.elevenlabs.io/v1/text-to-speech/%s?output_format=mp3_44100_128",
+		voiceID,
+	)
+
+	req, _ := http.NewRequest("POST", url, bytes.NewReader(payload))
+	req.Header.Set("xi-api-key", os.Getenv("ELEVENLABS_API_KEY"))
+	req.Header.Set("Content-Type", "application/json")
+
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+	if res.StatusCode != http.StatusOK {
+		return fmt.Errorf("status %s", res.Status)
+	}
+
+	f, err := os.Create(outfile)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	_, err = io.Copy(f, res.Body)
+	return err
 }

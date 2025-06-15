@@ -15,6 +15,9 @@
 		{ id: "ysword2", label: "YS Vocabulary Practice 6/8", type: "sentence", group: "YS" },
 		{ id: "ysword2e", label: "YS Vocabulary Practice Ex 6/8", type: "sentence", group: "YS" },
         { id: "ysword2", label: "YS Vocabulary Practice 6/8 Test", type: "flash", group: "YS" },
+		{ id: "ysword3", label: "YS Vocabulary Practice 6/15", type: "sentence", group: "YS" },
+		{ id: "ysword3e", label: "YS Vocabulary Practice Ex 6/15", type: "sentence", group: "YS" },
+        { id: "ysword3", label: "YS Vocabulary Practice 6/15 Test", type: "flash", group: "YS" },
 
 		// Dialogues
 		{ id: "meet1", label: "Dialogue Example meet1", type: "dialogue", group: "My" },
