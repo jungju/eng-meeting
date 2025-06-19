@@ -5,6 +5,8 @@
 		// Academy 그룹
 		{ id: "uni", label: "Sentence Group uni", type: "sentence", group: "Academy" },
 		{ id: "uni", label: "uni homework", type: "sentencemd", group: "Academy" },
+		// { id: "uni-may", label: "Sentence Group uni May", type: "sentence", group: "Academy" },
+		// { id: "uni-june", label: "Sentence Group uni June", type: "sentence", group: "Academy" },
 		{ id: "wirye", label: "wirye", type: "sentence", group: "Academy" },		
 
 		// YS 그룹
@@ -30,7 +32,9 @@
 		{ id: "imusedto", label: "I'm used to Ving", type: "sentence", group: "Grammar Patterns" },
 		{ id: "itshardformeto", label: "It's hard for me to V", type: "sentence", group: "Grammar Patterns" },
 		{ id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence", group: "Grammar Patterns" },
-		{ label: "Tense", type: "tense", group: "Grammar Patterns" }
+		{ label: "Tense", type: "tense", group: "Grammar Patterns" },
+
+		{ id: "jj-daily", label: "JJ-Daily", type: "sentence", group: "Daily" }
 	];
 
 	// 그룹별로 항목 분류

@@ -14,7 +14,7 @@ import (
 /* ────── ✨ Easily‑tweakable settings (top of file) ✨ ────── */
 var (
 	// Folder that contains sentences.json and where MP3 sub‑folders will be created.
-	basePath = "../static/assets/sentence/ysword3" // 🔄 change as needed
+	basePath = "../static/assets/sentence/uni-june" // 🔄 change as needed
 
 	/* English voice candidates (ElevenLabs voice IDs)
 	   - "XfNU2rGpBa01ckF309OY" : Teacher‑like voice
@@ -62,6 +62,9 @@ func main() {
 
 	// 2) English TTS → audio/
 	for i, t := range pack.Sentences {
+		if i > 15 {
+			continue
+		}
 		out := filepath.Join(dirEn, fmt.Sprintf("%02d.mp3", i+1))
 		if err := saveTTS(voiceIDEn, t, out); err != nil {
 			log.Printf("ENG %02d ❌ %v", i+1, err)
@@ -72,6 +75,9 @@ func main() {
 
 	// 3) Korean TTS → audiok/
 	for i, t := range pack.Korean {
+		if i > 15 {
+			continue
+		}
 		out := filepath.Join(dirKo, fmt.Sprintf("%02d.mp3", i+1))
 		if err := saveTTS(voiceIDKo, t, out); err != nil {
 			log.Printf("KOR %02d ❌ %v", i+1, err)
