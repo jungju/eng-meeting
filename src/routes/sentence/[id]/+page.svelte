@@ -4,32 +4,40 @@ import { page } from '$app/stores';
 import { base } from '$app/paths';
 
 // ────────────── 경로 & 리액티브 상수 ──────────────
-$: id          = $page.url.pathname.match(/\/sentence\/([^\/]+)/)?.[1] || '';
-$: ASSET_BASE  = `${base}/assets/sentence/${id}`;
+$: id         = $page.url.pathname.match(/\/sentence\/([^\/]+)/)?.[1] || '';
+$: ASSET_BASE = `${base}/assets/sentence/${id}`;
 
 // ────────────── 상태 변수 ──────────────
 let s: string[] = [], k: string[] = [];
-let idx = -1;                           // 현재 문장 인덱스
-let player: HTMLAudioElement;           // 재사용 오디오 태그
-let p = false;                          // 재생 중?
-let r: 'one' | 'all' = 'all';           // ★ 반복 모드(기본: 전체 ➜ 한 문장)
-let l = false;                          // 글자 크게
-let b = false;                          // 빈칸 모드
-let o: string[] = [];                   // 원본 문장 백업
-let gapTimer: ReturnType<typeof setTimeout> | null = null; // ★ gap 타이머
+let idx  = -1;                       // 현재 문장 인덱스
+let player: HTMLAudioElement;
+let p    = false;                    // 재생 중?
+let r: 'none' | 'one' | 'all' = 'none'; // 반복 모드
+let b    = false;                    // 빈칸 모드
+let o: string[] = [];                // 원본 백업
+let gapTimer: ReturnType<typeof setTimeout> | null = null;
 
-// 지연 간격(다음 재생까지 기다릴 시간)
+// 지연 간격 토글
 const gaps = [0, 1000, 3000, 5000];
-let gap = gaps[0];
+let gapIdx = 0;                      // gaps 배열 인덱스
 
 // 문장/번역 표시 모드
 let display: 'both' | 'hideKor' | 'hideEng' = 'both';
-$: displayLabel = display === 'both' ? '한글 숨기기'
-                   : display === 'hideKor' ? '영어 숨기기' : '기본 보기';
+$: displayLabel =
+  display === 'both'    // 🇰🇷·🇺🇸 모두 보이기
+    ? '한/영'
+  : display === 'hideKor'  // 한글 숨기기
+    ? '영'
+  :                         // 영어 숨기기
+    '한';
 
 // 🔊 음성(재생 파일) 모드 – 영어 / 한국어 / 모두
 let audioMode: 'eng' | 'kor' | 'both' = 'eng';
-$: audioModeLabel = audioMode === 'eng' ? '영어' : audioMode === 'kor' ? '한국어' : '모두';
+$: audioModeLabel =
+  audioMode === 'eng' ? '영' : audioMode === 'kor' ? '한' : '모두';
+
+// 컨트롤바 표시 여부
+let showControls = true;
 
 // ────────────── 라이프사이클 ──────────────
 onMount(async () => {
@@ -44,11 +52,11 @@ onMount(async () => {
 
 onDestroy(() => {
   player?.pause();
-  if (gapTimer) clearTimeout(gapTimer); // ★
+  if (gapTimer) clearTimeout(gapTimer);
 });
 
 // ────────────── 오디오 재생 로직 ──────────────
-let langQueue: string[] = [];           // 현재 문장에 대해 재생할 폴더 큐
+let langQueue: string[] = [];
 
 async function play(i: number) {
   if (i < 0 || i >= s.length) return;
@@ -56,11 +64,10 @@ async function play(i: number) {
   await tick();
   document.getElementById(`s-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-  // 음성 모드에 따라 큐 준비
   langQueue =
     audioMode === 'both' ? ['audio', 'audiok']
     : audioMode === 'kor' ? ['audiok']
-    : ['audio']; // 영어(default)
+    : ['audio'];
 
   await playNextLang();
 }
@@ -73,50 +80,40 @@ async function playNextLang() {
   try {
     await player.play();
     p = true;
-  } catch {
-    p = false;
-  }
+  } catch { p = false; }
 }
 
 function handleEnded() {
   player.onended = () => {
     const afterGap = async () => {
-      if (langQueue.length) {              // 같은 문장 다른 언어 재생
+      if (langQueue.length) {           // 같은 문장 다른 언어
         await playNextLang();
         return;
       }
-      // 다음 문장 결정
-      if (r === 'one') {
-        play(idx);                         // 같은 문장 반복
-      } else {
-        if (idx < s.length - 1) play(idx + 1);
-        else                      play(0); // 전체 반복
-      }
+      if (r === 'one')          play(idx);          // 같은 문장 반복
+      else if (r === 'all')     play((idx + 1) % s.length); // 전체 반복
+      else                      p = false;         // 없음 → 종료
     };
-    gapTimer = setTimeout(afterGap, gap);  // ★ 타이머 보관
+    gapTimer = setTimeout(afterGap, gaps[gapIdx]);
   };
 }
-
 $: player && handleEnded();
 
-// ────────────── 버튼 토글 함수 ──────────────
-function tPlay() {                        // ★ 재생/정지 동작 개선
-  if (p) {                                // ▶ 재생 중이면 → 정지
-    player.pause();
-    p = false;
-    langQueue = [];
+// ────────────── 버튼 핸들러 ──────────────
+function tPlay() {
+  if (p) {                   // 정지
+    player.pause(); p = false; langQueue = [];
     if (gapTimer) { clearTimeout(gapTimer); gapTimer = null; }
-  } else {                                // ▷ 정지 중이면 → 재생
+  } else {                   // 재생
     play(idx === -1 ? 0 : idx);
   }
 }
-function tRepeat() { r = r === 'all' ? 'one' : 'all'; } // ★ '없음' 제거
-function tSize()   { l = !l; }
-
+function tRepeat() {
+  r = r === 'none' ? 'one' : r === 'one' ? 'all' : 'none';
+}
 function cycleAudioMode() {
   audioMode = audioMode === 'eng' ? 'kor' : audioMode === 'kor' ? 'both' : 'eng';
 }
-
 function toggleBlankMode() {
   b = !b;
   if (b) {
@@ -137,9 +134,12 @@ function toggleBlankMode() {
     s = [...o];
   }
 }
-
-function cycleDisplay() { display = display === 'both' ? 'hideKor' : display === 'hideKor' ? 'hideEng' : 'both'; }
-function setGap(ms: number) { gap = ms; }
+function cycleDisplay() {
+  display = display === 'both' ? 'hideKor'
+         : display === 'hideKor' ? 'hideEng' : 'both';
+}
+function nextGap() { gapIdx = (gapIdx + 1) % gaps.length; }
+function toggleControls() { showControls = !showControls; }
 </script>
 
 <!-- ────────────── 뷰 ────────────── -->
@@ -150,8 +150,9 @@ function setGap(ms: number) { gap = ms; }
         <div class="line">
           <div class="idx">{i + 1}.</div>
           <div class="content">
-            <div class="text" class:large={l} class:hidden={display === 'hideEng'}>{text}</div>
-            <div class="kor"  class:large={l} class:hidden={display === 'hideKor'}>{k[i]}</div> <!-- ★ 한글도 크게 -->
+            <!-- 글자 크기는 기본적으로 큼 -->
+            <div class="text" class:hidden={display === 'hideEng'}>{text}</div>
+            <div class="kor" class:hidden={display === 'hideKor'}>{k[i]}</div>
           </div>
         </div>
       </div>
@@ -162,88 +163,96 @@ function setGap(ms: number) { gap = ms; }
 </div>
 
 <!-- ────────────── 컨트롤 바 ────────────── -->
-<div class="controls">
-  <button class="play-btn" on:click={tPlay}>{p ? '⏸' : '▶'}</button> <!-- ★ 큰 재생 버튼 -->
-  <button on:click={tRepeat}>반복:{r === 'one' ? '한 문장' : '전체'}</button> <!-- ★ '없음' 제거 -->
-  <button on:click={tSize}>{l ? '기본크기' : '글자 크게'}</button>
-  <button on:click={cycleDisplay}>{displayLabel}</button>
-  <button on:click={toggleBlankMode}>{b ? '원문 보기' : '빈칸 만들기'}</button>
-  <button on:click={cycleAudioMode}>음성:{audioModeLabel}</button>
-
-  <div class="gap-group">
-    {#each gaps as g}
-      <button class:selected={gap === g} on:click={() => setGap(g)}>
-        {g === 0 ? '즉시' : `${g / 1000}초`}
-      </button>
-    {/each}
+{#if showControls}
+  <div class="controls">
+    <button class="play-btn" on:click={tPlay}>{p ? '⏸' : '▶'}</button>
+    <button on:click={tRepeat}>
+      반복:{r === 'none' ? '없음' : r === 'one' ? '문장' : '전체'}
+    </button>
+    <button on:click={cycleDisplay}>{displayLabel}</button>
+    <button on:click={toggleBlankMode}>{b ? '원문 보기' : '빈칸'}</button>
+    <button on:click={cycleAudioMode}>음성:{audioModeLabel}</button>
+    <button on:click={nextGap}>
+      간격:{gapIdx === 0 ? '즉시' : `${gaps[gapIdx]/1000}초`}
+    </button>
   </div>
-</div>
+{/if}
+<!-- 컨트롤바 유무와 상관없이 항상 렌더링 -->
+<button class="bar-toggle" on:click={toggleControls}>
+  {showControls ? '▽' : '▲'}
+</button>
+
 
 <audio bind:this={player} playsinline preload="auto" style="display:none"></audio>
 
 <style>
-.list {
-  position: absolute;
-  top: 50px;
-  bottom: calc(50px + env(safe-area-inset-bottom));
-  left: 0;
-  right: 0;
-  overflow-y: auto;
+.list{
+  position:absolute; top:50px;
+
+  /* 기존: bottom:calc(50px + env(safe-area-inset-bottom)); → 변경 ↓ */
+  bottom:calc(60px + env(safe-area-inset-bottom));  /* 컨트롤 + 안전 영역만큼 */
+  left:0; right:0; overflow-y:auto;
 }
+
 .sent {
-  padding: 1rem;
-  margin: 0.5rem 0;
-  background: #f9f9f9;
-  border-radius: 0.5rem;
-  cursor: pointer;
+  padding:1rem; margin:0.5rem 0;
+  background:#f9f9f9; border-radius:0.5rem; cursor:pointer;
 }
-.active {
-  background: #d0ebff;
-  font-weight: bold;
-}
-.line {
-  display: flex;
-  align-items: center;
-}
-.idx { margin-right: 0.5rem; color: #6b7280; font-weight: bold; }
-.content { flex: 1; }
-.text { font-size: 1rem; }
-.kor  { font-size: 1rem; color: #374151; margin-top: 0.25rem; }
-
-/* ★ 글자 크게 – 영어/한글 공통 */
-.text.large, .kor.large { font-size: 3.2rem; }
-
-.hidden { display: none; }
+.active { background:#d0ebff; font-weight:bold; }
+.line { display:flex; align-items:center; }
+.idx { margin-right:0.5rem; color:#6b7280; font-weight:bold; }
+.content { flex:1; }
+.text, .kor { font-size:3.2rem; }           /* 항상 큰 글자 */
+.kor { color:#374151; margin-top:0.25rem; }
+.hidden { display:none; }
 
 /* 컨트롤 바 */
-.controls {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 60px;                     /* ★ 높이 살짝 ↑ */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.5rem calc(env(safe-area-inset-left) + 0.5rem) calc(0.5rem + env(safe-area-inset-bottom));
-  background: #fff;
-  border-top: 1px solid #ccc;
-  z-index: 10;
-  width: 100%;
-}
-/* 버튼 스타일 */
-.controls button {
-  font-size: 1.2rem;                /* 전체 버튼 글자 약간 ↑ */
-  padding: 0.4rem 0.8rem;
-}
-.play-btn {                          /* ★ 재생 버튼 더 큼 */
-  font-size: 2rem;
-  padding: 0.4rem 1.2rem;
-}
-.gap-group { display: flex; gap: 0.25rem; }
-button.selected { font-weight: bold; border: 1px solid #1d4ed8; }
+.controls{
+  position:fixed;
+  left:0; right:0;
 
-.loading { padding: 1rem; }
+  /* 기존: bottom:0; → 변경 ↓ */
+  bottom:env(safe-area-inset-bottom);   /* ⬅︎ 홈 인디케이터 위에 얹힘 */
+
+  height:60px;
+  /* padding-bottom 은 더 이상 safe-area 계산 안 해도 됨 */
+  padding:0.5rem 0.75rem;
+  /* …나머지 기존 속성 동일… */
+}
+
+.controls button{
+  font-size:1.4rem;      /* 글자 더 큼   */
+  padding:0.6rem 1rem;   /* 패딩 더 넉넉 */
+  width:130px;           /* ★ 폭 고정   */
+  min-width:130px;       /*   (브라우저별 안전) */
+  text-align:center;
+}
+
+/* 재생 버튼은 조금 더 넓게 – 선택사항 */
+.play-btn{
+  width:150px;           /* ★ 고정폭 */
+  font-size:2.2rem;
+}
+.toggle { margin-left:auto; }              /* 우측 끝으로 */
+.show-btn {
+  position:fixed; right:0.75rem; bottom:0.75rem;
+  padding:0.3rem 0.6rem; font-size:1.2rem;
+  background:#fff; border:1px solid #ccc; border-radius:0.375rem;
+  z-index:10;
+}
+.loading { padding:1rem; }
+
+.bar-toggle{
+  position:fixed;
+  right:0.75rem;
+  bottom:calc(env(safe-area-inset-bottom) + 0.75rem);
+  width:60px; min-width:60px;
+  height:40px;
+  font-size:1.6rem;
+  text-align:center;
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:0.375rem;
+  z-index:11;          /* 컨트롤바(10)보다 위 */
+}
 </style>
