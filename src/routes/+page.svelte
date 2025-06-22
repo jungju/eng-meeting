@@ -34,7 +34,8 @@
 		{ id: "ivealwayswanted", label: "I've always wanted to V", type: "sentence", group: "Grammar Patterns" },
 		{ label: "Tense", type: "tense", group: "Grammar Patterns" },
 
-		{ id: "jj-daily", label: "JJ-Daily", type: "sentence", group: "Daily" }
+		{ id: "jj-daily", label: "JJ-Daily", type: "sentence", group: "EX" },
+		{ id: "jj-ex", label: "JJ-EX", type: "sentence", group: "EX" }
 	];
 
 	// 그룹별로 항목 분류
@@ -47,17 +48,19 @@
 </script>
 
 {#each Object.entries(grouped) as [groupName, items]}
-	<h2 class="text-xl font-bold mt-6 mb-2">{groupName}</h2>
-	<ul class="mb-4">
-		{#each items as x}
-			<li class="mb-1 text-lg">
-				<a
-					href={`${b}/${x.type}${x.id ? `/${x.id}` : ""}`}
-					class="text-blue-500 hover:underline"
-				>
-					{x.label}
-				</a>
-			</li>
-		{/each}
-	</ul>
+  <h2 class="text-xl font-bold mt-6 mb-2">{groupName}</h2>
+
+  <!-- ① 한 줄 ↓ 수정 : mb-4 → mb-4 grid grid-cols-2 gap-x-4 -->
+  <ul class="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+    {#each items as x}
+      <li class="mb-1 text-lg">
+        <a
+          href={`${b}/${x.type}${x.id ? `/${x.id}` : ""}`}
+          class="text-blue-500 hover:underline"
+        >
+          {x.label}
+        </a>
+      </li>
+    {/each}
+  </ul>
 {/each}
