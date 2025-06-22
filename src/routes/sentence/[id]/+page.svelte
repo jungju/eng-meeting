@@ -39,6 +39,11 @@ $: audioModeLabel =
 // 컨트롤바 표시 여부
 let showControls = true;
 
+/* ▼ 추가: 리스트(bottom) 값을 showControls 에 맞춰 계산 */
+$: listBottom = showControls
+  ? `calc(60px + env(safe-area-inset-bottom))`
+  : `env(safe-area-inset-bottom)`;
+
 // ────────────── 라이프사이클 ──────────────
 onMount(async () => {
   if (!id) return;
@@ -143,7 +148,7 @@ function toggleControls() { showControls = !showControls; }
 </script>
 
 <!-- ────────────── 뷰 ────────────── -->
-<div class="list">
+<div class="list" style={`bottom:${listBottom}`}>
   {#if s.length}
     {#each s as text, i}
       <div id={`s-${i}`} class="sent {i===idx?'active':''}" on:click={() => play(i)}>
@@ -188,9 +193,8 @@ function toggleControls() { showControls = !showControls; }
 <style>
 .list{
   position:absolute; top:50px;
-
-  /* 기존: bottom:calc(50px + env(safe-area-inset-bottom)); → 변경 ↓ */
-  bottom:calc(60px + env(safe-area-inset-bottom));  /* 컨트롤 + 안전 영역만큼 */
+  /* bottom 은 JS 에서 동적으로 주입 → 기본 0 */
+  bottom:env(safe-area-inset-bottom);
   left:0; right:0; overflow-y:auto;
 }
 
