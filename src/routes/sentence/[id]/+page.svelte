@@ -12,10 +12,11 @@ let s: string[] = [], k: string[] = [];
 let idx = -1;                           // 현재 문장 인덱스
 let player: HTMLAudioElement;           // 재사용 오디오 태그
 let p = false;                          // 재생 중?
-let r: 'none' | 'one' | 'all' = 'none'; // 반복 모드
+let r: 'one' | 'all' = 'all';           // ★ 반복 모드(기본: 전체 ➜ 한 문장)
 let l = false;                          // 글자 크게
 let b = false;                          // 빈칸 모드
 let o: string[] = [];                   // 원본 문장 백업
+let gapTimer: ReturnType<typeof setTimeout> | null = null; // ★ gap 타이머
 
 // 지연 간격(다음 재생까지 기다릴 시간)
 const gaps = [0, 1000, 3000, 5000];
@@ -41,7 +42,10 @@ onMount(async () => {
   }
 });
 
-onDestroy(() => player?.pause());
+onDestroy(() => {
+  player?.pause();
+  if (gapTimer) clearTimeout(gapTimer); // ★
+});
 
 // ────────────── 오디오 재생 로직 ──────────────
 let langQueue: string[] = [];           // 현재 문장에 대해 재생할 폴더 큐
@@ -53,9 +57,10 @@ async function play(i: number) {
   document.getElementById(`s-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
   // 음성 모드에 따라 큐 준비
-  if (audioMode === 'both')      langQueue = ['audio', 'audiok'];
-  else if (audioMode === 'kor')  langQueue = ['audiok'];
-  else                           langQueue = ['audio']; // 영어(default)
+  langQueue =
+    audioMode === 'both' ? ['audio', 'audiok']
+    : audioMode === 'kor' ? ['audiok']
+    : ['audio']; // 영어(default)
 
   await playNextLang();
 }
@@ -76,25 +81,36 @@ async function playNextLang() {
 function handleEnded() {
   player.onended = () => {
     const afterGap = async () => {
-      if (langQueue.length > 0) {
-        await playNextLang();              // 같은 문장 다른 언어 재생
+      if (langQueue.length) {              // 같은 문장 다른 언어 재생
+        await playNextLang();
         return;
       }
       // 다음 문장 결정
-      if (r === 'one')             play(idx);
-      else if (idx < s.length - 1) play(idx + 1);
-      else if (r === 'all')        play(0);
-      else                         p = false;
+      if (r === 'one') {
+        play(idx);                         // 같은 문장 반복
+      } else {
+        if (idx < s.length - 1) play(idx + 1);
+        else                      play(0); // 전체 반복
+      }
     };
-    setTimeout(afterGap, gap);
+    gapTimer = setTimeout(afterGap, gap);  // ★ 타이머 보관
   };
 }
 
 $: player && handleEnded();
 
 // ────────────── 버튼 토글 함수 ──────────────
-function tPlay()   { p ? player.pause() : play(idx === -1 ? 0 : idx); p = !p; }
-function tRepeat() { r = r === 'none' ? 'one' : r === 'one' ? 'all' : 'none'; }
+function tPlay() {                        // ★ 재생/정지 동작 개선
+  if (p) {                                // ▶ 재생 중이면 → 정지
+    player.pause();
+    p = false;
+    langQueue = [];
+    if (gapTimer) { clearTimeout(gapTimer); gapTimer = null; }
+  } else {                                // ▷ 정지 중이면 → 재생
+    play(idx === -1 ? 0 : idx);
+  }
+}
+function tRepeat() { r = r === 'all' ? 'one' : 'all'; } // ★ '없음' 제거
 function tSize()   { l = !l; }
 
 function cycleAudioMode() {
@@ -122,9 +138,7 @@ function toggleBlankMode() {
   }
 }
 
-function cycleDisplay() {
-  display = display === 'both' ? 'hideKor' : display === 'hideKor' ? 'hideEng' : 'both';
-}
+function cycleDisplay() { display = display === 'both' ? 'hideKor' : display === 'hideKor' ? 'hideEng' : 'both'; }
 function setGap(ms: number) { gap = ms; }
 </script>
 
@@ -137,7 +151,7 @@ function setGap(ms: number) { gap = ms; }
           <div class="idx">{i + 1}.</div>
           <div class="content">
             <div class="text" class:large={l} class:hidden={display === 'hideEng'}>{text}</div>
-            <div class="kor" class:hidden={display === 'hideKor'}>{k[i]}</div>
+            <div class="kor"  class:large={l} class:hidden={display === 'hideKor'}>{k[i]}</div> <!-- ★ 한글도 크게 -->
           </div>
         </div>
       </div>
@@ -149,12 +163,11 @@ function setGap(ms: number) { gap = ms; }
 
 <!-- ────────────── 컨트롤 바 ────────────── -->
 <div class="controls">
-  <button on:click={tPlay}>{p ? '⏸' : '▶'}</button>
-  <button on:click={tRepeat}>반복:{r === 'none' ? '없음' : r === 'one' ? '한 문장' : '전체'}</button>
+  <button class="play-btn" on:click={tPlay}>{p ? '⏸' : '▶'}</button> <!-- ★ 큰 재생 버튼 -->
+  <button on:click={tRepeat}>반복:{r === 'one' ? '한 문장' : '전체'}</button> <!-- ★ '없음' 제거 -->
   <button on:click={tSize}>{l ? '기본크기' : '글자 크게'}</button>
   <button on:click={cycleDisplay}>{displayLabel}</button>
   <button on:click={toggleBlankMode}>{b ? '원문 보기' : '빈칸 만들기'}</button>
-  <!-- 🔊 음성 모드 토글 -->
   <button on:click={cycleAudioMode}>음성:{audioModeLabel}</button>
 
   <div class="gap-group">
@@ -192,34 +205,23 @@ function setGap(ms: number) { gap = ms; }
   display: flex;
   align-items: center;
 }
-.idx {
-  margin-right: 0.5rem;
-  color: #6b7280;
-  font-weight: bold;
-}
-.content {
-  flex: 1;
-}
-.text {
-  font-size: 1rem;
-}
-.text.large {
-  font-size: 3.2rem;
-}
-.kor {
-  font-size: 1rem;
-  color: #374151;
-  margin-top: 0.25rem;
-}
-.hidden {
-  display: none;
-}
+.idx { margin-right: 0.5rem; color: #6b7280; font-weight: bold; }
+.content { flex: 1; }
+.text { font-size: 1rem; }
+.kor  { font-size: 1rem; color: #374151; margin-top: 0.25rem; }
+
+/* ★ 글자 크게 – 영어/한글 공통 */
+.text.large, .kor.large { font-size: 3.2rem; }
+
+.hidden { display: none; }
+
+/* 컨트롤 바 */
 .controls {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 50px;
+  height: 60px;                     /* ★ 높이 살짝 ↑ */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,15 +233,17 @@ function setGap(ms: number) { gap = ms; }
   z-index: 10;
   width: 100%;
 }
-.gap-group {
-  display: flex;
-  gap: 0.25rem;
+/* 버튼 스타일 */
+.controls button {
+  font-size: 1.2rem;                /* 전체 버튼 글자 약간 ↑ */
+  padding: 0.4rem 0.8rem;
 }
-button.selected {
-  font-weight: bold;
-  border: 1px solid #1d4ed8;
+.play-btn {                          /* ★ 재생 버튼 더 큼 */
+  font-size: 2rem;
+  padding: 0.4rem 1.2rem;
 }
-.loading {
-  padding: 1rem;
-}
+.gap-group { display: flex; gap: 0.25rem; }
+button.selected { font-weight: bold; border: 1px solid #1d4ed8; }
+
+.loading { padding: 1rem; }
 </style>
