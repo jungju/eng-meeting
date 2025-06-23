@@ -18,10 +18,10 @@ const MAX_ALL = 100, opts = [1, 2, 3, 5]; let opt = 0, rep = opts[0];
 let repCnt = 0, allCnt = 0, q: string[] = [];
 
 /* ──── 파생 값 ──── */
-$: rep = opts[opt];
+$: rep     = opts[opt];
 $: listBtm = show ? `calc(60px + env(safe-area-inset-bottom))` : `env(safe-area-inset-bottom)`;
 $: dispLbl = display === 'both' ? '한/영' : display === 'hideKor' ? '영' : '한';
-$: audLbl = audio === 'eng' ? '영' : audio === 'kor' ? '한' : '모두';
+$: audLbl  = audio === 'eng' ? '영' : audio === 'kor' ? '한' : '모두';
 $: if (r !== 'all') allCnt = 0;
 
 /* ──── 데이터 로드 ──── */
@@ -68,11 +68,11 @@ function onEnd() {
 $: player && (player.onended = onEnd);
 
 /* ──── UI 핸들러 ──── */
-const tPlay = () => p ? (player.pause(), p = false, q = [], gapT && clearTimeout(gapT)) : play(idx === -1 ? 0 : idx);
+const tPlay   = () => p ? (player.pause(), p = false, q = [], gapT && clearTimeout(gapT)) : play(idx === -1 ? 0 : idx);
 const tRepeat = () => r = r === 'none' ? 'one' : r === 'one' ? 'all' : 'none';
-const tOpt = () => { if (r !== 'one') opt = (opt + 1) % opts.length; };
-const tAudio = () => audio = audio === 'eng' ? 'kor' : audio === 'kor' ? 'both' : 'eng';
-const tBlank = () => {
+const tOpt    = () => { if (r !== 'one') opt = (opt + 1) % opts.length; };
+const tAudio  = () => audio = audio === 'eng' ? 'kor' : audio === 'kor' ? 'both' : 'eng';
+const tBlank  = () => {
   b = !b;
   if (b) {
     o = [...s];
@@ -84,9 +84,9 @@ const tBlank = () => {
     });
   } else s = [...o];
 };
-const tDisp = () => display = display === 'both' ? 'hideKor' : display === 'hideKor' ? 'hideEng' : 'both';
-const tGap = () => gap = (gap + 1) % gaps.length;
-const tShow = () => show = !show;
+const tDisp   = () => display = display === 'both' ? 'hideKor' : display === 'hideKor' ? 'hideEng' : 'both';
+const tGap    = () => gap = (gap + 1) % gaps.length;
+const tShow   = () => show = !show;
 </script>
 
 <div class="list" style={`bottom:${listBtm}`}>  
@@ -104,16 +104,19 @@ const tShow = () => show = !show;
 
 {#if show}
   <div class="ctrls">
-    <button class="play" on:click={tPlay}>{p ? '⏸' : '▶'}</button>
-    <button on:click={tRepeat}>반복:{r === 'none' ? '없음' : r === 'one' ? '문장' : '전체'}</button>
-    <button on:click={tOpt} disabled={r === 'one'} class:dis={r === 'one'}>횟수:{rep}x</button>
-    <button on:click={tDisp}>{dispLbl}</button>
-    <button on:click={tBlank}>{b ? '원문' : '빈칸'}</button>
-    <button on:click={tAudio}>음성:{audLbl}</button>
-    <button on:click={tGap}>간격:{gap ? gaps[gap] / 1000 + 's' : '즉시'}</button>
+    <button class="btn play"   on:click={tPlay}>{p ? '⏸' : '▶'}</button>
+    <button class="btn" on:click={tRepeat}>반복:{r === 'none' ? '없음' : r === 'one' ? '문장' : '전체'}</button>
+    <button class="btn" on:click={tOpt} disabled={r === 'one'} class:dis={r === 'one'}>횟수:{rep}x</button>
+    <button class="btn" on:click={tDisp}>{dispLbl}</button>
+    <button class="btn" on:click={tBlank}>{b ? '원문' : '빈칸'}</button>
+    <button class="btn" on:click={tAudio}>음성:{audLbl}</button>
+    <button class="btn" on:click={tGap}>간격:{gap ? gaps[gap] / 1000 + 's' : '즉시'}</button>
+    <button class="btn toggle" on:click={tShow}>▽</button>
   </div>
+{:else}
+  <button class="bar-fixed" on:click={tShow}>▲</button>
 {/if}
-<button class="bar" on:click={tShow}>{show ? '▽' : '▲'}</button>
+
 <audio bind:this={player} playsinline preload="auto" style="display:none"></audio>
 
 <style>
@@ -125,9 +128,24 @@ const tShow = () => show = !show;
 .en,.ko{font-size:3.2rem}
 .ko{color:#374151;margin-top:.25rem}
 .hidden{display:none}
-.ctrls{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom);display:flex;flex-wrap:wrap;gap:.5rem;padding:.5rem .75rem;height:60px;background:#fff;border-top:1px solid #ccc;z-index:10}
-.ctrls button{font-size:1.4rem;padding:.6rem 1rem;width:130px}
-.play{width:150px;font-size:2.2rem}
+.ctrls{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px));display:flex;flex-wrap:nowrap;gap:.5rem;padding:.5rem .75rem;height:60px;background:#fff;border-top:1px solid #ccc;z-index:10}
+.btn{width:clamp(100px,12vw,130px);min-width:100px;max-width:130px;font-size:clamp(1rem,1.3vw,1.4rem);padding:.6rem 0;white-space:nowrap;text-align:center}
+.play{font-size:clamp(1.4rem,2vw,2.2rem)}
+.toggle{margin-left:auto}
 .dis,button:disabled{opacity:.35;pointer-events:none}
-.bar{position:fixed;right:.75rem;bottom:calc(env(safe-area-inset-bottom)+.75rem);width:60px;height:40px;font-size:1.6rem;text-align:center;background:#fff;border:1px solid #ccc;border-radius:.375rem;z-index:11}
+.bar-fixed{
+    position:fixed;
+    right:.75rem;
+
+    /* 1) 대부분의 환경에서 쓰이는 기본 위치               */
+    bottom:.75rem;
+
+    /* 2) iOS-Safari 에서만 덮어쓰는 안전 영역 대응 위치     */
+    bottom:calc(env(safe-area-inset-bottom) + .75rem);
+
+    width:60px;height:40px;font-size:1.6rem;
+    text-align:center;background:#fff;border:1px solid #ccc;
+    border-radius:.375rem;z-index:11;
+  }
+
 </style>
