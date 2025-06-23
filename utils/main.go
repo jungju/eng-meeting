@@ -27,10 +27,11 @@ var (
 	   - "KO_ID_1" : Korean male
 	   - "KO_ID_2" : Korean female (soft tone)
 	*/
-	voiceIDKo = "xi3rF0t7dg7uN2M0WUhr" // 🔄 choose Korean voice ID
+	//voiceIDKo = "xi3rF0t7dg7uN2M0WUhr" // 아이 목소리
+	voiceIDKo = "uyVNoMrnUku1dZyVEXwD"
 
-	modelID   = "eleven_multilingual_v2" // TTS model
-	speechSPD = 0.7                      // Reading speed (0.5‑2.0)
+	modelID = "eleven_multilingual_v2" // TTS model
+	//speechSPD = 0.7                      // Reading speed (0.5‑2.0)
 )
 
 /* ─────────────────────────────────────────────────────────── */
@@ -62,8 +63,9 @@ func main() {
 
 	// 2) English TTS → audio/
 	for i, t := range pack.Sentences {
+		break
 		out := filepath.Join(dirEn, fmt.Sprintf("%02d.mp3", i+1))
-		if err := saveTTS(voiceIDEn, t, out); err != nil {
+		if err := saveTTS(voiceIDEn, t, out, 0.7); err != nil {
 			log.Printf("ENG %02d ❌ %v", i+1, err)
 		} else {
 			log.Printf("ENG %02d ✅ saved to %s", i+1, out)
@@ -73,7 +75,7 @@ func main() {
 	// 3) Korean TTS → audiok/
 	for i, t := range pack.Korean {
 		out := filepath.Join(dirKo, fmt.Sprintf("%02d.mp3", i+1))
-		if err := saveTTS(voiceIDKo, t, out); err != nil {
+		if err := saveTTS(voiceIDKo, t, out, 1); err != nil {
 			log.Printf("KOR %02d ❌ %v", i+1, err)
 		} else {
 			log.Printf("KOR %02d ✅ saved to %s", i+1, out)
@@ -82,7 +84,7 @@ func main() {
 }
 
 // saveTTS converts "text" to speech with ElevenLabs and writes MP3 to outfile.
-func saveTTS(voiceID, text, outfile string) error {
+func saveTTS(voiceID, text, outfile string, speechSPD float64) error {
 	payload, _ := json.Marshal(map[string]any{
 		"text":     text,
 		"model_id": modelID,
