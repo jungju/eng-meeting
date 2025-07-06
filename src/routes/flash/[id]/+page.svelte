@@ -2,6 +2,7 @@
   import { onMount, onDestroy, tick } from 'svelte';
   import { page } from '$app/stores';
   import { base } from '$app/paths';
+  import ControlBar from '$lib/components/ControlBar.svelte';
 
   /* ────────────────────────── 경로 ────────────────────────── */
   $: id = $page.params.id;
@@ -104,6 +105,31 @@
   let show: 'none' | 'eng' | 'kor' = 'none';
   function toggleShow() { show = show === 'none' ? 'eng' : show === 'eng' ? 'kor' : 'none'; }
   function setGap(ms: number) { gap = ms; if (waiting) { clearInterval(timer); waiting = false; remain = 0; } }
+
+  /* ───── ControlBar 동적 버튼 ───── */
+$: showLabel = show === 'none'
+  ? '표시:없음'
+  : show === 'eng'
+    ? '표시:영어'
+    : '표시:한글';
+
+$: gapLabel  = gap < 0 ? '무제한' : `${gap/1000}s`;
+
+$: buttons = [
+  { id: 'stop',  icon: '⏹' },              // 멈춤
+  { id: 'show',  text: showLabel },        // 표시 토글
+  { id: 'gap',   text: `간격:${gapLabel}` }// 간격 토글
+];
+
+function onBarClick(e: CustomEvent<{ id: string }>) {
+  switch (e.detail.id) {
+    case 'stop': stop();          break;
+    case 'show': toggleShow();    break;
+    case 'gap':  setGap(
+                   gaps[(gaps.indexOf(gap) + 1) % gaps.length]
+                 );               break;
+  }
+}
 </script>
 
 <main class="wrapper">
@@ -132,15 +158,11 @@
   {/if}
 </main>
 
-<div class="controls">
-  <button on:click={stop}>⏹ 멈춤</button>
-  <button on:click={toggleShow}>{show==='none'?'표시:없음':show==='eng'?'표시:영어':'표시:한글'}</button>
-  <div class="gap-group">
-    {#each gaps as g}
-      <button class:selected={gap===g} on:click={()=>setGap(g)}>{g<0?'시간 제한 없음':`${g/1000}s`}</button>
-    {/each}
-  </div>
-</div>
+<ControlBar
+  {buttons}
+  on:click={onBarClick}
+  on:toggle={(e)=> show = e.detail.visible}
+/>
 
 <audio bind:this={player} playsinline preload="auto"></audio>
 <style>
@@ -228,28 +250,6 @@
     cursor: pointer;
   }
   .next-btn:hover { background: #2563eb; }
-
-  /* 하단 컨트롤 바 */
-  .controls {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-    padding: 0.7rem;
-    background: #fff;
-    border-top: 1px solid #d1d5db;
-    flex-wrap: wrap;
-  }
-  .gap-group { display: flex; gap: 0.32rem; }
-  button.selected {
-    font-weight: 700;
-    border: 2px solid #1d4ed8;
-  }
 
   /* 결과 리스트 */
   .result-list {

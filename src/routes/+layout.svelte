@@ -14,6 +14,8 @@
     const id = match ? match[2] : '';
     if (path.startsWith('/dialogue')) return `🎧 Dialogue Player${id ? ' - ' + id : ''}`;
     if (path.startsWith('/sentence')) return `📝 Sentence Trainer${id ? ' - ' + id : ''}`;
+    if (path.startsWith('/flash2')) return `📝 Test For Dad${id ? ' - ' + id : ''}`;
+    if (path.startsWith('/flash')) return `📝 Test For Yunsol${id ? ' - ' + id : ''}`;
     return '🏠 Home';
   });
 </script>

@@ -2,6 +2,7 @@
 import { onMount, tick, onDestroy } from 'svelte';
 import { page } from '$app/stores';
 import { base } from '$app/paths';
+import ControlBar from '$lib/components/ControlBar.svelte';
 
 type Repeat = 'none' | 'all' | 'segment';
 
@@ -76,6 +77,24 @@ function toggleRepeat() {
 function handleImgError(e: Event) {
   (e.target as HTMLImageElement).src = `${ASSET_BASE}/ready.webp`;
 }
+
+$: buttons = [
+    { id: 'play',   icon: playing ? '⏸' : '▶' },
+    { id: 'repeat', text: `반복:${repeatMode==='none'?'없음':repeatMode==='all'?'전체':'구간'}` },
+    { id: 'kor',    text: showKorean ? '한글 ON' : '한글 OFF' },
+    { id: 'size',   text: '크기' },
+    { id: 'photo',  text: showPhoto ? '사진 ON' : '사진 OFF' }
+  ];
+
+  function onBarClick(e: CustomEvent<{ id: string }>) {
+    switch (e.detail.id) {
+      case 'play':   togglePlay();   break;
+      case 'repeat': toggleRepeat(); break;
+      case 'kor':    showKorean = !showKorean; break;
+      case 'size':   txtSize = txtSize === '1.2em' ? '2em' : '1.2em'; break;
+      case 'photo':  showPhoto = !showPhoto;    break;
+    }
+  }
 </script>
 
 <div class="wrap">
@@ -103,26 +122,13 @@ function handleImgError(e: Event) {
       {/each}
     </div>
   </div>
-
-  <div class="ctl">
-    <button on:click={togglePlay}>{playing ? '⏸' : '▶'}</button>
-    <button on:click={toggleRepeat}>
-      반복:{repeatMode === 'none' ? '없음' : repeatMode === 'all' ? '전체' : '구간'}
-    </button>
-    <button on:click={() => (showKorean = !showKorean)}>
-      {showKorean ? '한글 ON' : '한글 OFF'}
-    </button>
-    <button on:click={() => (txtSize = txtSize === '1.2em' ? '2em' : '1.2em')}>크기</button>
-    <button on:click={() => (showPhoto = !showPhoto)}>
-      {showPhoto ? '사진 ON' : '사진 OFF'}
-    </button>
-  </div>
 </div>
+
+<ControlBar {buttons} on:click={onBarClick} />
 
 <audio bind:this={player} playsinline preload="auto" on:ended={handleEnded} style="display:none"></audio>
 
 <style>
-html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: Arial, sans-serif; }
 .wrap  { position: absolute; top: 50px; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; }
 .main  { flex: 1; display: flex; overflow: hidden; }
 .photo { width: 40%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; position: relative; }
@@ -134,6 +140,4 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
 .seg.active  { background: #d0f0d0; font-weight: bold; }
 .speaker     { color: #2a3d66; font-weight: bold; margin-bottom: 5px; font-size: 1.2em; }
 .kor         { color: #555; }
-.ctl         { background: #fff; padding: 10px; border-top: 1px solid #ccc; display: flex; justify-content: center; gap: 8px; }
-button       { width: 110px; height: 48px; font-size: 0.8em; }
 </style>
