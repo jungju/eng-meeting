@@ -1,0 +1,155 @@
+/* ───── 기본 레이아웃 ───── */
+.wrapper {
+  position: absolute;
+  top: 50px;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding-top: 1rem;
+}
+
+/* ───── 문장 상자 ───── */
+.sentence-box {
+  width: 85vw;
+  max-width: 900px;
+  min-width: 260px;
+  height: clamp(9rem, 38vh, 18rem);
+  padding: 1.6rem 1rem;
+  border: 3px solid #ccc;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  overflow-y: auto;
+}
+
+.sentence-box p {
+  word-break: keep-all;
+  white-space: normal;
+  letter-spacing: 3px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 18px rgba(59, 130, 246, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+.playing {
+  animation: pulse 1.4s infinite;
+}
+
+.order-big {
+  position: absolute;
+  top: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.remain-big {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(1rem, 2.8vw, 1.6rem);
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.eng,
+.kor,
+.placeholder {
+  font-size: clamp(0.95rem, 2.8vw, 1.6rem);
+  line-height: 1.35;
+  margin: 0.2rem 0;
+}
+
+.kor {
+  color: #374151;
+}
+
+.placeholder {
+  color: #9ca3af;
+}
+
+.next-btn {
+  margin: 1rem 0;
+  padding: 0.6rem 2rem;
+  font-size: clamp(0.95rem, 2.8vw, 1.4rem);
+  border-radius: 50px;
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  background: #2563eb;
+}
+
+/* ───── 결과 리스트 ───── */
+.result-list {
+  width: 92%;
+  max-width: 900px;
+  margin: 1.5rem auto 2rem;
+  border-top: 2px solid #ddd;
+  padding-top: 0.7rem;
+}
+
+.result-list h2 {
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 0.7rem;
+}
+
+.result-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem 0.4rem;
+  margin-bottom: 0.4rem;
+  font-size: clamp(0.7rem, 1.7vw, 0.9rem);
+  cursor: pointer;
+}
+
+.num {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.txt {
+  word-break: keep-all;
+  white-space: normal;
+}
+
+.result-item .eng {
+  flex: 1 1 55%;
+}
+
+.result-item .kor {
+  flex: 1 1 40%;
+  color: #374151;
+}
+
+audio {
+  display: none;
+}
