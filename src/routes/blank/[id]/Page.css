@@ -35,7 +35,7 @@
 .sentence-box p {
   word-break: keep-all;
   white-space: normal;
-  letter-spacing: 3px;
+  letter-spacing: 0px;
 }
 
 @keyframes pulse {
@@ -152,4 +152,65 @@
 
 audio {
   display: none;
+}
+
+/* Layout helpers */
+.sentence-box {
+  position: relative;
+}
+.timer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 600;
+  color: #f97316; /* orange-500 */
+}
+
+/* Blank box */
+.blank {
+  display: inline-block;
+  height: 1.35em;
+  margin: 0 2px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 4px;
+  background: #f8fafc;
+}
+.blank.highlight {
+  border-style: solid;
+  border-color: #1d4ed8;
+  animation: pulseBox 1s infinite;
+}
+@keyframes pulseBox {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(29, 78, 216, .6); }
+  50%      { box-shadow: 0 0 0 6px rgba(29, 78, 216, 0); }
+}
+
+/* Revealed words */
+.revealed       { font-weight: 600; }
+.correct-word   { color: #2563eb; }  /* blue-600 */
+.wrong-word     { color: #dc2626; }  /* red-600 */
+
+/* Choice grid */
+.choices {
+  width: 85vw;
+  max-width: 900px;
+  min-width: 260px;
+  margin: .8rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: .6rem;
+}
+.choice-btn {
+  padding: .55rem .4rem;
+  font-size: .95rem;
+  border: 1px solid #d1d5db;
+  border-radius: .375rem;
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, border-color .15s;
+}
+.choice-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
 }

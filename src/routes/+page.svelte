@@ -55,6 +55,13 @@
 		label: `Tense Flash${i + 1}`,
 		type: "flash2",
 		group: "koreng"
+		})),
+
+		...Array.from({ length: 20 }, (_, i) => ({
+		id: `tense${i + 1}`,
+		label: `Tense Blank${i + 1}`,
+		type: "blank",
+		group: "koreng"
 		}))
 	];
 
