@@ -1,0 +1,2 @@
+import"../chunks/NZTpNUN0.js";import"../chunks/DUMHf_my.js";import{t as o,i as r,a as t,j as n,s as p,f as c}from"../chunks/bplG7q_8.js";import{a as m}from"../chunks/CWIKjPFz.js";var l=n(`<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript">
+  <\/script><!---->`,1),v=o("<elevenlabs-convai></elevenlabs-convai>",2);function g(s){var a=v();r(i=>{var e=l();p(c(e)),t(i,e)}),m(a,"agent-id","UOBkXKJBIzVZGPfD0C7P"),t(s,a)}export{g as component};
