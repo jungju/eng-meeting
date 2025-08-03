@@ -14,7 +14,7 @@ import (
 /* ────── ✨ Easily‑tweakable settings (top of file) ✨ ────── */
 var (
 	// Folder that contains sentences.json and where MP3 sub‑folders will be created.
-	basePath = "../static/assets/sentence/jj-ex" // 🔄 change as needed
+	basePath = "../static/assets/sentence/story_s3" // 🔄 change as needed
 
 	/* English voice candidates (ElevenLabs voice IDs)
 	   - "XfNU2rGpBa01ckF309OY" : Teacher‑like voice
@@ -63,7 +63,6 @@ func main() {
 
 	// 2) English TTS → audio/
 	for i, t := range pack.Sentences {
-		break
 		out := filepath.Join(dirEn, fmt.Sprintf("%02d.mp3", i+1))
 		if err := saveTTS(voiceIDEn, t, out, 0.7); err != nil {
 			log.Printf("ENG %02d ❌ %v", i+1, err)
@@ -106,15 +105,21 @@ func saveTTS(voiceID, text, outfile string, speechSPD float64) error {
 		return err
 	}
 	defer res.Body.Close()
+
 	if res.StatusCode != http.StatusOK {
-		return fmt.Errorf("status %s", res.Status)
+		return fmt.Errorf("received non-OK HTTP status: %s", res.Status)
 	}
 
 	f, err := os.Create(outfile)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to create output file: %w", err)
 	}
 	defer f.Close()
+
 	_, err = io.Copy(f, res.Body)
-	return err
+	if err != nil {
+		return fmt.Errorf("failed to write to output file: %w", err)
+	}
+
+	return nil
 }
