@@ -7,6 +7,9 @@
 		{ id: "wirye", label: "Wirye", type: "sentence", group: "JJ" },
 		{ id: "wirye0705", label: "Wirye 0705", type: "sentence", group: "JJ" },
 		{ id: "jj-daily", label: "JJ-Daily", type: "sentence", group: "JJ" },
+		{ id: "story_s1", label: "story_s1", type: "sentence", group: "JJ" },
+		{ id: "story_s2", label: "story_s2", type: "sentence", group: "JJ" },
+		{ id: "story_s3", label: "story_s3", type: "sentence", group: "JJ" },
 		{ id: "jj-ex", label: "JJ-EX", type: "sentence", group: "JJ" },
 
 		{ id: "einstein", label: "Albert Einstein", type: "sentence", group: "YS" },

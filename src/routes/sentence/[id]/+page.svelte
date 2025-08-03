@@ -1,7 +1,7 @@
 <script lang="ts">
 import{onMount,onDestroy,tick}from"svelte";import{page}from"$app/stores";import{base}from"$app/paths";import ControlBar from"$lib/components/ControlBar.svelte"
 $:id=$page.url.pathname.match(/\/sentence\/([^\/]+)/)?.[1]||"";$:BASE=`${base}/assets/sentence/${id}`
-let s:string[]=[],k:string[]=[],e:string[]=[],idx=-1,player:HTMLAudioElement,p=false,r:"none"|"one"|"all"="none",b=false,o:string[]=[],gapT:ReturnType<typeof setTimeout>|null=null
+let s:string[]=[],k:string[]=[],e:string[]=[],idx=-1,player:HTMLAudioElement,p=false,r:"none"|"one"|"all"="all",b=false,o:string[]=[],gapT:ReturnType<typeof setTimeout>|null=null
 const gaps=[0,1e3,3e3,5e3];let gap=0,display:"both"|"hideKor"|"hideEng"="both",audio:"eng"|"kor"|"both"="eng",show=true,showExp=true,MAX_ALL=100,opts=[1,2,3,5];let opt=0,rep=opts[0],repCnt=0,allCnt=0,q:string[]=[]
 $:rep=opts[opt];$:listBtm=show?`calc(60px + env(safe-area-inset-bottom))`:`env(safe-area-inset-bottom)`;$:if(r!=="all")allCnt=0
 onMount(async()=>{if(!id)return;const res=await fetch(`${BASE}/sentences.json`);if(res.ok){const d=await res.json();s=d.sentences;k=d.korean;e=d.explanations??[]}})
