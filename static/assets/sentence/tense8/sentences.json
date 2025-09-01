@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She diagnoses a patient every morning during her hospital rounds.",
+    "She does not diagnose a patient until all lab results are back.",
+    "Does she diagnose a patient when new symptoms suddenly appear?",
+    "Doesn't she diagnose a patient whenever an emergency case arrives?",
+
+    "She is diagnosing a patient right now while consulting the radiology images.",
+    "She is not diagnosing a patient at the moment because the CT scan is still processing.",
+    "Is she diagnosing a patient in the isolation ward this afternoon?",
+    "Isn't she diagnosing a patient even though the vital signs are unstable?",
+
+    "She has diagnosed a patient with a rare condition three times this year.",
+    "She has not diagnosed a patient since returning from the overseas conference.",
+    "Has she diagnosed a patient using the new AI decision tool?",
+    "Hasn't she diagnosed a patient with COVID-19 recently?",
+
+    "She has been diagnosing a patient for the past hour without taking a break.",
+    "She has not been diagnosing a patient because she is updating treatment guidelines.",
+    "Has she been diagnosing a patient remotely via telemedicine since dawn?",
+    "Hasn't she been diagnosing a patient continuously during the night shift?",
+
+    "She diagnosed a patient last night even after her shift had ended.",
+    "She did not diagnose a patient yesterday because she was in surgery all day.",
+    "Did she diagnose a patient when the power outage occurred?",
+    "Didn't she diagnose a patient just before the code blue?",
+
+    "She was diagnosing a patient when the lab phoned in the critical values.",
+    "She was not diagnosing a patient that afternoon; she was teaching residents instead.",
+    "Was she diagnosing a patient at six o’clock as scheduled?",
+    "Wasn't she diagnosing a patient when you called her earlier?",
+
+    "She had diagnosed a patient before the attending physician arrived.",
+    "She had not diagnosed a patient by the time the ambulance brought another case.",
+    "Had she diagnosed a patient with sepsis earlier that day?",
+    "Hadn't she diagnosed a patient before prescribing antibiotics?",
+
+    "She had been diagnosing a patient for hours when the final culture results confirmed her suspicion.",
+    "She had not been diagnosing a patient because the imaging machine was down.",
+    "Had she been diagnosing a patient nonstop until the shift change?",
+    "Hadn't she been diagnosing a patient until the pager went silent?",
+
+    "She will diagnose a patient tomorrow during the outreach clinic.",
+    "She will not diagnose a patient tonight because she is off duty.",
+    "Will she diagnose a patient if the triage nurse flags a critical case?",
+    "Won't she diagnose a patient once the lab data has loaded?",
+
+    "She will be diagnosing a patient at this time next Wednesday.",
+    "She will not be diagnosing a patient during the annual conference.",
+    "Will she be diagnosing a patient when the health inspectors visit?",
+    "Won't she be diagnosing a patient while the interns observe?",
+
+    "She will have diagnosed a patient by Friday.",
+    "She will not have diagnosed a patient if the lab strike continues.",
+    "Will she have diagnosed a patient before the treatment meeting?",
+    "Won't she have diagnosed a patient by the time we finalize the protocol?",
+
+    "She will have been diagnosing a patient for eight hours by the shift handover.",
+    "She will not have been diagnosing a patient all day if the system outage persists.",
+    "Will she have been diagnosing a patient continuously until the consultant arrives?",
+    "Won't she have been diagnosing a patient for weeks when the clinical trial concludes?"
+  ],
+  "korean": [
+    "그녀는 매일 아침 회진에서 환자를 진단한다.",
+    "모든 검사 결과가 나올 때까지 그녀는 환자를 진단하지 않는다.",
+    "새로운 증상이 갑자기 나타나면 그녀가 환자를 진단하나요?",
+    "응급 환자가 들어오면 그녀는 환자를 진단하지 않나요?",
+
+    "그녀는 지금 방사선 이미지를 보며 환자를 진단하고 있다.",
+    "CT 스캔이 처리 중이라 그녀는 현재 환자를 진단하고 있지 않다.",
+    "오늘 오후 격리 병동에서 그녀가 환자를 진단하고 있나요?",
+    "활력 징후가 불안정한데도 그녀는 환자를 진단하고 있지 않나요?",
+
+    "그녀는 올해 희귀 질환 환자를 세 번이나 진단했다.",
+    "해외 학회에서 돌아온 뒤로 그녀는 환자를 진단하지 않았다.",
+    "새 AI 의사결정 도구로 환자를 진단했나요?",
+    "최근에 코로나 환자를 진단하지 않았나요?",
+
+    "그녀는 한 시간째 쉬지 않고 환자를 진단해 오고 있다.",
+    "진료 지침을 개정하느라 그녀는 환자를 진단하지 못하고 있다.",
+    "새벽부터 원격으로 환자를 진단해 왔나요?",
+    "야간 근무 동안 그녀는 계속 환자를 진단하고 있지 않았나요?",
+
+    "그녀는 어젯밤 근무가 끝난 뒤에도 환자를 진단했다.",
+    "하루 종일 수술로 어제 그녀는 환자를 진단하지 못했다.",
+    "정전이 발생했을 때 그녀는 환자를 진단했나요?",
+    "코드 블루 직전에 그녀는 환자를 진단하지 않았나요?",
+
+    "중요 검사값 연락이 왔을 때 그녀는 환자를 진단하고 있었다.",
+    "그 오후 그녀는 레지던트를 교육하느라 환자를 진단하고 있지 않았다.",
+    "예정된 여섯 시에 그녀는 환자를 진단하고 있었나요?",
+    "조금 전 당신이 전화했을 때 그녀는 환자를 진단하고 있지 않았나요?",
+
+    "주치의가 도착하기 전에 그녀는 이미 환자를 진단해 두었다.",
+    "구급차가 또 환자를 실어 올 때까지 그녀는 환자를 진단하지 못했다.",
+    "그날 오전 그녀는 패혈증 환자를 진단했었나요?",
+    "항생제를 처방하기 전에 그녀는 환자를 진단하지 않았었나요?",
+
+    "최종 배양 결과가 의심을 확인했을 때 그녀는 몇 시간째 환자를 진단 중이었다.",
+    "영상 장비 고장으로 그녀는 환자를 진단하지 못하고 있었다.",
+    "교대 시간까지 그녀는 쉬지 않고 환자를 진단하고 있었나요?",
+    "호출기가 조용해질 때까지 그녀는 환자를 진단하고 있지 않았나요?",
+
+    "내일 그녀는 외래 진료소에서 환자를 진단할 것이다.",
+    "오늘 밤 그녀는 비번이라 환자를 진단하지 않을 것이다.",
+    "중증으로 분류되면 그녀는 환자를 진단할까요?",
+    "검사 데이터가 로드되면 그녀는 환자를 진단하지 않을까요?",
+
+    "다음 주 수요일 이 시간에 그녀는 환자를 진단하고 있을 것이다.",
+    "연례 학회 동안 그녀는 환자를 진단하고 있지 않을 것이다.",
+    "보건 감독관이 방문할 때 그녀는 환자를 진단하고 있을까요?",
+    "인턴들이 지켜보는 동안 그녀는 환자를 진단하고 있지 않을까요?",
+
+    "금요일까지 그녀는 환자를 진단해 둘 것이다.",
+    "실험실 파업이 계속되면 그녀는 환자를 진단하지 못할 것이다.",
+    "치료 회의 전에 그녀는 환자를 진단해 두었을까요?",
+    "프로토콜을 최종 확정할 때쯤 그녀는 환자를 진단하지 않았을까요?",
+
+    "교대 시간이 되면 그녀는 8시간째 환자를 진단하고 있게 될 것이다.",
+    "시스템 장애가 지속되면 그녀는 하루 종일 환자를 진단하지 못하고 있을 것이다.",
+    "전문의가 도착할 때까지 그녀는 계속 환자를 진단하고 있게 될까요?",
+    "임상 시험이 끝날 즈음 그녀는 몇 주째 환자를 진단하고 있지 않을까요?"
+  ]
+}

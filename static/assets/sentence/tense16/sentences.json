@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She validates the device software against IEC 62304 standards every release cycle.",
+    "She does not validate the device software if the test environment is unstable.",
+    "Does she validate the device software whenever a new patch is deployed?",
+    "Doesn't she validate the device software before the clinical team uses it?",
+
+    "She is validating the device software right now while auditors observe remotely.",
+    "She is not validating the device software at the moment because the simulator is rebuilding.",
+    "Is she validating the device software on the latest prototype this afternoon?",
+    "Isn't she validating the device software although the risk level increased?",
+
+    "She has validated the device software for three different hardware configurations this quarter.",
+    "She has not validated the device software since the cybersecurity patch was applied.",
+    "Has she validated the device software for data-integrity issues?",
+    "Hasn't she validated the device software for UI alarms yet?",
+
+    "She has been validating the device software all morning without taking a break.",
+    "She has not been validating the device software because the requirement set was revised.",
+    "Has she been validating the device software from her home lab since dawn?",
+    "Hasn't she been validating the device software continuously during the submission sprint?",
+
+    "She validated the device software last night just before the FDA submission deadline.",
+    "She did not validate the device software yesterday because the test rig failed calibration.",
+    "Did she validate the device software after resolving the memory leak?",
+    "Didn't she validate the device software once the emergency patch was released?",
+
+    "She was validating the device software when the power outage hit the data center.",
+    "She was not validating the device software that evening; she was compiling the DHF instead.",
+    "Was she validating the device software at midnight as scheduled?",
+    "Wasn't she validating the device software when the auditor called?",
+
+    "She had validated the device software before the notified body requested evidence.",
+    "She had not validated the device software by the time the sprint review started.",
+    "Had she validated the device software on the new firmware revision?",
+    "Hadn't she validated the device software before the usability study began?",
+
+    "She had been validating the device software for hours when the critical defect surfaced.",
+    "She had not been validating the device software because the test database was corrupted.",
+    "Had she been validating the device software throughout the weekend release window?",
+    "Hadn't she been validating the device software until the build server crashed?",
+
+    "She will validate the device software tomorrow after the code freeze.",
+    "She will not validate the device software tonight if the unit tests still fail.",
+    "Will she validate the device software once the new requirements are approved?",
+    "Won't she validate the device software after integrating the AI module?",
+
+    "She will be validating the device software at this time next Monday.",
+    "She will not be validating the device software during the regulatory workshop.",
+    "Will she be validating the device software when the remote team logs in?",
+    "Won't she be validating the device software while the beta testers run scenarios?",
+
+    "She will have validated the device software for all safety classes by Friday.",
+    "She will not have validated the device software if the test stubs remain incomplete.",
+    "Will she have validated the device software before the certification gateway closes?",
+    "Won't she have validated the device software by the time the grant is reviewed?",
+
+    "She will have been validating the device software for twelve hours by the deployment cutoff.",
+    "She will not have been validating the device software all day if the cloud lab shuts down.",
+    "Will she have been validating the device software continuously until the MDR submission?",
+    "Won't she have been validating the device software for weeks when the pilot trial ends?"
+  ],
+  "korean": [
+    "그녀는 모든 릴리스 주기마다 IEC 62304 기준에 따라 의료기기 소프트웨어를 검증한다.",
+    "테스트 환경이 불안정하면 그녀는 의료기기 소프트웨어를 검증하지 않는다.",
+    "새 패치가 배포될 때마다 그녀는 의료기기 소프트웨어를 검증하나요?",
+    "임상팀이 사용하기 전에 그녀는 의료기기 소프트웨어를 검증하지 않나요?",
+
+    "그녀는 지금 감사관이 원격으로 지켜보는 가운데 의료기기 소프트웨어를 검증하고 있다.",
+    "시뮬레이터를 재빌드 중이라 그녀는 현재 의료기기 소프트웨어를 검증하지 못하고 있다.",
+    "오늘 오후 최신 프로토타입에서 그녀는 의료기기 소프트웨어를 검증하고 있나요?",
+    "위험도가 상승했는데도 그녀는 의료기기 소프트웨어를 검증하고 있지 않나요?",
+
+    "그녀는 이번 분기에만 세 가지 하드웨어 구성을 대상으로 의료기기 소프트웨어를 검증했다.",
+    "사이버보안 패치 이후 그녀는 의료기기 소프트웨어를 검증하지 않았다.",
+    "데이터 무결성 문제에 대해 그녀는 의료기기 소프트웨어를 검증했나요?",
+    "사용자 인터페이스 알람에 대해서는 아직 의료기기 소프트웨어를 검증하지 않았나요?",
+
+    "그녀는 아침부터 쉬지 않고 의료기기 소프트웨어를 검증해 오고 있다.",
+    "요구사항 세트가 수정되어 그녀는 의료기기 소프트웨어를 검증하지 못하고 있다.",
+    "새벽부터 자택 랩에서 그녀는 의료기기 소프트웨어를 검증해 왔나요?",
+    "제출 스프린트 동안 그녀는 계속 의료기기 소프트웨어를 검증하고 있지 않았나요?",
+
+    "그녀는 FDA 제출 마감 직전에 의료기기 소프트웨어를 검증했다.",
+    "테스트 장비 캘리브레이션 실패로 그녀는 어제 의료기기 소프트웨어를 검증하지 못했다.",
+    "메모리 누수를 해결한 뒤 그녀는 의료기기 소프트웨어를 검증했나요?",
+    "긴급 패치가 배포된 후 그녀는 의료기기 소프트웨어를 검증하지 않았나요?",
+
+    "데이터센터 정전이 발생했을 때 그녀는 의료기기 소프트웨어를 검증하고 있었다.",
+    "그 저녁 그녀는 DHF를 정리하느라 의료기기 소프트웨어를 검증하지 않았다.",
+    "자정에 그녀는 의료기기 소프트웨어를 검증하고 있었나요?",
+    "감사관이 전화했을 때 그녀는 의료기기 소프트웨어를 검증하고 있지 않았나요?",
+
+    "통지기관이 증빙을 요청하기 전에 그녀는 이미 의료기기 소프트웨어를 검증해 두었다.",
+    "스프린트 리뷰가 시작될 때까지 그녀는 의료기기 소프트웨어를 검증하지 못했다.",
+    "새 펌웨어 버전에서 그녀는 의료기기 소프트웨어를 검증했었나요?",
+    "사용성 연구가 시작되기 전에 그녀는 의료기기 소프트웨어를 검증하지 않았었나요?",
+
+    "치명적 결함이 나타났을 때 그녀는 몇 시간째 의료기기 소프트웨어를 검증 중이었다.",
+    "테스트 데이터베이스가 손상되어 그녀는 의료기기 소프트웨어를 검증하지 못하고 있었다.",
+    "주말 배포 창 동안 그녀는 계속 의료기기 소프트웨어를 검증하고 있었나요?",
+    "빌드 서버가 다운될 때까지 그녀는 의료기기 소프트웨어를 검증하고 있지 않았나요?",
+
+    "내일 그녀는 코드 프리즈 이후 의료기기 소프트웨어를 검증할 것이다.",
+    "단위 테스트가 계속 실패하면 오늘 밤 그녀는 의료기기 소프트웨어를 검증하지 않을 것이다.",
+    "새 요구사항이 승인되면 그녀는 의료기기 소프트웨어를 검증할까요?",
+    "AI 모듈을 통합한 후 그녀는 의료기기 소프트웨어를 검증하지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 의료기기 소프트웨어를 검증하고 있을 것이다.",
+    "규제 워크숍 동안 그녀는 의료기기 소프트웨어를 검증하고 있지 않을 것이다.",
+    "원격 팀이 로그인할 때 그녀는 의료기기 소프트웨어를 검증하고 있을까요?",
+    "베타 테스터가 시나리오를 실행하는 동안 그녀는 의료기기 소프트웨어를 검증하고 있지 않을까요?",
+
+    "금요일까지 그녀는 모든 안전 등급에 대해 의료기기 소프트웨어를 검증해 둘 것이다.",
+    "테스트 스텁이 미완성이라면 그녀는 의료기기 소프트웨어를 검증하지 못했을 것이다.",
+    "인증 게이트웨이가 닫히기 전에 그녀는 의료기기 소프트웨어를 검증해 둘까요?",
+    "보조금 심사 때쯤 그녀는 의료기기 소프트웨어를 검증하지 않았을까요?",
+
+    "배포 컷오프가 되면 그녀는 12시간째 의료기기 소프트웨어를 검증하고 있을 것이다.",
+    "클라우드 랩이 중단되면 그녀는 하루 종일 의료기기 소프트웨어를 검증하지 못할 것이다.",
+    "MDR 제출 때까지 그녀는 꾸준히 의료기기 소프트웨어를 검증하고 있을까요?",
+    "파일럿 시험이 끝날 즈음 그녀는 몇 주째 의료기기 소프트웨어를 검증하고 있지 않을까요?"
+  ]
+}

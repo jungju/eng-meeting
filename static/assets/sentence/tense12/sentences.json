@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She performs surgery every Tuesday on the cardiac ward.",
+    "She does not perform surgery when the patient's vitals are unstable.",
+    "Does she perform surgery when a complex case comes in?",
+    "Doesn't she perform surgery even under emergency conditions?",
+
+    "She is performing surgery right now while the residents observe.",
+    "She is not performing surgery at the moment because the blood tests are delayed.",
+    "Is she performing surgery in Operating Room 3 this afternoon?",
+    "Isn't she performing surgery although the OR schedule is full?",
+
+    "She has performed surgery on hundreds of patients this year.",
+    "She has not performed surgery since returning from the conference.",
+    "Has she performed surgery using the new robotic system?",
+    "Hasn't she performed surgery on pediatric cases recently?",
+
+    "She has been performing surgery all morning without a break.",
+    "She has not been performing surgery because the operating suite is being sanitized.",
+    "Has she been performing surgery every day this week?",
+    "Hasn't she been performing surgery continuously during the outreach program?",
+
+    "She performed surgery last night even after her shift officially ended.",
+    "She did not perform surgery yesterday due to a sudden migraine.",
+    "Did she perform surgery before the transplant team arrived?",
+    "Didn't she perform surgery once the donor organ became available?",
+
+    "She was performing surgery when the power-backup system activated.",
+    "She was not performing surgery that afternoon; she was mentoring interns instead.",
+    "Was she performing surgery at six o’clock as originally planned?",
+    "Wasn't she performing surgery when you called the OR?",
+
+    "She had performed surgery before the chief surgeon reviewed the case.",
+    "She had not performed surgery by the time the lab confirmed infection.",
+    "Had she performed surgery on the trauma patient earlier that day?",
+    "Hadn't she performed surgery before the antibiotics were started?",
+
+    "She had been performing surgery for hours when the final graft succeeded.",
+    "She had not been performing surgery because the sterilizer malfunctioned.",
+    "Had she been performing surgery without the new imaging guidance?",
+    "Hadn't she been performing surgery until the supply shortage hit?",
+
+    "She will perform surgery tomorrow on a high-risk cardiac case.",
+    "She will not perform surgery tonight because she is on administrative duty.",
+    "Will she perform surgery if the patient’s condition improves?",
+    "Won't she perform surgery once the insurance approval is cleared?",
+
+    "She will be performing surgery at this time next Wednesday.",
+    "She will not be performing surgery during the hospital’s accreditation week.",
+    "Will she be performing surgery when the new residents start?",
+    "Won't she be performing surgery while the conference livestreams the procedure?",
+
+    "She will have performed surgery on three patients by Friday.",
+    "She will not have performed surgery if the OR renovation runs late.",
+    "Will she have performed surgery before the medical board review?",
+    "Won't she have performed surgery by the time the relatives arrive?",
+
+    "She will have been performing surgery for twelve hours by the end of her shift.",
+    "She will not have been performing surgery all day if the robotic suite remains offline.",
+    "Will she have been performing surgery continuously until the transplant is complete?",
+    "Won't she have been performing surgery for weeks by the time the new fellows join?"
+  ],
+  "korean": [
+    "그녀는 매주 화요일 심장 병동에서 수술을 집도한다.",
+    "환자 활력 징후가 불안정할 때 그녀는 수술을 집도하지 않는다.",
+    "복잡한 케이스가 들어오면 그녀가 수술을 집도하나요?",
+    "응급 상황에도 그녀는 수술을 집도하지 않나요?",
+
+    "그녀는 지금 레지던트들이 지켜보는 가운데 수술을 집도하고 있다.",
+    "혈액 검사 결과가 지연되어 그녀는 현재 수술을 집도하지 못하고 있다.",
+    "오늘 오후 3번 수술실에서 그녀가 수술을 집도하고 있나요?",
+    "수술실 일정이 꽉 찼는데도 그녀는 수술을 집도하고 있지 않나요?",
+
+    "그녀는 올해만 수백 명의 환자를 수술했다.",
+    "학회에서 돌아온 뒤로 그녀는 수술을 집도하지 않았다.",
+    "새 로봇 수술 시스템으로 그녀가 수술을 집도했나요?",
+    "최근 소아 환자에게 수술을 집도하지 않았나요?",
+
+    "그녀는 아침 내내 쉬지 않고 수술을 집도해 왔다.",
+    "수술실이 소독 중이라 그녀는 수술을 집도하지 못하고 있다.",
+    "이번 주 내내 그녀는 매일 수술을 집도해 왔나요?",
+    "봉사 프로그램 동안 그녀는 계속 수술을 집도하고 있지 않았나요?",
+
+    "그녀는 어젯밤 근무가 끝난 뒤에도 수술을 집도했다.",
+    "편두통 때문에 어제 그녀는 수술을 집도하지 못했다.",
+    "이식팀이 도착하기 전에 그녀는 수술을 집도했나요?",
+    "공여 장기가 도착하자마자 그녀는 수술을 집도하지 않았나요?",
+
+    "백업 전원이 작동했을 때 그녀는 수술을 집도하고 있었다.",
+    "그 오후 그녀는 인턴을 멘토링하느라 수술을 집도하지 않았다.",
+    "예정대로 여섯 시에 그녀는 수술을 집도하고 있었나요?",
+    "수술실에 전화했을 때 그녀는 수술을 집도하고 있지 않았나요?",
+
+    "감독교수가 차트를 검토하기 전에 그녀는 이미 수술을 마쳤다.",
+    "감염 확진 때까지 그녀는 수술을 집도하지 못했다.",
+    "그날 일찍 외상 환자에게 수술을 집도했었나요?",
+    "항생제를 투여하기 전에 그녀는 수술을 집도하지 않았었나요?",
+
+    "이식편이 성공했을 때 그녀는 몇 시간째 수술을 집도 중이었다.",
+    "멸균기가 고장 나 그녀는 수술을 집도하지 못하고 있었다.",
+    "새 영상 장비 없이 그녀는 오전 내내 수술을 집도하고 있었나요?",
+    "물자 부족이 발생할 때까지 그녀는 수술을 집도하고 있지 않았나요?",
+
+    "내일 그녀는 고위험 심장 수술을 집도할 것이다.",
+    "오늘 밤 그녀는 행정 당직이라 수술을 집도하지 않을 것이다.",
+    "환자 상태가 호전되면 그녀는 수술을 집도할까요?",
+    "보험 승인이 나면 그녀는 수술을 집도하지 않을까요?",
+
+    "다음 주 수요일 이 시간 그녀는 수술을 집도하고 있을 것이다.",
+    "병원 인증 주간에는 그녀가 수술을 집도하고 있지 않을 것이다.",
+    "새 레지던트가 시작할 때 그녀는 수술을 집도하고 있을까요?",
+    "학회에서 라이브 중계할 때도 그녀는 수술을 집도하고 있지 않을까요?",
+
+    "금요일까지 그녀는 세 명의 환자 수술을 마쳐 둘 것이다.",
+    "수술실 공사가 지연되면 그녀는 수술을 집도하지 못할 것이다.",
+    "의학위원회 심사 전에 그녀는 수술을 집도해 둘까요?",
+    "보호자가 도착할 즈음 그녀는 수술을 집도하지 않았을까요?",
+
+    "교대가 끝날 무렵 그녀는 12시간째 수술을 집도하고 있을 것이다.",
+    "로봇 수술실이 중단되면 그녀는 하루 종일 수술을 집도하지 못할 것이다.",
+    "이식이 완료될 때까지 그녀는 계속 수술을 집도하고 있게 될까요?",
+    "새 펠로우가 합류할 즈음 그녀는 몇 주째 수술을 집도하고 있지 않을까요?"
+  ]
+}

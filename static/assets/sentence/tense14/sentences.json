@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She takes her medication at the same time every day.",
+    "She does not take her medication when she feels nauseous.",
+    "Does she take her medication after meals?",
+    "Doesn't she take her medication even when the alarm reminds her?",
+
+    "She is taking her medication right now in front of the nurse.",
+    "She is not taking her medication at the moment because she left it at home.",
+    "Is she taking her medication as prescribed this morning?",
+    "Isn't she taking her medication even though the doctor called?",
+
+    "She has taken her medication every day this week.",
+    "She has not taken her medication since yesterday evening.",
+    "Has she taken her medication according to the schedule?",
+    "Hasn't she taken her medication since the dosage change?",
+
+    "She has been taking her medication regularly for three years.",
+    "She has not been taking her medication because the pharmacy ran out.",
+    "Has she been taking her medication while traveling abroad?",
+    "Hasn't she been taking her medication during the trial?",
+
+    "She took her medication before the symptoms worsened.",
+    "She did not take her medication last night.",
+    "Did she take her medication before bed?",
+    "Didn't she take her medication after dinner?",
+
+    "She was taking her medication when the phone rang.",
+    "She was not taking her medication at noon; she forgot her pillbox.",
+    "Was she taking her medication at seven o’clock as planned?",
+    "Wasn't she taking her medication when you visited?",
+
+    "She had taken her medication before the nurse checked in.",
+    "She had not taken her medication by the time the doctor arrived.",
+    "Had she taken her medication earlier that morning?",
+    "Hadn't she taken her medication before the surgery?",
+
+    "She had been taking her medication for weeks when the side effects disappeared.",
+    "She had not been taking her medication because of the recall notice.",
+    "Had she been taking her medication according to the new dosage?",
+    "Hadn't she been taking her medication until the prescription expired?",
+
+    "She will take her medication tomorrow morning.",
+    "She will not take her medication tonight if the pain subsides.",
+    "Will she take her medication once the reminder sounds?",
+    "Won't she take her medication after the meal?",
+
+    "She will be taking her medication at this time next Monday.",
+    "She will not be taking her medication during the fasting test.",
+    "Will she be taking her medication when the study nurse calls?",
+    "Won't she be taking her medication while traveling overseas?",
+
+    "She will have taken her medication by Friday morning.",
+    "She will not have taken her medication if the shipment delays continue.",
+    "Will she have taken her medication before the appointment?",
+    "Won't she have taken her medication by the time the labs are drawn?",
+
+    "She will have been taking her medication for six months by then.",
+    "She will not have been taking her medication long enough to see effects.",
+    "Will she have been taking her medication consistently until the trial ends?",
+    "Won't she have been taking her medication for years when the new guidelines arrive?"
+  ],
+  "korean": [
+    "그녀는 매일 같은 시간에 약을 복용한다.",
+    "그녀는 메스꺼우면 약을 복용하지 않는다.",
+    "그녀는 식후에 약을 복용하나요?",
+    "알림이 울려도 그녀는 약을 복용하지 않나요?",
+
+    "그녀는 지금 간호사 앞에서 약을 복용하고 있다.",
+    "약을 집에 두고 와서 그녀는 지금 약을 복용하지 못하고 있다.",
+    "오늘 아침 그녀는 처방대로 약을 복용하고 있나요?",
+    "의사가 전화했는데도 그녀는 약을 복용하고 있지 않나요?",
+
+    "그녀는 이번 주 내내 매일 약을 복용했다.",
+    "어제 저녁 이후 그녀는 약을 복용하지 않았다.",
+    "그녀는 일정대로 약을 복용했나요?",
+    "용량이 바뀐 뒤로 그녀는 약을 복용하지 않았나요?",
+
+    "그녀는 3년째 규칙적으로 약을 복용해 오고 있다.",
+    "약국에 재고가 없어 그녀는 약을 복용하지 못하고 있다.",
+    "해외에서도 그녀는 약을 복용해 왔나요?",
+    "임상 시험 중에도 그녀는 약을 복용하고 있지 않았나요?",
+
+    "그녀는 증상이 악화되기 전에 약을 복용했다.",
+    "그녀는 어젯밤 약을 복용하지 않았다.",
+    "자기 전에 그녀는 약을 복용했나요?",
+    "저녁 식사 후에도 그녀는 약을 복용하지 않았나요?",
+
+    "전화벨이 울릴 때 그녀는 약을 복용하고 있었다.",
+    "정오에 그녀는 약을 복용하지 못했는데 알약통을 두고 왔다.",
+    "예정대로 7시에 그녀는 약을 복용하고 있었나요?",
+    "당신이 방문했을 때 그녀는 약을 복용하고 있지 않았나요?",
+
+    "간호사가 확인하기 전에 그녀는 이미 약을 복용했다.",
+    "의사가 도착할 때까지 그녀는 약을 복용하지 못했다.",
+    "그날 아침 일찍 그녀는 약을 복용했었나요?",
+    "수술 전에 그녀는 약을 복용하지 않았었나요?",
+
+    "부작용이 사라질 때 그녀는 몇 주째 약을 복용해 오고 있었다.",
+    "리콜 공지 때문에 그녀는 약을 복용하지 못하고 있었다.",
+    "새 용량대로 그녀는 약을 복용해 왔나요?",
+    "처방이 만료될 때까지 그녀는 약을 복용하고 있지 않았나요?",
+
+    "내일 아침 그녀는 약을 복용할 것이다.",
+    "통증이 가라앉으면 그녀는 오늘 밤 약을 복용하지 않을 것이다.",
+    "알림이 울리면 그녀는 약을 복용할까요?",
+    "식사 후 그녀는 약을 복용하지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 약을 복용하고 있을 것이다.",
+    "금식 검사 동안 그녀는 약을 복용하고 있지 않을 것이다.",
+    "연구 간호사가 전화할 때 그녀는 약을 복용하고 있을까요?",
+    "해외 여행 중에도 그녀는 약을 복용하고 있지 않을까요?",
+
+    "금요일 아침까지 그녀는 약을 복용해 둘 것이다.",
+    "배송이 지연되면 그녀는 약을 복용하지 못했을 것이다.",
+    "진료 전에 그녀는 약을 복용해 둘까요?",
+    "혈액 검사를 할 때쯤 그녀는 약을 복용하지 않았을까요?",
+
+    "그때쯤이면 그녀는 6개월째 약을 복용해 오고 있을 것이다.",
+    "효과를 보기엔 그녀가 약을 복용한 기간이 충분하지 않을 것이다.",
+    "시험이 끝날 때까지 그녀는 꾸준히 약을 복용하고 있을까요?",
+    "새 지침이 발표될 즈음 그녀는 수년째 약을 복용하고 있지 않을까요?"
+  ]
+}

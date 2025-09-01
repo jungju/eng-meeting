@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She conducts cognitive assessments for Alzheimer’s patients every morning.",
+    "She does not conduct cognitive assessments when the patient is fasting.",
+    "Does she conduct cognitive assessments before adjusting any medication?",
+    "Doesn't she conduct cognitive assessments when new memory issues arise?",
+
+    "She is conducting a cognitive assessment right now while the caregiver observes.",
+    "She is not conducting a cognitive assessment because the patient is too fatigued.",
+    "Is she conducting a cognitive assessment in the quiet room this afternoon?",
+    "Isn't she conducting a cognitive assessment even though the neurologist requested one?",
+
+    "She has conducted cognitive assessments for dozens of Alzheimer’s patients this week.",
+    "She has not conducted cognitive assessments since the clinic’s power outage.",
+    "Has she conducted cognitive assessments using the updated MoCA protocol?",
+    "Hasn't she conducted cognitive assessments for the new admissions yet?",
+
+    "She has been conducting cognitive assessments all morning without a break.",
+    "She has not been conducting cognitive assessments because the testing materials are delayed.",
+    "Has she been conducting cognitive assessments while the family waits outside?",
+    "Hasn't she been conducting cognitive assessments throughout the screening day?",
+
+    "She conducted a cognitive assessment yesterday just before the MRI scan.",
+    "She did not conduct a cognitive assessment last Friday due to a migraine.",
+    "Did she conduct a cognitive assessment after the medication review?",
+    "Didn't she conduct a cognitive assessment when memory lapses were reported?",
+
+    "She was conducting a cognitive assessment when the fire alarm interrupted.",
+    "She was not conducting a cognitive assessment that evening; she was counseling the caregiver.",
+    "Was she conducting a cognitive assessment at three o’clock as scheduled?",
+    "Wasn't she conducting a cognitive assessment when you called?",
+
+    "She had conducted a cognitive assessment before the neurologist entered the room.",
+    "She had not conducted a cognitive assessment by the time the patient fell asleep.",
+    "Had she conducted a cognitive assessment on the new referral earlier that day?",
+    "Hadn't she conducted a cognitive assessment before prescribing medication?",
+
+    "She had been conducting cognitive assessments for hours when the test kit ran out.",
+    "She had not been conducting cognitive assessments because the consent forms were missing.",
+    "Had she been conducting cognitive assessments throughout the outreach clinic?",
+    "Hadn't she been conducting cognitive assessments until the power failed?",
+
+    "She will conduct a cognitive assessment tomorrow before starting therapy.",
+    "She will not conduct a cognitive assessment tonight if the patient is too agitated.",
+    "Will she conduct a cognitive assessment once the caffeine wears off?",
+    "Won't she conduct a cognitive assessment after the orientation session?",
+
+    "She will be conducting cognitive assessments at this time next Monday.",
+    "She will not be conducting cognitive assessments during the community workshop.",
+    "Will she be conducting cognitive assessments when the relatives arrive?",
+    "Won't she be conducting cognitive assessments while the residents shadow her?",
+
+    "She will have conducted cognitive assessments for all scheduled patients by Friday.",
+    "She will not have conducted cognitive assessments if the testing room stays closed.",
+    "Will she have conducted cognitive assessments before the grant review visit?",
+    "Won't she have conducted cognitive assessments by the time the new guidelines take effect?",
+
+    "She will have been conducting cognitive assessments for twelve hours by the end of the clinic day.",
+    "She will not have been conducting cognitive assessments all afternoon if the supplies run out.",
+    "Will she have been conducting cognitive assessments continuously until the dementia seminar starts?",
+    "Won't she have been conducting cognitive assessments for weeks when the clinical trial closes?"
+  ],
+  "korean": [
+    "그녀는 매 아침 알츠하이머 환자를 위해 인지 검사를 실시한다.",
+    "환자가 금식 중이면 그녀는 인지 검사를 실시하지 않는다.",
+    "약 조정 전에 그녀는 인지 검사를 실시하나요?",
+    "새로운 기억 장애가 나타나면 그녀는 인지 검사를 실시하지 않나요?",
+
+    "그녀는 지금 보호자가 지켜보는 가운데 인지 검사를 실시하고 있다.",
+    "환자가 지나치게 피곤해 그녀는 현재 인지 검사를 실시하고 있지 않다.",
+    "오늘 오후 조용한 진료실에서 그녀는 인지 검사를 실시하고 있나요?",
+    "신경과 의사가 요청했는데도 그녀는 인지 검사를 실시하고 있지 않나요?",
+
+    "그녀는 이번 주에만 수십 명의 알츠하이머 환자에게 인지 검사를 실시했다.",
+    "클리닉 정전 이후 그녀는 인지 검사를 실시하지 않았다.",
+    "업데이트된 MoCA 프로토콜로 그녀는 인지 검사를 실시했나요?",
+    "신규 입원 환자들에게 아직 인지 검사를 실시하지 않았나요?",
+
+    "그녀는 아침 내내 쉬지 않고 인지 검사를 실시해 오고 있다.",
+    "검사 도구가 지연되어 그녀는 인지 검사를 실시하지 못하고 있다.",
+    "가족이 대기하는 동안 그녀는 인지 검사를 실시해 왔나요?",
+    "선별의 날 동안 그녀는 계속 인지 검사를 실시하고 있지 않았나요?",
+
+    "그녀는 어제 MRI 스캔 직전에 인지 검사를 실시했다.",
+    "편두통 때문에 그녀는 지난 금요일 인지 검사를 실시하지 못했다.",
+    "약물 검토 후 그녀는 인지 검사를 실시했나요?",
+    "기억 장애가 보고되었을 때 그녀는 인지 검사를 실시하지 않았나요?",
+
+    "화재 경보가 울릴 때 그녀는 인지 검사를 실시하고 있었다.",
+    "그날 저녁 그녀는 보호자 상담을 하느라 인지 검사를 실시하지 않았다.",
+    "예정된 세 시에 그녀는 인지 검사를 실시하고 있었나요?",
+    "당신이 전화했을 때 그녀는 인지 검사를 실시하고 있지 않았나요?",
+
+    "신경과 의사가 들어오기 전에 그녀는 이미 인지 검사를 실시했다.",
+    "환자가 잠들 때까지 그녀는 인지 검사를 실시하지 못했다.",
+    "그날 일찍 새 의뢰 환자에게 인지 검사를 실시했었나요?",
+    "약 처방 전에 그녀는 인지 검사를 실시하지 않았었나요?",
+
+    "검사 키트가 떨어졌을 때 그녀는 몇 시간째 인지 검사를 실시 중이었다.",
+    "동의서가 없어 그녀는 인지 검사를 실시하지 못하고 있었다.",
+    "외부 진료소 내내 그녀는 인지 검사를 실시하고 있었나요?",
+    "정전될 때까지 그녀는 인지 검사를 실시하고 있지 않았나요?",
+
+    "내일 치료를 시작하기 전에 그녀는 인지 검사를 실시할 것이다.",
+    "환자가 너무 흥분하면 그녀는 오늘 밤 인지 검사를 실시하지 않을 것이다.",
+    "카페인이 사라지면 그녀는 인지 검사를 실시할까요?",
+    "오리엔테이션 뒤 그녀는 인지 검사를 실시하지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 인지 검사를 실시하고 있을 것이다.",
+    "지역 사회 워크숍 동안 그녀는 인지 검사를 실시하고 있지 않을 것이다.",
+    "친척이 도착할 때 그녀는 인지 검사를 실시하고 있을까요?",
+    "레지던트가 동행하는 동안 그녀는 인지 검사를 실시하고 있지 않을까요?",
+
+    "금요일까지 그녀는 예약된 모든 환자에게 인지 검사를 실시해 둘 것이다.",
+    "검사실이 계속 폐쇄되면 그녀는 인지 검사를 실시하지 못했을 것이다.",
+    "연구비 심사 방문 전에 그녀는 인지 검사를 실시해 둘까요?",
+    "새 지침이 시행될 즈음 그녀는 인지 검사를 실시하지 않았을까요?",
+
+    "클리닉 종료 시점에 그녀는 12시간째 인지 검사를 실시하고 있을 것이다.",
+    "소모품이 떨어지면 그녀는 오후 내내 인지 검사를 실시하지 못할 것이다.",
+    "치매 세미나가 시작될 때까지 그녀는 계속 인지 검사를 실시하고 있을까요?",
+    "임상 시험이 종료될 즈음 그녀는 몇 주째 인지 검사를 실시하고 있지 않았나요?"
+  ]
+}

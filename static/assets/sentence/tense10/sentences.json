@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She measures blood pressure every hour during her shift.",
+    "She does not measure blood pressure when the automatic cuff is recalibrating.",
+    "Does she measure blood pressure before administering medication?",
+    "Doesn't she measure blood pressure after the patient reports dizziness?",
+
+    "She is measuring blood pressure right now while the doctor prepares the injection.",
+    "She is not measuring blood pressure at the moment because the cuff battery is dead.",
+    "Is she measuring blood pressure in the recovery room this afternoon?",
+    "Isn't she measuring blood pressure even though the alarm is sounding?",
+
+    "She has measured blood pressure for every patient on the morning round.",
+    "She has not measured blood pressure since the monitor malfunctioned.",
+    "Has she measured blood pressure using the new digital device?",
+    "Hasn't she measured blood pressure for the postoperative patients yet?",
+
+    "She has been measuring blood pressure all morning without a break.",
+    "She has not been measuring blood pressure because the cuffs are being sterilized.",
+    "Has she been measuring blood pressure at the triage desk since dawn?",
+    "Hasn't she been measuring blood pressure continuously during the drill?",
+
+    "She measured blood pressure last night when the ER was overcrowded.",
+    "She did not measure blood pressure yesterday because she had a fever.",
+    "Did she measure blood pressure right after the patient fainted?",
+    "Didn't she measure blood pressure before discharging the child?",
+
+    "She was measuring blood pressure when the fire alarm suddenly rang.",
+    "She was not measuring blood pressure that afternoon; she was drawing blood samples instead.",
+    "Was she measuring blood pressure at eight o’clock as planned?",
+    "Wasn't she measuring blood pressure when you walked in?",
+
+    "She had measured blood pressure before the surgeon arrived on the ward round.",
+    "She had not measured blood pressure by the time the ambulance brought a new patient.",
+    "Had she measured blood pressure for the elderly man earlier that day?",
+    "Hadn't she measured blood pressure before giving the diuretic?",
+
+    "She had been measuring blood pressure for hours when the spare monitor finally arrived.",
+    "She had not been measuring blood pressure because the cuff sizes were missing.",
+    "Had she been measuring blood pressure without calibration all morning?",
+    "Hadn't she been measuring blood pressure until the shift change?",
+
+    "She will measure blood pressure tomorrow during the health fair.",
+    "She will not measure blood pressure tonight because she’s off duty.",
+    "Will she measure blood pressure if the volunteer staff cannot come?",
+    "Won't she measure blood pressure once the new cuffs arrive?",
+
+    "She will be measuring blood pressure at this time next Monday.",
+    "She will not be measuring blood pressure during the conference week.",
+    "Will she be measuring blood pressure when the inspectors visit?",
+    "Won't she be measuring blood pressure while the students observe?",
+
+    "She will have measured blood pressure for every ward by Friday.",
+    "She will not have measured blood pressure if the devices stay offline.",
+    "Will she have measured blood pressure before the audit starts?",
+    "Won't she have measured blood pressure by the time the shift ends?",
+
+    "She will have been measuring blood pressure for twelve hours by the time help arrives.",
+    "She will not have been measuring blood pressure all day if the automated kiosks take over.",
+    "Will she have been measuring blood pressure continuously until the workshop begins?",
+    "Won't she have been measuring blood pressure for weeks when the new policy is adopted?"
+  ],
+  "korean": [
+    "그녀는 근무 중 매시간 혈압을 측정한다.",
+    "자동 혈압계가 재보정 중일 때 그녀는 혈압을 측정하지 않는다.",
+    "약 투여 전에 그녀는 혈압을 측정하나요?",
+    "환자가 어지럼증을 호소하면 그녀는 혈압을 측정하지 않나요?",
+
+    "그녀는 지금 의사가 주사 준비를 하는 동안 혈압을 측정하고 있다.",
+    "커프 배터리가 방전되어 그녀는 현재 혈압을 측정하지 못하고 있다.",
+    "오늘 오후 회복실에서 그녀는 혈압을 측정하고 있나요?",
+    "알람이 울리는데도 그녀는 혈압을 측정하고 있지 않나요?",
+
+    "그녀는 아침 회진에서 모든 환자의 혈압을 측정했다.",
+    "모니터가 고장 난 이후 그녀는 혈압을 측정하지 않았다.",
+    "새 디지털 기기로 그녀가 혈압을 측정했나요?",
+    "수술 후 환자들의 혈압을 아직 측정하지 않았나요?",
+
+    "그녀는 아침 내내 쉬지 않고 혈압을 측정해 왔다.",
+    "커프가 소독 중이라 그녀는 혈압을 측정하지 못하고 있다.",
+    "새벽부터 분류실에서 그녀는 혈압을 측정해 왔나요?",
+    "훈련 동안 그녀는 계속 혈압을 측정하고 있지 않았나요?",
+
+    "그녀는 어젯밤 과밀한 응급실에서 혈압을 측정했다.",
+    "열이 나서 어제 그녀는 혈압을 측정하지 못했다.",
+    "환자가 기절한 직후 그녀는 혈압을 측정했나요?",
+    "아이를 퇴원시키기 전에 그녀는 혈압을 측정하지 않았나요?",
+
+    "화재 경보가 울렸을 때 그녀는 혈압을 측정하고 있었다.",
+    "그 오후 그녀는 채혈을 하느라 혈압을 측정하지 않았다.",
+    "계획대로 여덟 시에 그녀는 혈압을 측정하고 있었나요?",
+    "당신이 들어왔을 때 그녀는 혈압을 측정하고 있지 않았나요?",
+
+    "외과의가 회진 오기 전에 그녀는 이미 혈압을 측정해 두었다.",
+    "새 환자가 도착할 때까지 그녀는 혈압을 측정하지 못했다.",
+    "그날 일찍 노인 환자의 혈압을 측정했었나요?",
+    "이뇨제를 투여하기 전에 그녀는 혈압을 측정하지 않았었나요?",
+
+    "예비 모니터가 도착했을 때 그녀는 몇 시간째 혈압을 측정 중이었다.",
+    "커프 사이즈가 없어 그녀는 혈압을 측정하지 못하고 있었다.",
+    "아침 내내 보정 없이 그녀는 혈압을 측정하고 있었나요?",
+    "교대 시간까지 그녀는 혈압을 측정하고 있지 않았나요?",
+
+    "내일 보건 박람회에서 그녀는 혈압을 측정할 것이다.",
+    "오늘 밤 그녀는 비번이라 혈압을 측정하지 않을 것이다.",
+    "자원봉사자가 못 오면 그녀는 혈압을 측정할까요?",
+    "새 커프가 도착하면 그녀는 혈압을 측정하지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 혈압을 측정하고 있을 것이다.",
+    "학회 주간에는 그녀가 혈압을 측정하고 있지 않을 것이다.",
+    "감사관이 방문할 때 그녀는 혈압을 측정하고 있을까요?",
+    "학생들이 관찰하는 동안 그녀는 혈압을 측정하고 있지 않을까요?",
+
+    "금요일까지 그녀는 모든 병동 환자의 혈압을 측정해 둘 것이다.",
+    "장비가 계속 고장 나면 그녀는 혈압을 측정하지 못할 것이다.",
+    "감사 시작 전에 그녀는 혈압을 측정해 둘까요?",
+    "교대가 끝날 때쯤 그녀는 혈압을 측정하지 않았을까요?",
+
+    "도움이 올 때쯤 그녀는 12시간째 혈압을 측정하고 있을 것이다.",
+    "자동 측정 키오스크가 가동되면 그녀는 하루 종일 혈압을 측정하지 않을 것이다.",
+    "워크숍이 시작될 때까지 그녀는 계속 혈압을 측정하고 있게 될까요?",
+    "새 정책이 시행될 즈음 그녀는 몇 주째 혈압을 측정하고 있지 않을까요?"
+  ]
+}

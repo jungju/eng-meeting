@@ -14,7 +14,7 @@ import (
 /* ────── ✨ Easily‑tweakable settings (top of file) ✨ ────── */
 var (
 	// Folder that contains sentences.json and where MP3 sub‑folders will be created.
-	basePath = "../static/assets/sentence/story_s3" // 🔄 change as needed
+	basePath = "../static/assets/sentence/story_s6" // 🔄 change as needed
 
 	/* English voice candidates (ElevenLabs voice IDs)
 	   - "XfNU2rGpBa01ckF309OY" : Teacher‑like voice
@@ -82,7 +82,20 @@ func main() {
 	}
 }
 
-// saveTTS converts "text" to speech with ElevenLabs and writes MP3 to outfile.
+// saveTTS converts "text" to speech using the ElevenLabs API and writes the resulting MP3 audio to the specified outfile.
+// Parameters:
+// - voiceID: A string representing the voice ID to be used for TTS.
+// - text: The input text to be converted to speech.
+// - outfile: The path to the output file where the MP3 audio will be saved.
+// - speechSPD: A float64 representing the desired speech speed, where typical values range between 0.5 and 2.0.
+//
+// This function constructs a JSON payload containing the text, model ID, and voice settings, and sends it via a POST request
+// to the ElevenLabs text-to-speech API endpoint. The API key for ElevenLabs is passed in the request headers using an
+// environment variable ("ELEVENLABS_API_KEY").
+//
+// If the API response is successful (HTTP 200), the function writes the binary MP3 data from the response body to the
+// specified outfile. If any errors occur during the process (HTTP errors, file writing errors), the function returns
+// an error describing the issue.
 func saveTTS(voiceID, text, outfile string, speechSPD float64) error {
 	payload, _ := json.Marshal(map[string]any{
 		"text":     text,

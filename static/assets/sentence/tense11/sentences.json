@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She meets the deadline every single sprint without reminders.",
+    "She does not meet the deadline when the requirements keep changing at the last minute.",
+    "Does she meet the deadline when multiple projects overlap?",
+    "Doesn't she meet the deadline even under heavy workload?",
+
+    "She is meeting the deadline right now while coordinating with the design team.",
+    "She is not meeting the deadline at the moment because the client added new features.",
+    "Is she meeting the deadline despite the sudden scope increase?",
+    "Isn't she meeting the deadline even though resources are limited?",
+
+    "She has met the deadline on every deliverable this quarter.",
+    "She has not met the deadline since the unexpected outage last week.",
+    "Has she met the deadline for the marketing assets?",
+    "Hasn't she met the deadline for the security review yet?",
+
+    "She has been meeting the deadline throughout the entire fiscal year.",
+    "She has not been meeting the deadline because the approval chain keeps stalling.",
+    "Has she been meeting the deadline while working remotely?",
+    "Hasn't she been meeting the deadline during the merger process?",
+
+    "She met the deadline yesterday despite the power outage.",
+    "She did not meet the deadline last Friday because of a medical emergency.",
+    "Did she meet the deadline before the investors arrived?",
+    "Didn't she meet the deadline after the schedule was extended?",
+
+    "She was meeting the deadline when the network suddenly went down.",
+    "She was not meeting the deadline that afternoon; she was fixing a blocker instead.",
+    "Was she meeting the deadline at noon as planned?",
+    "Wasn't she meeting the deadline when you checked in?",
+
+    "She had met the deadline before the compliance auditors requested evidence.",
+    "She had not met the deadline by the time the announcement was published.",
+    "Had she met the deadline for the Q2 financial report?",
+    "Hadn't she met the deadline before the board meeting started?",
+
+    "She had been meeting the deadline for months when the project scope doubled.",
+    "She had not been meeting the deadline because key data was missing.",
+    "Had she been meeting the deadline prior to the tool migration?",
+    "Hadn't she been meeting the deadline until the supply shortage occurred?",
+
+    "She will meet the deadline tomorrow despite the tight schedule.",
+    "She will not meet the deadline tonight if the servers keep crashing.",
+    "Will she meet the deadline once the blockers are cleared?",
+    "Won't she meet the deadline if the team gives her support?",
+
+    "She will be meeting the deadline at this time next Monday.",
+    "She will not be meeting the deadline during her vacation week.",
+    "Will she be meeting the deadline when the stakeholders join the call?",
+    "Won't she be meeting the deadline while the QA team runs tests?",
+
+    "She will have met the deadline by Friday, enabling the release.",
+    "She will not have met the deadline if the approval is delayed again.",
+    "Will she have met the deadline before the press conference?",
+    "Won't she have met the deadline by the time the client checks in?",
+
+    "She will have been meeting the deadline for twelve straight weeks by year-end.",
+    "She will not have been meeting the deadline all month if resource issues persist.",
+    "Will she have been meeting the deadline continuously until the audit concludes?",
+    "Won't she have been meeting the deadline for ages when the new policy kicks in?"
+  ],
+  "korean": [
+    "그녀는 스프린트마다 빠짐없이 마감일을 지킨다.",
+    "요구 사항이 막판에 계속 바뀌면 그녀는 마감일을 지키지 못한다.",
+    "여러 프로젝트가 겹칠 때 그녀는 마감일을 지키나요?",
+    "업무량이 많아도 그녀는 마감일을 지키지 않나요?",
+
+    "그녀는 지금 디자인팀과 조율하며 마감일을 맞추고 있다.",
+    "클라이언트가 기능을 추가해 현재 그녀는 마감일을 맞추지 못하고 있다.",
+    "갑작스러운 범위 확대에도 그녀는 마감일을 맞추고 있나요?",
+    "자원이 부족한데도 그녀는 마감일을 맞추고 있지 않나요?",
+
+    "그녀는 이번 분기 모든 산출물의 마감일을 지켜 왔다.",
+    "지난주 예기치 못한 장애 이후로 그녀는 마감일을 지키지 못했다.",
+    "마케팅 자료 마감일을 그녀가 지켰나요?",
+    "보안 검토 마감일을 아직 지키지 못했나요?",
+
+    "그녀는 회계연도 내내 마감일을 꾸준히 지켜 오고 있다.",
+    "승인 절차가 지연돼 그녀는 마감일을 지키지 못하고 있다.",
+    "재택 근무 중에도 그녀는 마감일을 지켜 왔나요?",
+    "합병 과정에서도 그녀는 마감일을 지키지 못하고 있지 않았나요?",
+
+    "그녀는 어제 정전에도 불구하고 마감일을 지켰다.",
+    "지난 금요일 그녀는 병가로 마감일을 지키지 못했다.",
+    "투자자들이 도착하기 전에 그녀는 마감일을 지켰나요?",
+    "일정이 연장된 후에도 그녀는 마감일을 지키지 않았나요?",
+
+    "네트워크가 갑자기 끊겼을 때 그녀는 마감일을 맞추고 있었다.",
+    "그 오후 그녀는 블로커를 해결하느라 마감일을 맞추지 못하고 있었다.",
+    "계획대로 정오에 그녀는 마감일을 맞추고 있었나요?",
+    "확인했을 때 그녀는 마감일을 맞추고 있지 않았나요?",
+
+    "감사팀이 증빙을 요청하기 전에 그녀는 이미 마감일을 지켜 두었다.",
+    "공지가 발표될 때까지 그녀는 마감일을 지키지 못했었다.",
+    "Q2 재무 보고서 마감일을 그녀가 지켜 두었었나요?",
+    "이사회가 시작되기 전에 그녀는 마감일을 지키지 않았었나요?",
+
+    "프로젝트 범위가 두 배가 될 때까지 그녀는 몇 달째 마감일을 지키고 있었다.",
+    "핵심 데이터가 없어 그녀는 마감일을 지키지 못하고 있었다.",
+    "도구 이전 전에도 그녀는 계속 마감일을 지키고 있었나요?",
+    "자원 부족이 발생할 때까지 그녀는 마감일을 지키고 있지 않았나요?",
+
+    "내일 그녀는 빡빡한 일정에도 마감일을 지킬 것이다.",
+    "서버가 계속 불안하면 오늘 밤 그녀는 마감일을 지키지 못할 것이다.",
+    "장애가 해결되면 그녀는 마감일을 지킬까요?",
+    "팀이 지원하면 그녀는 마감일을 지키지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 마감일을 맞추고 있을 것이다.",
+    "휴가 주에는 그녀는 마감일을 맞추지 못하고 있을 것이다.",
+    "이해관계자들이 통화에 참여할 때 그녀는 마감일을 맞추고 있을까요?",
+    "QA 팀이 테스트하는 동안 그녀는 마감일을 맞추고 있지 않을까요?",
+
+    "금요일까지 그녀는 마감일을 지켜 릴리스를 가능하게 할 것이다.",
+    "승인이 또 지연되면 그녀는 마감일을 지키지 못했을 것이다.",
+    "기자회견 전에 그녀는 마감일을 지켜 둘까요?",
+    "클라이언트가 확인할 때쯤 그녀는 마감일을 지키지 못했을까요?",
+
+    "연말이 되면 그녀는 12주 연속 마감일을 지키고 있게 될 것이다.",
+    "자원 문제가 계속되면 한 달 내내 그녀는 마감일을 지키지 못하고 있을 것이다.",
+    "감사 종료 때까지 그녀는 계속 마감일을 지키고 있을까요?",
+    "새 정책이 시행될 즈음 그녀는 몇 주째 마감일을 지키지 않고 있지 않을까요?"
+  ]
+}

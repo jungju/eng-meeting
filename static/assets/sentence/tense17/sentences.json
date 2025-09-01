@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She assesses the software-related risks for the medical device at every design review.",
+    "She does not assess the software-related risks when the input data are incomplete.",
+    "Does she assess the software-related risks before any new sprint starts?",
+    "Doesn't she assess the software-related risks when a defect is re-opened?",
+
+    "She is assessing the software-related risks right now while the hazard analysis team observes.",
+    "She is not assessing the software-related risks because the latest clinical data are still importing.",
+    "Is she assessing the software-related risks on the new insulin-pump firmware this afternoon?",
+    "Isn't she assessing the software-related risks even though the severity rating just increased?",
+
+    "She has assessed the software-related risks for four release candidates this quarter.",
+    "She has not assessed the software-related risks since the cybersecurity patch was merged.",
+    "Has she assessed the software-related risks associated with Bluetooth connectivity?",
+    "Hasn't she assessed the software-related risks for data integrity yet?",
+
+    "She has been assessing the software-related risks all morning without taking a break.",
+    "She has not been assessing the software-related risks because the hazard database is offline.",
+    "Has she been assessing the software-related risks from her home lab since dawn?",
+    "Hasn't she been assessing the software-related risks throughout this verification sprint?",
+
+    "She assessed the software-related risks last night just before submitting the DHF.",
+    "She did not assess the software-related risks yesterday due to a server outage.",
+    "Did she assess the software-related risks after changing the encryption library?",
+    "Didn't she assess the software-related risks once the battery-fault bug was fixed?",
+
+    "She was assessing the software-related risks when the power failure hit the lab.",
+    "She was not assessing the software-related risks that afternoon; she was training new interns instead.",
+    "Was she assessing the software-related risks at three o’clock as planned?",
+    "Wasn't she assessing the software-related risks when the reviewer called?",
+
+    "She had assessed the software-related risks before the notified body requested objective evidence.",
+    "She had not assessed the software-related risks by the time the sprint retrospective began.",
+    "Had she assessed the software-related risks on the legacy code branch?",
+    "Hadn't she assessed the software-related risks before the usability study started?",
+
+    "She had been assessing the software-related risks for hours when the critical vulnerability surfaced.",
+    "She had not been assessing the software-related risks because the requirements kept shifting.",
+    "Had she been assessing the software-related risks throughout the weekend build?",
+    "Hadn't she been assessing the software-related risks until the prototype crashed?",
+
+    "She will assess the software-related risks tomorrow after the code freeze.",
+    "She will not assess the software-related risks tonight if the unit tests still fail.",
+    "Will she assess the software-related risks once the AI module is integrated?",
+    "Won't she assess the software-related risks after the new alarms are configured?",
+
+    "She will be assessing the software-related risks at this time next Wednesday.",
+    "She will not be assessing the software-related risks during the global summit.",
+    "Will she be assessing the software-related risks when the remote team logs in?",
+    "Won't she be assessing the software-related risks while the beta testers run scenarios?",
+
+    "She will have assessed the software-related risks for all safety classes by Friday.",
+    "She will not have assessed the software-related risks if the traceability links remain broken.",
+    "Will she have assessed the software-related risks before the regulatory gateway closes?",
+    "Won't she have assessed the software-related risks by the time the grant is reviewed?",
+
+    "She will have been assessing the software-related risks for twelve hours by the deployment cutoff.",
+    "She will not have been assessing the software-related risks all day if the cloud lab shuts down.",
+    "Will she have been assessing the software-related risks continuously until the MDR submission?",
+    "Won't she have been assessing the software-related risks for weeks when the pilot trial ends?"
+  ],
+  "korean": [
+    "그녀는 모든 설계 검토마다 의료기기 소프트웨어 관련 위험을 평가한다.",
+    "입력 데이터가 불완전하면 그녀는 의료기기 소프트웨어 관련 위험을 평가하지 않는다.",
+    "새 스프린트가 시작될 때마다 그녀는 의료기기 소프트웨어 관련 위험을 평가하나요?",
+    "결함이 재오픈되면 그녀는 의료기기 소프트웨어 관련 위험을 평가하지 않나요?",
+
+    "그녀는 지금 감사관이 원격으로 지켜보는 가운데 의료기기 소프트웨어 관련 위험을 평가하고 있다.",
+    "최신 임상 데이터가 아직 로딩 중이라 그녀는 현재 위험을 평가하지 못하고 있다.",
+    "오늘 오후 새로운 인슐린 펌웨어에서 그녀는 위험을 평가하고 있나요?",
+    "위험도가 상승했는데도 그녀는 소프트웨어 관련 위험을 평가하고 있지 않나요?",
+
+    "그녀는 이번 분기에만 네 가지 하드웨어 버전에 대해 소프트웨어 위험을 평가했다.",
+    "사이버 보안 패치 이후 그녀는 소프트웨어 위험을 평가하지 않았다.",
+    "블루투스 연결과 관련된 위험을 그녀가 평가했나요?",
+    "데이터 무결성 위험은 아직 평가하지 않았나요?",
+
+    "그녀는 아침부터 쉬지 않고 소프트웨어 위험을 평가해 오고 있다.",
+    "요구사항이 수정되어 그녀는 위험을 평가하지 못하고 있다.",
+    "새벽부터 자택 랩에서 그녀는 위험을 평가해 왔나요?",
+    "제출 스프린트 동안 그녀는 계속 위험을 평가하고 있지 않았나요?",
+
+    "그녀는 FDA 제출 직전에 소프트웨어 위험을 평가했다.",
+    "장비 캘리브레이션 실패로 그녀는 어제 위험을 평가하지 못했다.",
+    "암호화 라이브러리를 교체한 후 그녀는 위험을 평가했나요?",
+    "배터리 결함을 수정한 뒤 그녀는 위험을 평가하지 않았나요?",
+
+    "데이터센터 정전이 발생했을 때 그녀는 위험을 평가하고 있었다.",
+    "그 저녁 그녀는 인턴 교육을 하느라 위험을 평가하지 않았다.",
+    "예정대로 세 시에 그녀는 위험을 평가하고 있었나요?",
+    "감사관이 전화했을 때 그녀는 위험을 평가하고 있지 않았나요?",
+
+    "통지기관이 증빙을 요구하기 전에 그녀는 이미 위험을 평가해 두었다.",
+    "스프린트 회고가 시작될 때까지 그녀는 위험을 평가하지 못했다.",
+    "레거시 코드 브랜치에서 위험을 평가했었나요?",
+    "사용성 연구 전에 그녀는 위험을 평가하지 않았었나요?",
+
+    "치명적 취약점이 발견될 때 그녀는 몇 시간째 위험을 평가 중이었다.",
+    "요구사항이 계속 바뀌어 그녀는 위험을 평가하지 못하고 있었다.",
+    "주말 빌드 동안 그녀는 계속 위험을 평가하고 있었나요?",
+    "프로토타입이 다운될 때까지 그녀는 위험을 평가하고 있지 않았나요?",
+
+    "내일 그녀는 코드 프리즈 이후 위험을 평가할 것이다.",
+    "단위 테스트가 실패하면 그녀는 오늘 밤 위험을 평가하지 않을 것이다.",
+    "새 요구사항이 승인되면 그녀는 위험을 평가할까요?",
+    "AI 모듈 통합 후 그녀는 위험을 평가하지 않을까요?",
+
+    "다음 주 수요일 이 시간에 그녀는 위험을 평가하고 있을 것이다.",
+    "글로벌 서밋 동안 그녀는 위험을 평가하고 있지 않을 것이다.",
+    "원격 팀이 접속할 때 그녀는 위험을 평가하고 있을까요?",
+    "베타 테스터가 시나리오를 돌리는 동안 그녀는 위험을 평가하고 있지 않을까요?",
+
+    "금요일까지 그녀는 모든 안전 등급에 대해 위험을 평가해 둘 것이다.",
+    "추적 링크가 깨져 있으면 그녀는 위험을 평가하지 못했을 것이다.",
+    "인증 게이트가 닫히기 전에 그녀는 위험을 평가해 둘까요?",
+    "보조금 심사 때쯤 그녀는 위험을 평가하지 않았을까요?",
+
+    "배포 컷오프 때쯤 그녀는 12시간째 위험을 평가하고 있을 것이다.",
+    "클라우드 랩이 중단되면 그녀는 하루 종일 위험을 평가하지 못할 것이다.",
+    "MDR 제출까지 그녀는 꾸준히 위험을 평가하고 있을까요?",
+    "파일럿 시험이 끝날 즈음 그녀는 몇 주째 위험을 평가하고 있지 않을까요?"
+  ]
+}
