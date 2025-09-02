@@ -14,7 +14,7 @@ import (
 /* ────── ✨ Easily‑tweakable settings (top of file) ✨ ────── */
 var (
 	// Folder that contains sentences.json and where MP3 sub‑folders will be created.
-	basePath = "../static/assets/sentence/story_s6" // 🔄 change as needed
+	basePath = "../static/assets/sentence/story_s7" // 🔄 change as needed
 
 	/* English voice candidates (ElevenLabs voice IDs)
 	   - "XfNU2rGpBa01ckF309OY" : Teacher‑like voice
