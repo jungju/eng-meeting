@@ -50,22 +50,98 @@
 		}))
 	];
 
+	const groupInfo = {
+		JJ: { title: "JJ 세트", description: "대학 과제, 스토리 세트, 일상 문장 모음" },
+		YS: { title: "Yunsol 세트", description: "어휘 연습 · 방학 과제 · 플래시 퀴즈" },
+		"My": { title: "My Practice", description: "직접 만든 문장/대화" },
+		"Grammar Patterns": { title: "Grammar Patterns", description: "패턴 학습, 시제, 분사 연습" },
+		koreng: { title: "Kor-Eng Drill", description: "시제별 문장 · 플래시 · 빈칸 연습" }
+	};
+
+	const typeMeta = {
+		sentence: { label: "Sentence", badge: "badge badge-blue" },
+		sentencemd: { label: "Doc", badge: "badge badge-slate" },
+		dialogue: { label: "Dialogue", badge: "badge badge-purple" },
+		flash: { label: "Flash", badge: "badge badge-amber" },
+		flash2: { label: "Flash+", badge: "badge badge-amber" },
+		blank: { label: "Blank", badge: "badge badge-rose" },
+		tense: { label: "Tense", badge: "badge badge-emerald" }
+	};
+
+	const groupOrder = ["JJ", "YS", "My", "Grammar Patterns", "koreng"];
+
 	const groupedItems = itemsList.reduce((acc, item) => {
-		// @ts-ignore
 		(acc[item.group] ||= []).push(item);
 		return acc;
 	}, {});
+
+	const sections = Object.entries(groupedItems)
+		.map(([groupName, items]) => ({
+			groupName,
+			title: groupInfo[groupName]?.title ?? groupName,
+			description: groupInfo[groupName]?.description ?? "",
+			items: items.slice().sort((a, b) => a.label.localeCompare(b.label))
+		}))
+		.sort((a, b) => {
+			const orderA = groupOrder.indexOf(a.groupName);
+			const orderB = groupOrder.indexOf(b.groupName);
+			if (orderA === -1 && orderB === -1) return a.groupName.localeCompare(b.groupName);
+			if (orderA === -1) return 1;
+			if (orderB === -1) return -1;
+			return orderA - orderB;
+		});
+
+	const linkFor = (item) => `${b}/${item.type}${item.id ? `/${item.id}` : ""}`;
 </script>
 
-{#each Object.entries(groupedItems) as [groupName, items]}
-	<h2 class="text-xl font-bold mt-6 mb-2">{groupName}</h2>
-	<ul class="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-		{#each items as item}
-			<li class="mb-1 text-lg">
-				<a href={`${b}/${item.type}${item.id ? `/${item.id}` : ""}`} class="text-blue-500 hover:underline">
-					{item.label}
-				</a>
-			</li>
-		{/each}
-	</ul>
-{/each}
+<div class="page">
+	{#each sections as section}
+		<section class="group-card">
+			<header class="group-header">
+				<div>
+					<h2>{section.title}</h2>
+					{#if section.description}<p>{section.description}</p>{/if}
+				</div>
+				<span class="badge badge-slate">{section.items.length} sets</span>
+			</header>
+
+			<div class="item-grid">
+				{#each section.items as item}
+					<a class="item-card" href={linkFor(item)}>
+						<div>
+							<p class="item-label">{item.label}</p>
+							<p class="item-id">{item.id ?? "custom"}</p>
+						</div>
+						<span class={typeMeta[item.type]?.badge ?? "badge"}>{typeMeta[item.type]?.label ?? item.type}</span>
+					</a>
+				{/each}
+			</div>
+		</section>
+	{/each}
+</div>
+
+<style>
+:global(body){background:#f7f7fb}
+.page{max-width:960px;margin:0 auto;padding:1.5rem}
+.group-card{background:white;border-radius:1rem;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 15px 35px rgba(15,23,42,.08);border:1px solid rgba(15,23,42,.05)}
+.group-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.group-header h2{font-size:1.4rem;font-weight:700;margin:0;color:#111827}
+.group-header p{margin:.2rem 0 0;color:#6b7280;font-size:.95rem}
+.item-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.item-card{display:flex;flex-direction:column;justify-content:space-between;padding:1rem;border-radius:.75rem;border:1px solid rgba(15,23,42,.08);background:#fff;min-height:120px;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,color .15s ease;border-left:4px solid transparent}
+.item-card:hover{transform:translateY(-3px);box-shadow:0 12px 20px rgba(15,23,42,.12);border-left-color:#3b82f6}
+.item-label{margin:0 0 .5rem;font-size:1.05rem;font-weight:600;color:#0f172a}
+.item-id{margin:0;color:#9ca3af;font-size:.9rem}
+.badge{display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600;padding:.15rem .55rem;border-radius:999px;background:#e5e7eb;color:#374151;text-transform:uppercase;letter-spacing:.04em}
+.badge-blue{background:#dbeafe;color:#1d4ed8}
+.badge-slate{background:#e2e8f0;color:#475569}
+.badge-purple{background:#e9d5ff;color:#6b21a8}
+.badge-amber{background:#fde68a;color:#b45309}
+.badge-rose{background:#ffe4e6;color:#be123c}
+.badge-emerald{background:#d1fae5;color:#047857}
+@media (max-width:640px){
+	.page{padding:1rem}
+	.group-card{padding:1.25rem}
+	.item-card{min-height:100px}
+}
+</style>
