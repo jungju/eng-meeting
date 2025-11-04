@@ -23,19 +23,46 @@ $:buttons=[{id:"play",icon:p?"⏸":"▶"},{id:"repeat",text:"반복:"+(r==="none
 function onBarClick(e:CustomEvent<{id:string}>){switch(e.detail.id){case"play":tPlay();break;case"repeat":tRepeat();break;case"count":tOpt();break;case"disp":tDisp();break;case"audio":tAudio();break;case"gap":tGap();break;case"sleep":tSleep();break}}
 </script>
 
-<div class="list" style={`position:absolute;top:50px;left:0;right:0;bottom:${listBtm};overflow-y:auto`}>{#if s.length}{#each s as t,i}<div id={`s-${i}`} role="button" tabindex="0" on:click={()=>play(i)} on:keydown={(e)=>["Enter"," "].includes(e.key)&&play(i)} style={`position:relative;padding:1rem;margin:.5rem 0;border-radius:.5rem;cursor:pointer;background:${p&&i===idx?(repCnt+1===rep?"#ffe3e3":"#d0ebff"):"#f9f9f9"};${p&&i===idx?"font-weight:bold;":""}`}><div style="display:flex;align-items:center"><span style="margin-right:.5rem;color:#6b7280;font-weight:bold">{i+1}.</span><div style="flex:1 1 auto"><div style={`font-size:3.2rem;display:${display==="hideEng"?"none":"block"}`}>{t}</div><div style={`font-size:3.2rem;color:#374151;margin-top:.25rem;display:${display==="hideKor"?"none":"block"}`}>{k[i]}</div></div></div>{#if (p&&i===idx)}<span style="position:absolute;right:8px;top:8px;font-size:1.2rem;opacity:.7">{repCnt+1}</span>{/if}</div>{/each}{:else}<p style="padding:1rem">로딩...</p>{/if}</div>
+<div class="list" style={`--list-bottom:${listBtm}`}>{#if s.length}{#each s as t,i}
+	<div
+		id={`s-${i}`}
+		class={`sentence-card ${p&&i===idx?"active":""}`}
+		role="button"
+		tabindex="0"
+		on:click={()=>play(i)}
+		on:keydown={(e)=>["Enter"," "].includes(e.key)&&play(i)}>
+		<div class="card-head">
+			<span class="card-index">{i+1}.</span>
+			<div class="card-lines">
+				<p class={`line en ${display==="hideEng"?"hidden":""}`}>{t}</p>
+				<p class={`line ko ${display==="hideKor"?"hidden":""}`}>{k[i]}</p>
+			</div>
+		</div>
+		{#if (p&&i===idx)}<span class="rep-pill">{repCnt+1}</span>{/if}
+	</div>
+{/each}{:else}<p class="loading">로딩...</p>{/if}</div>
 
 <ControlBar {buttons} on:click={onBarClick} on:toggle={(e)=>show=e.detail.visible}/>
 <audio bind:this={player} playsinline preload="auto" style="display:none"/>
 
 <style>
-.list{position:absolute;top:50px;left:0;right:0;bottom:env(safe-area-inset-bottom);overflow-y:auto}
-.sent{padding:1rem;margin:0.5rem 0;border-radius:0.5rem;background:#f9f9f9;cursor:pointer}
-.act{background:#d0ebff;font-weight:bold}
-.ln{display:flex;align-items:center}
-.idx{margin-right:0.5rem;color:#6b7280;font-weight:bold}
-.en,.ko{font-size:3.2rem}
-.ko{color:#374151;margin-top:.25rem}
-.ex{font-size:2.6rem;color:#6b7280;margin-top:.25rem}
-.hidden{display:none}
+.list{position:absolute;top:50px;left:0;right:0;bottom:var(--list-bottom);overflow-y:auto;padding:0 1rem 1.5rem}
+.sentence-card{position:relative;margin:.5rem 0;padding:1rem 1.25rem;border-radius:1rem;background:#fff;border:1px solid rgba(15,23,42,.08);box-shadow:0 6px 15px rgba(15,23,42,.06);cursor:pointer;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.sentence-card:hover{transform:translateY(-3px);box-shadow:0 12px 20px rgba(15,23,42,.12)}
+.sentence-card.active{border-color:#2563eb;box-shadow:0 15px 30px rgba(37,99,235,.25)}
+.card-head{display:flex;align-items:flex-start;gap:.75rem}
+.card-index{font-weight:700;color:#6b7280;font-size:1.6rem;line-height:1}
+.card-lines{flex:1 1 auto}
+.line{margin:0;font-size:2.6rem;line-height:1.2;color:#111827;word-break:keep-all}
+.line+ .line{margin-top:.35rem}
+.line.ko{color:#374151;opacity:.85}
+.line.hidden{display:none}
+.rep-pill{position:absolute;right:1rem;top:.9rem;background:#111827;color:#fff;font-size:.95rem;font-weight:600;padding:.2rem .6rem;border-radius:999px;opacity:.85}
+.loading{padding:1.5rem;text-align:center;color:#6b7280}
+@media (max-width:640px){
+	.list{padding:0 .5rem 1rem}
+	.sentence-card{padding:.9rem 1rem}
+	.line{font-size:2rem}
+	.card-index{font-size:1.4rem}
+}
 </style>
