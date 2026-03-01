@@ -14,10 +14,13 @@
   const routeMeta = derived(page, ($page): Meta => {
     const path = $page.url.pathname;
     const [, section = '', id = ''] = path.split('/');
-    if (section === 'dialogue') return { icon: '🎧', title: 'Dialogue Player', detail: id };
-    if (section === 'sentence') return { icon: '📝', title: 'Sentence Trainer', detail: id };
-    if (section === 'flash2') return { icon: '⚡', title: 'Flash v2', detail: id };
-    if (section === 'flash') return { icon: '⚡', title: 'Flash v1', detail: id };
+    if (section === 'dialogue') return { icon: '💬', title: 'Dialogue Trainer', detail: id };
+    if (section === 'sentence') return { icon: '🗣️', title: 'Sentence Trainer', detail: id };
+    if (section === 'flash2') return { icon: '⚡', title: 'Flash+', detail: id };
+    if (section === 'flash') return { icon: '⚡', title: 'Flash', detail: id };
+    if (section === 'blank') return { icon: '⬜', title: 'Blank Quiz', detail: id };
+    if (section === 'sentencemd') return { icon: '📄', title: 'Document Reader', detail: id };
+    if (section === 'tense') return { icon: '🗓️', title: 'Tense Trainer' };
     return { icon: '🏠', title: 'Home' };
   });
 
@@ -35,18 +38,20 @@
 <div class="app-shell">
   <header class="app-header">
     <div class="title-block">
-      <p class="eyebrow">Eng Meet</p>
+      <p class="eyebrow">Eng Meeting</p>
       <div class="title-line">
         <span class="title-icon">{$routeMeta.icon}</span>
         <h1>{$routeMeta.title}</h1>
-        {#if $routeMeta.detail}<span class="subtitle">세트: {$routeMeta.detail}</span>{/if}
+        {#if $routeMeta.detail}
+          <span class="subtitle">Set: {$routeMeta.detail}</span>
+        {/if}
       </div>
     </div>
     <div class="header-actions">
-      <button class="ghost-btn" type="button" on:click={goBack}>← 뒤로</button>
+      <button class="ghost-btn" type="button" on:click={goBack}>Back</button>
       <button class="home-btn" type="button" on:click={goHome}>
         <span class="icon">🏠</span>
-        <span>홈으로</span>
+        <span>Home</span>
       </button>
     </div>
   </header>

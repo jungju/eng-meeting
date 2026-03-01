@@ -147,19 +147,20 @@
   const replay = (i:number)=> play(i,false);
 
   /* ───── 버튼 정의 ───── */
-  $: cntLabel   = limit < 0 ? "전체" : `${limit}개`;
+
+  $: cntLabel   = limit < 0 ? 'ALL' : 'Limit ' + limit + ' items';
   $: isActive   = playing || waiting;
-  $: gapLabel   = gap < 0 ? "∞" : `${gap/1000}s`;
-  $: hintLabel  = `H${hintLevel}`;
-  $: langLabel  = useKor ? "한" : "영";
-  $: hideLabel  = hideSentence ? "보기" : "가리기";
+  $: gapLabel   = gap < 0 ? 'OFF' : `${gap / 1000}s`;
+  $: hintLabel  = 'Hint ' + hintLevel;
+  $: langLabel  = useKor ? 'Korean' : 'English';
+  $: hideLabel  = hideSentence ? 'Sentence hidden' : 'Sentence visible';
   $: buttons = [
-    { id:"start", icon:isActive ? "⏹" : "▶" },
-    { id:"count", text:`출제:${cntLabel}` },
-    { id:"hint",  text:hintLabel, active:hintLevel>0 },
-    { id:"lang",  text:langLabel },
-    { id:"hide",  text:hideLabel },
-    { id:"gap",   text:gapLabel }
+    { id:'start', text: isActive ? 'Stop' : 'Start' },
+    { id:'count', text:'Count: ' + cntLabel },
+    { id:'hint',  text:hintLabel, active:hintLevel>0 },
+    { id:'lang',  text:langLabel },
+    { id:'hide',  text:hideLabel },
+    { id:'gap',   text:'Gap: ' + gapLabel }
   ];
 
   function onBarClick(e: CustomEvent<{id:string;backward?:boolean}>) {
@@ -201,15 +202,16 @@
       {/if}
     </div>
 
-    <button class="next-btn" on:click={nextRandom}>NEXT ⏭</button>
+    <button class="next-btn" on:click={nextRandom}>Next</button>
   {:else}
     <div class="result-list">
-      <h2>재생 순서 (클릭·Enter로 다시 듣기)</h2>
+      <h2>Completed - press Enter to retry</h2>
       {#each playedOrder as i, n}
         <div
           class="result-item" role="button" tabindex="0"
           on:click={() => replay(i)}
-          on:keydown={(e)=>["Enter"," "].includes(e.key)&& (e.preventDefault(), replay(i))}>
+          on:keydown={(e)=>["Enter", " "] .includes(e.key) && (e.preventDefault(), replay(i))}
+        >
           <span class="num">{n+1}.</span>
           <span class="eng txt">{s[i]}</span>
           <span class="kor txt">{k[i]}</span>
@@ -218,7 +220,6 @@
     </div>
   {/if}
 </main>
-
 <ControlBar {buttons} on:click={onBarClick}/>
 <audio bind:this={player} playsinline preload="auto"/>
 

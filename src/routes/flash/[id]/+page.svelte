@@ -106,19 +106,20 @@
   function toggleShow() { show = show === 'none' ? 'eng' : show === 'eng' ? 'kor' : 'none'; }
   function setGap(ms: number) { gap = ms; if (waiting) { clearInterval(timer); waiting = false; remain = 0; } }
 
-  /* ───── ControlBar 동적 버튼 ───── */
-$: showLabel = show === 'none'
-  ? '표시:없음'
-  : show === 'eng'
-    ? '표시:영어'
-    : '표시:한글';
+  $: showLabel = show === 'none'
+    ? 'Show Mode: EN + KR'
+    : show === 'eng'
+      ? 'Show Mode: English'
+      : 'Show Mode: Korean';
 
-$: gapLabel  = gap < 0 ? '무제한' : `${gap/1000}s`;
+  $: gapLabel = gap < 0 ? 'OFF' : `${gap / 1000}s`;
 
-$: buttons = [
-  { id: 'stop',  icon: '⏹' },              // 멈춤
-  { id: 'show',  text: showLabel },        // 표시 토글
-  { id: 'gap',   text: `간격:${gapLabel}` }// 간격 토글
+  $: isActive = playing || waiting;
+
+  $: buttons = [
+    { id: 'stop', text: isActive ? 'Stop' : 'Start / Resume' },
+    { id: 'show', text: showLabel },
+    { id: 'gap', text: 'Gap: ' + gapLabel }
 ];
 
 function onBarClick(e: CustomEvent<{ id: string }>) {
@@ -146,7 +147,7 @@ function onBarClick(e: CustomEvent<{ id: string }>) {
 
   {#if finished}
     <div class="result-list">
-      <h2>재생 순서 (클릭·Enter로 다시 듣기)</h2>
+      <h2>Completed - press Enter to restart</h2>
       {#each playedOrder as i,n}
         <div class="result-item" role="button" tabindex="0" on:click={()=>play(i,false)} on:keydown={(e)=>{if(['Enter',' '].includes(e.key)){e.preventDefault();play(i,false);}}}>
           <span class="num">{n+1}.</span>

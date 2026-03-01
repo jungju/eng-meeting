@@ -22,7 +22,7 @@ let idx = -1, order = 0, finished = false, blankPtr = 0, correctCnt = 0, totalBl
 $: score = totalBlanks ? Math.round((correctCnt / totalBlanks) * 100) : 0;
 
 let remaining = 0, timer: ReturnType<typeof setInterval> | undefined;
-$: showTime = timeLimit < 0 ? "∞" : `${remaining}s`;
+$: showTime = timeLimit < 0 ? "OFF" : `${remaining}s`;
 
 const playedSet = new Set<number>(), playedOrder: number[] = [];
 
@@ -108,12 +108,12 @@ function restart() {
   blankChoices = [];
 }
 
-$: buttons = [
-  { id: "start", icon: idx === -1 ? "▶" : "⏹" },
-  { id: "count", text: limit < 0 ? "전체" : `${limit}개` },
-  { id: "time", text: timeLimit < 0 ? "∞" : `${timeLimit}s` }
-];
 
+$: buttons = [
+  { id: "start", text: idx === -1 ? "Start" : "Stop" },
+  { id: "count", text: limit < 0 ? "Count: ALL" : "Count: " + limit + " items" },
+  { id: "time", text: `Time: ${timeLimit < 0 ? "OFF" : `${timeLimit}s`}` }
+];
 function handleBar(e: CustomEvent<{ id: string }>) {
   const { id } = e.detail;
   if (id === "start") idx === -1 ? next() : restart();
@@ -178,8 +178,8 @@ function handleBar(e: CustomEvent<{ id: string }>) {
     {/if}
   {:else}
     <div class="result-list">
-      <h2>정답 : {correctCnt} / {totalBlanks}</h2>
-      <h2>점수 : {score}점</h2>
+      <h2>Correct: {correctCnt} / {totalBlanks}</h2>
+      <h2>Accuracy: {score}%</h2>
     </div>
   {/if}
 </main>
