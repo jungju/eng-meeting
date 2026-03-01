@@ -18,8 +18,21 @@ const tGap=()=>gap=(gap+1)%gaps.length;
 const tShow=()=>show=!show;
 const stopPlayback=()=>{player?.pause();p=false;q=[];gapT&&clearTimeout(gapT)};
 const tSleep=()=>{if(!sleep){prevRepeat=r;r="all";sleep=true;sleepT&&clearTimeout(sleepT);sleepT=setTimeout(()=>{stopPlayback();sleep=false;sleepT=null;r=prevRepeat},18e5)}else{sleep=false;sleepT&&clearTimeout(sleepT);sleepT=null;r=prevRepeat}};
-$:gapLabel=gap?gaps[gap]/1e3+"s":"즉시";$:dispLbl=display==="both"?"한/영":display==="hideKor"?"영":"한";$:audLbl=audio==="eng"?"영":audio==="kor"?"한":"모두";$:sleepLbl=sleep?"슬립ON":"슬립OFF";
-$:buttons=[{id:"play",icon:p?"⏸":"▶"},{id:"repeat",text:"반복:"+(r==="none"?"없음":r==="one"?"문장":"전체")},{id:"count",text:"횟수:"+rep+"x",active:true},{id:"disp",text:dispLbl},{id:"audio",text:"음성:"+audLbl},{id:"gap",text:"간격:"+gapLabel},{id:"sleep",text:sleepLbl,active:sleep}];
+$:gapLabel = gap ? `${gaps[gap] / 1000}s` : '항목간 간격 없음';
+$:dispLbl =
+  display === 'both' ? '영문/한글' : display === 'hideKor' ? '영문만' : '한글만';
+$:audLbl =
+  audio === 'eng' ? '영어' : audio === 'kor' ? '한글' : '영어+한글';
+$:sleepLbl = sleep ? '휴식 ON' : '휴식 OFF';
+$:buttons = [
+  { id: 'play', text: p ? '일시정지' : '재생' },
+  { id: 'repeat', text: `반복:${r === 'none' ? '한 번' : r === 'one' ? '항목 반복' : '전체 반복'}` },
+  { id: 'count', text: `반복 횟수:${rep}x`, active: true },
+  { id: 'disp', text: `표시: ${dispLbl}` },
+  { id: 'audio', text: `음성: ${audLbl}` },
+  { id: 'gap', text: `간격: ${gapLabel}` },
+  { id: 'sleep', text: sleepLbl, active: sleep },
+];
 function onBarClick(e:CustomEvent<{id:string}>){switch(e.detail.id){case"play":tPlay();break;case"repeat":tRepeat();break;case"count":tOpt();break;case"disp":tDisp();break;case"audio":tAudio();break;case"gap":tGap();break;case"sleep":tSleep();break}}
 </script>
 
