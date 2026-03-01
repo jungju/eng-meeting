@@ -1,158 +1,219 @@
 # eng-meeting
 
-실생활 영어 학습 웹앱 — 문장 반복, 플래시 퀴즈, 빈칸 채우기, 대화 연습
+직장/일상 영어 실전 회화 학습을 위한 **SvelteKit 웹 앱**입니다.
+각 페이지에서 학습 방식은 다르지만, 공통적으로 `static/assets`의 JSON/오디오 자원을 불러와 반복 학습과 즉시 판정 중심으로 동작합니다.
 
 Live: **https://study.jjgo.io**
 
 ---
 
-## 무엇을 하는 앱인가
+## 1) 프로젝트 한눈보기
 
-직장·일상에서 실제 쓰는 영어 문장을 **듣고, 반복하고, 테스트**하는 개인 학습 도구입니다.
+- **홈 화면**: 학습 세트(아이템 묶음) 목록 표시 및 타입별 진입
+- **공통 구조**: 화면은 Svelte, 핵심 로직은 `src/lib/engine/*`의 순수 함수
+- **데이터 기반**: `static/assets`의 정적 자원(JSON/MP3/이미지)
 
-- 문장 카드를 넘기며 영어/한국어 음성 반복 재생
-- 플래시 퀴즈로 랜덤 출제 + 힌트 마스킹
-- 빈칸 채우기로 능동적 문장 완성 연습
-- 대화 시뮬레이션으로 롤플레이 학습
-- 시제별 집중 훈련 모드
+### 페이지 타입(라우트)
 
-딸의 영어 공부에도 함께 쓰고 있어서, UX를 단순하게 유지합니다.
-
----
-
-## 학습 모드
-
-| 모드 | 경로 | 설명 |
+| 타입 ID | 라우트 | 설명 |
 |---|---|---|
-| **Sentence** | `/sentence/[id]` | 영어·한국어 문장 카드, 음성 반복 재생, 표시 토글 |
-| **Flash** | `/flash/[id]` | 랜덤 출제, 시간 카운트다운, 결과 리스트 |
-| **Flash+** | `/flash2/[id]` | 힌트 마스킹(5단계), 언어·문장 숨김 토글 |
-| **Blank** | `/blank/[id]` | 빈칸 채우기, 10지선다, 점수 계산 |
-| **Dialogue** | `/dialogue/[id]` | 대화 시뮬레이션, 화자별 음성 재생 |
-| **Tense** | `/tense` | 시제별 문장 테이블, 빈칸·추측 모드 |
-| **Sentence MD** | `/sentencemd/[id]` | 마크다운 기반 문장 + 음성 연동 |
+| `sentence` | `/sentence/[id]` | 문장 반복 학습(영문/한글 표시 토글, 재생 제어) |
+| `flash` | `/flash/[id]` | 랜덤 선택형 플래시(간격 조절) |
+| `flash2` | `/flash2/[id]` | 힌트 레벨/숨김 토글이 있는 확장형 플래시 |
+| `blank` | `/blank/[id]` | 빈칸 채우기 퀴즈(다지선다) |
+| `dialogue` | `/dialogue/[id]` | 대화 음성 연습(화자/사진 포함) |
+| `tense` | `/tense` | 시제 표 기반 연습(Q1/Q2 모드) |
+| `sentencemd` | `/sentencemd/[id]` | 마크다운 기반 문서 + 라인별 음성 매칭 |
+
+> 홈 화면 타입 라벨은 `src/lib/engine/navigation.ts`의 `TYPE_META`에서 관리합니다.
 
 ---
 
-## 기술 스택
+## 2) 용어 정리(권장 표기)
 
-| 영역 | 기술 |
-|---|---|
-| 프레임워크 | SvelteKit 2 + Svelte 5 |
-| 스타일링 | Tailwind CSS 4 |
-| 빌드 | Vite 7 |
-| 언어 | TypeScript |
-| 배포 | GitHub Pages (Static Adapter) |
-| 유닛 테스트 | Vitest |
-| E2E 테스트 | Playwright |
-| 음성 | ElevenLabs TTS (Go 스크립트로 생성) |
+### 2-1. 학습 객체/흐름
+
+- **세트(Set)**: 한 주제의 학습 묶음 (`ysword1`, `story_s1` 등)
+- **항목(Item)**: 세트 내 하나의 문장/문항
+- **카드(Card)**: 화면에서 보여지는 하나의 문장 블록
+- **라운드(Round)**: 세트 내 출제 반복의 한 흐름 구간
+- **세션(Session)**: 현재 플레이 상태(현재 인덱스, 반복 상태, 타이머 등)
+
+### 2-2. 상태/모드 용어
+
+- **표시 모드(Display)**
+  - `both`: 영문+한글 모두 표시
+  - `hideKor`: 한글 가림
+  - `hideEng`: 영문 가림
+- **음성 언어(Audio Language)**
+  - `eng`: 영어 음성
+  - `kor`: 한국어 음성
+  - `both`: 영어→한국어 연속 재생
+- **반복 모드(Repeat Mode)**
+  - `none`: 현재 항목 1회
+  - `one`: 항목 반복 횟수만큼 반복
+  - `all`: 세트 전체 순환 반복
+- **카운트 제한(Count)**: `10 / 20 / 50 / -1(전체)`
+- **갭 간격(Gap)**: 다음 항목 시작 전 대기 초
+- **타이머(Time Limit)**: 문제형에서 남은 시간
+- **힌트(Hint)**: 가림/노출 단계(Flash+/빈칸 문제에서 사용)
+
+### 2-3. 점검/결과 용어
+
+- **빈칸(Blank)**: 답안 가림 표시 (`_`)
+- **정답/오답(Correct/Wrong)**: 즉시 판정
+- **점수(Score)**: `정답 수 / 전체 정답 수 * 100`
+- **결과 목록(Result List)**: 종료 후 재복습 가능한 항목 목록
 
 ---
 
-## 프로젝트 구조
+## 3) 페이지별 상세 용어 정리
 
-```
+### Sentence (`/sentence/[id]`)
+- **용어**: 문장 반복, 표시 토글, 언어 토글, 반복 모드
+- **컨트롤**: 재생, 반복, 횟수, 표시, 음성언어, 간격, 취침모드
+- **특징**: 영문/한글 동시에 재생 큐 지원
+
+### Flash (`/flash/[id]`)
+- **용어**: 랜덤 출제, 재생 모드, 결과 복습
+- **컨트롤**: 시작/정지, 표시(영/한/숨김), 갭 간격
+- **특징**: `ALL` 진행 완료 후 결과 리스트
+
+### Flash+ (`/flash2/[id]`)
+- **용어**: 제한 개수(count), 힌트 레벨, 언어 모드, 문장 숨김
+- **컨트롤**: 시작/정지, 개수, 힌트, 언어, 숨김, 갭
+- **특징**: 같은 문장을 다양한 힌트 레벨로 반복 암기
+
+### Blank (`/blank/[id]`)
+- **용어**: 빈칸 생성, 보기 선택, 정답 판정, 정답률
+- **컨트롤**: 시작/정지, 개수, 제한 시간
+- **특징**: 문장 단위로 여러 빈칸을 순차 정답 처리
+
+### Dialogue (`/dialogue/[id]`)
+- **용어**: 대사 세그먼트, 연속 재생, 화자 사진
+- **컨트롤**: 재생/일시정지, 반복(없음/전체/세그먼트), 한글 ON/OFF, 글자 크기, 사진 ON/OFF
+- **특징**: 대사 클릭 재생 + 좌/우 연속 재생 흐름
+
+### Tense (`/tense`)
+- **용어**: 시제 훈련, Q1(빈칸), Q2(추측), 정보셋 전환
+- **컨트롤**: 개별 재생, 전체 재생, 모드 전환(Q1/Q2), 정답 표시
+- **특징**: 동사시제 표를 통한 구조적 반복 학습
+
+### Sentence MD (`/sentencemd/[id]`)
+- **용어**: 문서 라인, 라인 매칭 오디오, 한글 제거
+- **컨트롤**: 재생, 반복(없음/전체/단일항목), 글자 크기, 한글 제거
+- **특징**: 마크다운 라인을 음성과 연결한 텍스트-리스닝 연습
+
+---
+
+## 4) 코드 기준으로 읽는 실행 흐름(요약)
+
+### 공통 엔진
+
+- `sentence.ts`: 표시/언어/반복/타이밍 유틸
+- `flash.ts`: 랜덤 출제, 마스킹, 완독 판단
+- `blank.ts`: 빈칸 생성, 보기 생성, 채점, 점수 계산
+- `navigation.ts`: 홈 리스트 데이터 구조(`TYPE_META`)와 그룹/타입 라우팅
+
+### 홈/목록
+
+`src/routes/+page.svelte`의 `itemsList`에서 세트 메타데이터를 관리합니다.
+타입별로 `type` 값이 라우트와 연결되며, 그룹별 분류는 `group` 값으로 구분합니다.
+
+---
+
+## 5) 프로젝트 구조
+
+```text
 src/
 ├── lib/
-│   ├── engine/              ← 비즈니스 로직 (순수 함수)
-│   │   ├── sentence.ts      ← 문장 재생 엔진
-│   │   ├── flash.ts         ← 플래시 퀴즈 엔진
-│   │   ├── blank.ts         ← 빈칸 채우기 엔진
-│   │   ├── navigation.ts    ← 내비게이션/그룹 로직
-│   │   ├── *.spec.ts        ← 각 모듈의 스펙 테스트
-│   │   └── index.ts         ← 배럴 export
-│   └── components/          ← 공용 컴포넌트 (ControlBar 등)
-├── routes/                  ← 페이지 (engine을 import해서 사용)
-│   ├── +page.svelte         ← 홈 (학습 세트 목록)
-│   ├── sentence/[id]/       ← 문장 반복 학습
-│   ├── flash/[id]/          ← 플래시 퀴즈
-│   ├── flash2/[id]/         ← 플래시+ (힌트 마스킹)
-│   ├── blank/[id]/          ← 빈칸 채우기
-│   ├── dialogue/[id]/       ← 대화 롤플레이
-│   └── tense/               ← 시제 훈련
-├── test/                    ← Vitest 설정 & $app 모킹
-e2e/                         ← Playwright E2E 테스트
-static/assets/               ← 학습 데이터 (JSON + MP3)
-utils/                       ← Go 기반 음성 생성 도구
+│   ├── components/
+│   └── engine/
+│       ├── sentence.ts
+│       ├── flash.ts
+│       ├── blank.ts
+│       ├── navigation.ts
+│       ├── index.ts
+│       └── *.spec.ts
+├── routes/
+│   ├── +page.svelte
+│   ├── sentence/[id]/+page.svelte
+│   ├── flash/[id]/+page.svelte
+│   ├── flash2/[id]/+page.svelte
+│   ├── blank/[id]/+page.svelte
+│   ├── dialogue/[id]/+page.svelte
+│   ├── tense/+page.svelte
+│   └── sentencemd/[id]/+page.svelte
+
+test/
+├── e2e/
+└── utils/
+
+static/
+└── assets/
+    ├── sentence/
+    ├── dialogue/
+    ├── sentencemd/
+    └── tense/
 ```
 
 ---
 
-## 시작하기
+## 6) 실행 방법
 
 ```bash
-# 의존성 설치
-yarn install
-
-# 개발 서버 (http://localhost:8088)
-yarn dev
-
-# 빌드
-yarn build
-
-# 배포
-yarn deploy
+npm install
+npm run dev
+npm run test
+npm run test:watch
+npm run test:e2e
+npm run test:all
+npm run build
 ```
 
----
-
-## 테스트
-
-Spec 주도 개발을 따릅니다. 자세한 가이드는 [AGENTS.md](AGENTS.md)를 참고하세요.
-
-```bash
-# 유닛 테스트
-yarn test
-
-# 감시 모드 (파일 변경 시 자동 실행)
-yarn test:watch
-
-# E2E 테스트
-yarn test:e2e
-
-# 전체 테스트 (유닛 + E2E)
-yarn test:all
-```
-
-현재 **71개 유닛 테스트**, **4개 E2E 시나리오**가 있습니다.
+현재 기준 테스트: 4개 엔진 spec + 71개 유닛 테스트(구성 변경 시 갱신).
 
 ---
 
-## 개발 원칙
+## 7) 새 콘텐츠 추가 가이드(정리용)
 
-1. **Spec First** — 기능 구현 전에 테스트를 먼저 작성
-2. **Engine 분리** — 비즈니스 로직은 `src/lib/engine/`에 순수 함수로 작성
-3. **컴포넌트는 UI만** — Svelte 파일에 알고리즘/계산 로직을 넣지 않음
-4. **Red → Green → Refactor** — 실패 → 통과 → 개선 순서
+### 문장/퀴즈형
+
+1. `static/assets/sentence/<set-id>/sentences.json` 생성
+2. `audio/` 및 필요 시 `audiok/` 업로드
+3. 홈의 `itemsList`에 `type`(`sentence|flash|flash2|blank`)과 `group` 지정
+
+### 대화형
+
+1. `static/assets/dialogue/<set-id>/dialogue.json` 생성
+2. `audio/`, 화자 이미지 추가
+3. `itemsList`에 `type: "dialogue"` 지정
+
+### 문서형
+
+1. `static/assets/sentencemd/<set-id>/main.md` 및 `sentences.json` 생성
+2. 라인 텍스트와 오디오 파일명 매핑 정리
+3. `itemsList`에 `type: "sentencemd"` 지정
 
 ---
 
-## 콘텐츠 추가
+## 8) 추천 용어(문서 통일용)
 
-### 새 문장 세트 추가
-
-1. `static/assets/sentence/새세트/sentences.json` 작성:
-   ```json
-   { "sentences": ["Hello.", "How are you?"], "korean": ["안녕.", "어떻게 지내?"] }
-   ```
-2. `utils/`의 Go 스크립트로 음성 파일 생성
-3. `src/routes/+page.svelte`의 `itemsList`에 항목 추가
-
-### 새 학습 모드 추가
-
-1. `src/lib/engine/새모드.spec.ts` — 테스트 먼저 작성
-2. `src/lib/engine/새모드.ts` — 순수 함수 구현
-3. `src/lib/engine/index.ts` — re-export 추가
-4. `src/routes/새모드/[id]/+page.svelte` — UI 연결
-5. `e2e/새모드.spec.ts` — E2E 테스트 추가
+- Blank: 빈칸 퀴즈
+- Flash: 랜덤 반복 학습
+- Flash+: 힌트 플래시 학습
+- Sentence: 문장 반복 학습
+- Tense: 시제 퀴즈
+- Gap: 항목 간 간격
+- Count: 출제 개수 제한(전체=-1)
+- Hint: 힌트 레벨
+- Result: 결과 목록
 
 ---
 
 ## Author
 
 **Jungju Lee** — Medical AI / Platform / DevOps Engineer
-
----
 
 ## License
 
