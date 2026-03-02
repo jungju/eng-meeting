@@ -70,7 +70,7 @@ async function play(i: number) {
   audio.onended = () => {
     if (repeatMode === 'one') play(i);
     else if (repeatMode === 'all') play(nextPlayable(i + 1) !== -1 ? nextPlayable(i + 1) : nextPlayable(0));
-    else {                       // repeatMode === 'none'
+    else {
       const n = nextPlayable(i + 1);
       n !== -1 ? play(n) : (isPlaying = false);
     }
@@ -97,30 +97,30 @@ const stripKo = (t: string) => t.replace(koRegex, '');
 
 <div>
   {#each lines as s, i}
-    <p
+    <button
       id={"s-" + i}
-      class="{current===i?'highlight':s.isMatched?'matched':''} {largeText?'large':'normal'}"
+      class="line-item {current===i?'highlight':s.isMatched?'matched':''} {largeText?'large':'normal'}"
       on:click={() => play(i)}
-    >
+      type="button">
       {@html hideKorean ? marked(stripKo(s.text)) : s.html}
-    </p>
+    </button>
   {/each}
 </div>
 
 <div class="controls">
-  <button on:click={togglePlay}>{isPlaying?'⏸️':'▶️'}</button>
+  <button on:click={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
   <button on:click={toggleRepeat}>
-    {repeatMode==='none'?'🔁 없음':repeatMode==='all'?'🔁 전체':'🔂 한 문장'}
+    {repeatMode==='none'?'No repeat':repeatMode==='all'?'Repeat all':'Repeat one'}
   </button>
-  <button on:click={toggleSize}>{largeText?'기본':'크게'}</button>
-  <button on:click={() => hideKorean=!hideKorean}>{hideKorean?'한글 보기':'영어만 보기'}</button>
+  <button on:click={toggleSize}>{largeText ? 'Normal' : 'Large'}</button>
+  <button on:click={() => hideKorean=!hideKorean}>{hideKorean ? 'Show Korean' : 'Hide Korean'}</button>
 </div>
-
 <style>
-p{margin:0;padding:2px 4px;cursor:pointer;line-height:1.1}
+.line-item{margin:0;padding:2px 4px;cursor:pointer;line-height:1.1;width:100%;text-align:left;border:0;background:transparent;color:inherit;}
 .normal{font-size:18px}.large{font-size:24px}
 .highlight{background:#fffae6}.matched{background:#e0f7fa}
 .controls{position:fixed;bottom:0;left:0;right:0;padding:8px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
           background:#f5f5f5;border-top:1px solid #ccc}
 .controls button{padding:6px 12px;font-size:15px}
 </style>
+

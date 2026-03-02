@@ -221,7 +221,7 @@
   {/if}
 </main>
 <ControlBar {buttons} on:click={onBarClick}/>
-<audio bind:this={player} playsinline preload="auto"/>
+<audio bind:this={player} playsinline preload="auto"></audio>
 
 <style>
 /* 기존 스타일 그대로 (생략 없이 유지) */
@@ -245,3 +245,4 @@
 .result-item .kor{flex:1 1 40%;color:#374151}
 audio{display:none}
 </style>
+

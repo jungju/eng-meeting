@@ -19,7 +19,7 @@ let showPhoto = true;
 
 let player: HTMLAudioElement;
 
-$: id = $page.url.pathname.match(/\/dialogue\/([^\/]+)/)?.[1] || '';
+$: id = $page.url.pathname.match(/\/dialogue\/([^/]+)/)?.[1] || '';
 $: ASSET_BASE = `${base}/assets/dialogue/${id}`;
 
 onMount(async () => {
@@ -80,7 +80,7 @@ function handleImgError(e: Event) {
 
 $: buttons = [
     { id: 'play',   icon: playing ? '⏸' : '▶' },
-    { id: 'repeat', text: `반복:${repeatMode==='none'?'없음':repeatMode==='all'?'전체':'구간'}` },
+    { id: 'repeat', text: `반복:${repeatMode==='none'?'끄기':repeatMode==='all'?'전체':'구간'}` },
     { id: 'kor',    text: showKorean ? '한글 ON' : '한글 OFF' },
     { id: 'size',   text: '크기' },
     { id: 'photo',  text: showPhoto ? '사진 ON' : '사진 OFF' }
@@ -104,6 +104,7 @@ $: buttons = [
         <div class="label">{persons[conv[idx]?.speaker]?.name || ''}</div>
         <img
           src={conv[idx]?.speaker ? `${ASSET_BASE}/${conv[idx].speaker}.webp` : `${ASSET_BASE}/ready.webp`}
+          alt={persons[conv[idx]?.speaker]?.name || 'dialogue photo'}
           on:error={handleImgError}
         />
       </div>
@@ -114,7 +115,10 @@ $: buttons = [
         <div
           id={`segment-${i}`}
           class="seg {i === idx ? 'active' : ''}"
-          on:click={() => playSeg(i)}>
+          role="button"
+          tabindex="0"
+          on:click={() => playSeg(i)}
+          on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), playSeg(i))}>
           <div class="speaker">{persons[s.speaker]?.name}:</div>
           <div class="text" style="font-size:{txtSize}">{s.text}</div>
           {#if showKorean}<div class="kor" style="font-size:{txtSize}">{s.korean}</div>{/if}

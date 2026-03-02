@@ -56,7 +56,7 @@ function onBarClick(e:CustomEvent<{id:string}>){switch(e.detail.id){case"play":t
 {/each}{:else}<p class="loading">로딩...</p>{/if}</div>
 
 <ControlBar {buttons} on:click={onBarClick} on:toggle={(e)=>show=e.detail.visible}/>
-<audio bind:this={player} playsinline preload="auto" style="display:none"/>
+<audio bind:this={player} playsinline preload="auto" style="display:none"></audio>
 
 <style>
 .list{position:absolute;top:50px;left:0;right:0;bottom:var(--list-bottom);overflow-y:auto;padding:0 1rem 1.5rem}
@@ -79,3 +79,5 @@ function onBarClick(e:CustomEvent<{id:string}>){switch(e.detail.id){case"play":t
 	.card-index{font-size:1.4rem}
 }
 </style>
+
+

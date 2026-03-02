@@ -126,16 +126,15 @@ function handleBar(e: CustomEvent<{ id: string }>) {
 .wrapper{position:absolute;top:50px;bottom:120px;left:0;right:0;display:flex;flex-direction:column;align-items:center;overflow-y:auto;padding-top:1rem}
 .sentence-box{width:85vw;max-width:900px;min-width:260px;height:clamp(9rem,38vh,18rem);padding:1.6rem 1rem;border:3px solid #ccc;border-radius:1rem;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;overflow-y:auto}
 .sentence-box p{word-break:keep-all;white-space:normal;letter-spacing:0px}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(59,130,246,0.6)}70%{box-shadow:0 0 0 18px rgba(59,130,246,0)}100%{box-shadow:0 0 0 0 rgba(59,130,246,0)}}
-.playing{animation:pulse 1.4s infinite}
+
+
 .order-big{position:absolute;top:0.3rem;left:50%;transform:translateX(-50%);font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:800;color:#2563eb}
-.remain-big{position:absolute;bottom:0.3rem;left:50%;transform:translateX(-50%);font-size:clamp(1rem,2.8vw,1.6rem);font-weight:700;color:#16a34a}
-.eng,.kor,.placeholder{font-size:clamp(0.95rem,2.8vw,1.6rem);line-height:1.35;margin:0.2rem 0}
-.kor{color:#374151}.placeholder{color:#9ca3af}
-.next-btn{margin:1rem 0;padding:0.6rem 2rem;font-size:clamp(0.95rem,2.8vw,1.4rem);border-radius:50px;background:#1d4ed8;color:#fff;border:none;cursor:pointer}
-.next-btn:hover{background:#2563eb}.result-list{width:92%;max-width:900px;margin:1.5rem auto 2rem;border-top:2px solid #ddd;padding-top:0.7rem}
+
+.eng,.kor{font-size:clamp(0.95rem,2.8vw,1.6rem);line-height:1.35;margin:0.2rem 0}
+.kor{color:#374151}
+.result-list{width:92%;max-width:900px;margin:1.5rem auto 2rem;border-top:2px solid #ddd;padding-top:0.7rem}
 .result-list h2{text-align:center;font-size:1.15rem;margin-bottom:0.7rem}
-.result-item{display:flex;flex-wrap:wrap;gap:0.22rem 0.4rem;margin-bottom:0.4rem;font-size:clamp(0.7rem,1.7vw,0.9rem);cursor:pointer}.num{font-weight:600;color:#2563eb}.txt{word-break:keep-all;white-space:normal}.result-item .eng{flex:1 1 55%}.result-item .kor{flex:1 1 40%;color:#374151}audio{display:none}.timer{position:absolute;top:0;right:0;font-weight:600;color:#f97316}
+.timer{position:absolute;top:0;right:0;font-weight:600;color:#f97316}
 .blank{display:inline-block;height:1.35em;margin:0 2px;border:2px dashed #cbd5e1;border-radius:4px;background:#f8fafc}
 .blank.highlight{border-style:solid;border-color:#1d4ed8;animation:pulseBox 1s infinite}
 @keyframes pulseBox{0%,100%{box-shadow:0 0 0 0 rgba(29,78,216,.6)}50%{box-shadow:0 0 0 6px rgba(29,78,216,0)}}
@@ -143,7 +142,7 @@ function handleBar(e: CustomEvent<{ id: string }>) {
 .choices{width:85vw;max-width:900px;min-width:260px;margin:.8rem auto 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.6rem}
 .choice-btn{padding:.55rem .4rem;font-size:.95rem;border:1px solid #d1d5db;border-radius:.375rem;background:#fff;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s}
 .choice-btn:hover{background:#f3f4f6;border-color:#9ca3af}
-.act{background:#d0ebff;font-weight:bold}.ln{display:flex;align-items:center}.idx{margin-right:0.5rem;color:#6b7280;font-weight:bold}
+audio{display:none}
 </style>
 
 <main class="wrapper">
@@ -185,4 +184,7 @@ function handleBar(e: CustomEvent<{ id: string }>) {
 </main>
 
 <ControlBar {buttons} on:click={handleBar} />
-<audio bind:this={player} playsinline preload="auto" />
+<audio bind:this={player} playsinline preload="auto"></audio>
+
+
+
