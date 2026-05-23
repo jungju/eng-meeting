@@ -1,64 +1,39 @@
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const run = (cmd, capture = false) => {
-  const options = { shell: true };
-  if (capture) {
-    options.stdio = ['ignore', 'pipe', 'pipe'];
-    options.encoding = 'utf8';
-    return execSync(cmd, options);
-  }
-  execSync(cmd, { stdio: 'inherit', ...options });
-  return null;
+const run = (cmd, options = {}) => {
+  execSync(cmd, { stdio: 'inherit', shell: true, ...options });
 };
 
-const remote = 'origin';
-const tmpBranch = `gh-pages-tmp-${Date.now()}`;
+const capture = (cmd, options = {}) =>
+  execSync(cmd, { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8', shell: true, ...options })
+    .trim();
 
-if (!fs.existsSync(path.join(process.cwd(), 'build'))) {
+const buildDir = path.join(process.cwd(), 'build');
+if (!fs.existsSync(buildDir)) {
   console.error('build directory not found. Run `yarn build` first.');
   process.exit(1);
 }
 
-const currentBranch = run('git rev-parse --abbrev-ref HEAD', true).toString().trim();
-console.log(`[deploy] current branch: ${currentBranch}`);
-
-const cleanup = () => {
-  try {
-    run(`git branch -D ${tmpBranch}`);
-  } catch {}
-};
-
-const splitOrReuse = () => {
-  try {
-    const out = run(`git subtree split --prefix build -b ${tmpBranch}`, true);
-    const commit = out.toString().trim();
-    if (!commit) throw new Error('subtree split returned empty commit');
-    console.log(`[deploy] generated ${tmpBranch}: ${commit}`);
-    return;
-  } catch (err) {
-    const msg = `${err.stdout?.toString() || ''}${err.stderr?.toString() || ''}${err.message || ''}`;
-    if (!String(msg).includes('no new revisions were found')) {
-      throw err;
-    }
-    run(`git fetch ${remote} gh-pages`);
-    const remoteHash = run(`git rev-parse ${remote}/gh-pages`, true).toString().trim();
-    if (!remoteHash) {
-      throw new Error('gh-pages remote branch not found and subtree split had no new revisions.');
-    }
-    run(`git branch ${tmpBranch} ${remoteHash}`);
-    console.log('[deploy] no new build changes; reusing existing gh-pages commit for push.');
-  }
-};
+const remoteUrl = capture('git config --get remote.origin.url');
+const sourceCommit = capture('git rev-parse --short HEAD');
+const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'eng-meeting-pages-'));
 
 try {
-  splitOrReuse();
-  run(`git push ${remote} ${tmpBranch}:gh-pages -f`);
-  console.log('[deploy] gh-pages updated.');
+  fs.cpSync(buildDir, tmpDir, { recursive: true });
+  run('git init -q', { cwd: tmpDir });
+  run('git checkout -b gh-pages', { cwd: tmpDir });
+  run('git config user.name "github-actions[bot]"', { cwd: tmpDir });
+  run('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"', {
+    cwd: tmpDir
+  });
+  run(`git remote add origin "${remoteUrl}"`, { cwd: tmpDir });
+  run('git add -A', { cwd: tmpDir });
+  run(`git commit -m "deploy: update pages from ${sourceCommit}"`, { cwd: tmpDir });
+  run('git push origin gh-pages --force', { cwd: tmpDir });
+  console.log(`[deploy] gh-pages updated from ${sourceCommit}.`);
 } finally {
-  cleanup();
-  try {
-    run(`git checkout ${currentBranch}`);
-  } catch {}
+  fs.rmSync(tmpDir, { recursive: true, force: true });
 }
