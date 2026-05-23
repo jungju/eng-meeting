@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
 	import { base as b } from "$app/paths";
 
-	const itemsList = [
+	type ItemType = "sentence" | "sentencemd" | "dialogue" | "flash" | "flash2" | "blank" | "tense";
+	type Item = { id?: string; label: string; type: ItemType; group: string };
+	type GroupInfo = { title: string; description: string };
+	type TypeMeta = { label: string; badge: string };
+
+	const itemsList: Item[] = [
 		{ id: "uni", label: "Sentence Group uni", type: "sentence", group: "JJ" },
 		{ id: "uni", label: "uni homework", type: "sentencemd", group: "JJ" },
 		{ id: "wirye", label: "Wirye", type: "sentence", group: "JJ" },
@@ -39,18 +44,18 @@
 		{ label: "Tense", type: "tense", group: "Grammar Patterns" },
 		{ id: "pp1", label: "attempt to, decide to, succeed to", type: "sentence", group: "Grammar Patterns" },
 		{ id: "pp-gerund", label: "Past Participle, Gerund", type: "sentence", group: "Grammar Patterns" },
-		...Array.from({ length: 20 }, (_, i) => ({
+		...Array.from({ length: 20 }, (_, i): Item => ({
 			id: `tense${i + 1}`, label: `Tense Sentence${i + 1}`, type: "sentence", group: "koreng"
 		})),
-		...Array.from({ length: 20 }, (_, i) => ({
+		...Array.from({ length: 20 }, (_, i): Item => ({
 			id: `tense${i + 1}`, label: `Tense Flash${i + 1}`, type: "flash2", group: "koreng"
 		})),
-		...Array.from({ length: 20 }, (_, i) => ({
+		...Array.from({ length: 20 }, (_, i): Item => ({
 			id: `tense${i + 1}`, label: `Tense Blank${i + 1}`, type: "blank", group: "koreng"
 		}))
 	];
 
-	const groupInfo = {
+	const groupInfo: Record<string, GroupInfo> = {
 		JJ: { title: "JJ 세트", description: "대학 과제, 스토리 세트, 일상 문장 모음" },
 		YS: { title: "Yunsol 세트", description: "어휘 연습 · 방학 과제 · 플래시 퀴즈" },
 		"My": { title: "My Practice", description: "직접 만든 문장/대화" },
@@ -58,7 +63,7 @@
 		koreng: { title: "Kor-Eng Drill", description: "시제별 문장 · 플래시 · 빈칸 연습" }
 	};
 
-	const typeMeta = {
+	const typeMeta: Record<ItemType, TypeMeta> = {
 		sentence: { label: "Sentence", badge: "badge badge-blue" },
 		sentencemd: { label: "Doc", badge: "badge badge-slate" },
 		dialogue: { label: "Dialogue", badge: "badge badge-purple" },
@@ -70,7 +75,7 @@
 
 	const groupOrder = ["JJ", "YS", "My", "Grammar Patterns", "koreng"];
 
-	const groupedItems = itemsList.reduce((acc, item) => {
+	const groupedItems = itemsList.reduce<Record<string, Item[]>>((acc, item) => {
 		(acc[item.group] ||= []).push(item);
 		return acc;
 	}, {});
@@ -91,7 +96,7 @@
 			return orderA - orderB;
 		});
 
-	const linkFor = (item) => `${b}/${item.type}${item.id ? `/${item.id}` : ""}`;
+	const linkFor = (item: Item) => `${b}/${item.type}${item.id ? `/${item.id}` : ""}`;
 </script>
 
 <div class="page">

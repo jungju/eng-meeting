@@ -1,12 +1,22 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
 
+  type TenseInfo = { file_en: string; base: string };
+  type Mode = '' | 'blank' | 'guess';
+  type GuessResult = {
+    r: number;
+    c: number;
+    x: boolean;
+    cr: number;
+    cc: number;
+  };
+
   /* ──────────────── 상태 변수 ──────────────── */
-  let info = [], en = [], ko = [];     // 세트 정보·영문·한글
+  let info: TenseInfo[] = [], en: string[] = [], ko: string[] = [];     // 세트 정보·영문·한글
   let sel = '', base = '', pre = '';   // 선택 파일·동사·프리픽스
-  let aud, mode = '', pIdx = null;     // 오디오·모드(blank/guess 등)·재생 인덱스
+  let aud: HTMLAudioElement | null = null, mode: Mode = '', pIdx: number | null = null;     // 오디오·모드(blank/guess 등)·재생 인덱스
   let sc = { c: 0, t: 0 };             // guess 점수
-  let q = null, last = null;           // guess 문제·최근 클릭 결과
+  let q: number | null = null, last: GuessResult | null = null;           // guess 문제·최근 클릭 결과
   let koOn = false, all = false, aIdx = 0;  // 한글 토글·전체 재생·인덱스
 
   const hd = [
@@ -17,23 +27,23 @@
   const sb = ['I', 'You', 'He', 'We', 'They'];
 
   /* ──────────────── 공통 fetch ──────────────── */
-  const req = async url => {
+  async function req<T>(url: string): Promise<T[]> {
     const r = await fetch(url);
     return r.ok ? await r.json() : [];
-  };
+  }
 
   /* ──────────────── 초기 로드 ──────────────── */
   onMount(async () => {
-    info = await req('/assets/tense/info.json');
+    info = await req<TenseInfo>('/assets/tense/info.json');
     await ld('sentences1-1.json', 'eat');       // 기본 세트
   });
 
   /* ──────────────── 세트 로드 ──────────────── */
-  async function ld(file, verb) {
-    const e = await req(`/assets/tense/${file}`);
+  async function ld(file: string, verb: string) {
+    const e = await req<string>(`/assets/tense/${file}`);
     if (!e.length) return alert(`fail ${file}`);
 
-    ko   = await req(`/assets/tense/${file.replace('-1.json', '-2.json')}`);
+    ko   = await req<string>(`/assets/tense/${file.replace('-1.json', '-2.json')}`);
     en   = e;
     sel  = file;
     base = verb;
@@ -50,9 +60,9 @@
   }
 
   /* ──────────────── 헬퍼 ──────────────── */
-  const row = i => (koOn && ko.length ? ko : en).slice(i * 9, i * 9 + 9);
+  const row = (i: number) => (koOn && ko.length ? ko : en).slice(i * 9, i * 9 + 9);
 
-  function blankify(s) {
+  function blankify(s: string) {
     const p = s.replace(/\.$/, '').split(' ');
     return p.length < 3
       ? s
@@ -60,7 +70,7 @@
   }
 
   /* ──────────────── 단일 재생 ──────────────── */
-  const play = i => {
+  const play = (i: number) => {
     if (mode || !pre.endsWith('-1')) return;
     aud?.pause();
     aud      = new Audio(`/assets/tense/audio/${pre}-${i + 1}.mp3`);
@@ -108,7 +118,10 @@
   const guess = () => {
     if (mode === 'guess') {
       aud?.pause();
-      aud && (aud.currentTime = 0, aud.play().catch(() => {}));
+      if (aud) {
+        aud.currentTime = 0;
+        aud.play().catch(() => {});
+      }
       return;
     }
     koOn = false;
@@ -132,7 +145,7 @@
     aud.play().catch(() => {});
   }
 
-  function chk(i, j) {
+  function chk(i: number, j: number) {
     if (mode !== 'guess' || q === null) return;
 
     const cr = Math.floor(q / 9);
@@ -270,7 +283,7 @@
     <button
       on:click={toggleAll}
       class:active={all}
-      disabled={sel.startsWith('tense_info') || mode || !pre.endsWith('-1')}>
+      disabled={sel.startsWith('tense_info') || mode !== '' || !pre.endsWith('-1')}>
       {all ? '⏸' : '▶'}
     </button>
 

@@ -15,7 +15,7 @@
   let playing = false, waiting = false, pendingNext = false;
   const gaps = [10_000, 20_000, -1];
   let gap = gaps[0];
-  let remain = 0, timer: number;
+  let remain = 0, timer: number | undefined;
 
   const playedSet = new Set<number>();
   let playedOrder: number[] = [];
@@ -82,7 +82,7 @@
   function startWaiting() {
     waiting = true;
     remain = Math.ceil(gap / 1000);
-    timer = setInterval(() => {
+    timer = window.setInterval(() => {
       if (--remain <= 0) { clearInterval(timer); waiting = false; playing ? (pendingNext = true) : nextRandom(); }
     }, 1000);
   }

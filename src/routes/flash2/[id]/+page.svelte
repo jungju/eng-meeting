@@ -23,7 +23,7 @@
   let idx = -1, order = 0;
   let player: HTMLAudioElement;
   let playing = false, waiting = false, pendingNext = false;
-  let remain = 0, timer: number;
+  let remain = 0, timer: number | undefined;
   let finished = false;
 
   /* 새 기능 ─ 언어/표시 토글 */
@@ -105,7 +105,7 @@
     if (waiting) clearInterval(timer);
     waiting = true;
     remain = Math.ceil(gap / 1000);
-    timer = setInterval(() => {
+    timer = window.setInterval(() => {
       if (--remain <= 0) {
         clearInterval(timer); waiting = false;
         playing ? (pendingNext = true) : nextRandom();
@@ -245,4 +245,3 @@
 .result-item .kor{flex:1 1 40%;color:#374151}
 audio{display:none}
 </style>
-

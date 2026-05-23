@@ -182,6 +182,12 @@ npm run build
 
 현재 기준 테스트: 4개 엔진 spec + 71개 유닛 테스트(구성 변경 시 갱신).
 
+## 배포
+
+- `main` 브랜치 push 시 `.github/workflows/deploy-pages.yml`이 GitHub Pages에 배포합니다.
+- 수동 재배포가 필요하면 `gh workflow run deploy-pages.yml --ref main`을 실행합니다.
+- 로컬에서 `gh-pages` 브랜치로 직접 publish하지 않습니다.
+
 ---
 
 ## 7) 새 콘텐츠 추가 가이드(정리용)

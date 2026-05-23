@@ -1,5 +1,5 @@
 deploy:
-	yarn run deploy
+	gh workflow run deploy-pages.yml --ref main
 
 dev:
 	yarn run dev

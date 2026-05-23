@@ -17,6 +17,10 @@ AI 에이전트든, 사람이든 아래 규칙을 반드시 지킵니다.
 
 사용자가 명시적으로 요청하지 않으면 push 또는 deploy를 실행하지 않습니다.
 
+GitHub Pages 배포는 `.github/workflows/deploy-pages.yml`이 담당합니다.
+`main` push 후 자동 실행되며, 필요하면 workflow를 수동 dispatch합니다. 로컬에서
+`gh-pages` 브랜치로 직접 publish하지 않습니다.
+
 커밋 메시지는 Jungju 서비스 리포 공통 형식을 사용합니다.
 
 ```text

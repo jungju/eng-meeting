@@ -23,6 +23,7 @@ let hideKorean = false;
 
 const id = $page.params.id;
 const ASSET_BASE = `${base}/assets/sentencemd/${id}`;
+const renderMarkdown = (text: string) => marked.parse(text, { async: false }) as string;
 
 onMount(async () => {
   const [mdRes, jsonRes] = await Promise.all([
@@ -40,7 +41,7 @@ onMount(async () => {
       text: trimmed,
       file: found?.file,
       isMatched: !!found,
-      html: marked(trimmed)
+      html: renderMarkdown(trimmed)
     };
   });
 });
@@ -102,7 +103,7 @@ const stripKo = (t: string) => t.replace(koRegex, '');
       class="line-item {current===i?'highlight':s.isMatched?'matched':''} {largeText?'large':'normal'}"
       on:click={() => play(i)}
       type="button">
-      {@html hideKorean ? marked(stripKo(s.text)) : s.html}
+      {@html hideKorean ? renderMarkdown(stripKo(s.text)) : s.html}
     </button>
   {/each}
 </div>
@@ -123,4 +124,3 @@ const stripKo = (t: string) => t.replace(koRegex, '');
           background:#f5f5f5;border-top:1px solid #ccc}
 .controls button{padding:6px 12px;font-size:15px}
 </style>
-
