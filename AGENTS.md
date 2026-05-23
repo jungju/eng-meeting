@@ -5,6 +5,33 @@ AI 에이전트든, 사람이든 아래 규칙을 반드시 지킵니다.
 
 ---
 
+## 공통 운영 규칙
+
+개발 변경을 마친 뒤에는 아래 순서를 지킵니다.
+
+1. 관련 spec/test를 실행합니다.
+2. 의도한 파일만 stage합니다.
+3. `scripts/agent-commit.sh`로 마지막 커밋을 만듭니다.
+
+사용자가 명시적으로 요청하지 않으면 push 또는 deploy를 실행하지 않습니다.
+
+커밋 메시지는 Jungju 서비스 리포 공통 형식을 사용합니다.
+
+```text
+<type>(<scope>): <summary>
+```
+
+예시:
+
+```sh
+TYPE=feat SUMMARY="add dialogue replay control" scripts/agent-commit.sh
+TYPE=test SUMMARY="cover blank quiz scoring" scripts/agent-commit.sh
+```
+
+기본 scope는 `eng-meeting`입니다. 허용 type은 `feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `ci`, `build`, `deploy`, `content`입니다.
+
+---
+
 ## 핵심 원칙
 
 1. **Spec First** — 새 기능을 만들기 전에 `.spec.ts` 파일을 먼저 작성합니다.
