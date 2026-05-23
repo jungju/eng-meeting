@@ -1,0 +1,156 @@
+{
+    "persons": {
+      "john": { 
+        "name": "John (Hospital IT Manager)", 
+        "image": "https://png.pngtree.com/element_our/20190528/ourmid/pngtree-business-person-in-suit-image_1140238.jpg",
+        "muted": false,
+        "showText": true
+      },
+      "sarah": { 
+        "name": "Sarah (Lead Developer, MedTech Solutions)", 
+        "image": "https://img.lovepik.com/free-png/20220117/lovepik-hand-drawn-business-people-element-vector-png-image_401429029_wh860.png",
+        "muted": false,
+        "showText": true
+      },
+      "drlee": { 
+        "name": "Dr. Lee (Head of Radiology)", 
+        "image": "https://img.lovepik.com/free-png/20211124/lovepik-business-people-png-image_401096208_wh1200.png",
+        "muted": false,
+        "showText": true
+      },
+      "emily": { 
+        "name": "Emily (Technician, MedTech Solutions)", 
+        "image": "https://img.lovepik.com/free-png/20211206/lovepik-working-person-png-image_401370888_wh1200.png",
+        "muted": false,
+        "showText": true
+      }
+    },
+    "conversation": [
+      {
+        "speaker": "john",
+        "text": "Good morning, everyone. Thank you for joining this meeting. My name is John, and I manage the hospital’s IT department. We are excited to discuss the installation of your new diagnostic imaging equipment.",
+        "korean": "굿 모닝, 에브리원. 땡큐 포 조이닝 디스 미팅. 마이 네임 이즈 존, 앤 아이 매니지 더 하스피틀즈 아이티 디파트먼트. 위 얼 엑사이티드 투 디스커스 디 인스톨레이션 옵 유어 뉴 다이어그노스틱 이미징 이큅먼트."
+      },
+      {
+        "speaker": "sarah",
+        "text": "Good morning, John. I am Sarah, the lead developer from MedTech Solutions. We are looking forward to working with your team on this project.",
+        "korean": "굿 모닝, 존. 아이 엠 사라, 더 리드 디벨로퍼 프럼 메드텍 솔루션즈. 위 얼 루킹 포워드 투 워킹 윗 유어 팀 온 디스 프로젝트."
+      },
+      {
+        "speaker": "drlee",
+        "text": "Hello, Sarah. I am Dr. Lee, and I oversee the radiology department here. We have been anticipating this new system to improve patient imaging services.",
+        "korean": "헬로우, 사라. 아이 엠 닥터 리, 앤 아이 오버씨 더 레이디올러지 디파트먼트 히어. 위 햅 빈 앤티서페이팅 디스 뉴 시스템 투 임프루브 페이션트 이미징 서비스를."
+      },
+      {
+        "speaker": "emily",
+        "text": "Good morning, everyone. I am Emily, a technician from MedTech Solutions. I will handle the hardware installation and initial setup.",
+        "korean": "굿 모닝, 에브리원. 아이 엠 에밀리, 어 테크니션 프럼 메드텍 솔루션즈. 아이 윌 핸들 더 하드웨어 인스톨레이션 앤 이니셜 세텁."
+      },
+      {
+        "speaker": "john",
+        "text": "Could you give us a quick overview of the medical device you will be installing?",
+        "korean": "쿿 유 기브 어스 어 퀵 오버뷰 옵 더 메디컬 디바이스 유 윌 비 인스톨링?"
+      },
+      {
+        "speaker": "sarah",
+        "text": "Of course. We are installing a state-of-the-art imaging machine that integrates with our cloud-based software. It captures high-resolution images and sends them securely to a central server for analysis.",
+        "korean": "옵 코스. 위 얼 인스톨링 어 스테이트 옵 디 아트 이미징 머신 댓 인티그레이츠 윗 아워 클라우드 베이스트 소프트웨어. 잇 캡쳐즈 하이 레절루션 이미지즈 앤 센즈 뎀 시큐얼리 투 어 센트럴 서버 포어 애널리시스."
+      },
+      {
+        "speaker": "drlee",
+        "text": "That sounds great. How will the images be stored, and do we need additional data storage solutions?",
+        "korean": "댓 사운즈 그레이트. 하우 윌 더 이미지즈 비 스토어드, 앤 두 위 니드 어디셔널 데이터 스토리지 솔루션즈?"
+      },
+      {
+        "speaker": "sarah",
+        "text": "We use AWS Cloud for long-term storage. This allows secure access and enables easy retrieval of patient data from anywhere in the hospital network.",
+        "korean": "위 유즈 에이더블유에스 클라우드 포어 롱텀 스토리지. 디스 얼라우즈 시큐어 액세스 앤 이네이블즈 이지 리트리벌 옵 페이션트 데이터 프럼 애니웨어 인 더 하스피틀 네트워크."
+      },
+      {
+        "speaker": "john",
+        "text": "Our hospital network uses a secure VPN and firewall. Are there any special network requirements we need to set up before the installation?",
+        "korean": "아워 하스피틀 네트워크 유즈 어 시큐어 브이피엔 앤 파이어월. 아 데어 에니 스페셜 네트워크 리콰이어먼츠 위 니드 투 셋 업 비포어 디 인스톨레이션?"
+      },
+      {
+        "speaker": "emily",
+        "text": "We will need access to a secure port for image data transfer. I will send you a list of required ports and firewall rules. Also, we recommend at least a 1 Gbps connection in the imaging suite to ensure fast data upload.",
+        "korean": "위 윌 니드 액세스 투 어 시큐어 포트 포어 이미지 데이터 트랜스퍼. 아이 윌 센드 유 어 리스트 옵 리콰이어드 포츠 앤 파이어월 룰즈. 올소, 위 레커멘드 엣 리스트 어 원 기가비피에스 커넥션 인 디 이미징 스윗 투 인슈어 패스트 데이터 업로드."
+      },
+      {
+        "speaker": "john",
+        "text": "That’s good to know. We can coordinate with our network administrator to open those ports and confirm bandwidth availability.",
+        "korean": "댓츠 굿 투 노우. 위 캔 코오디네이트 윗 아워 네트워크 어드미니스트레이터 투 오픈 도우즈 포츠 앤 컨펌 밴드위드 어베일러빌리티."
+      },
+      {
+        "speaker": "john",
+        "text": "How long do you estimate the installation process will take?",
+        "korean": "하우 롱 두 유 에스티메잇 디 인스톨레이션 프로세스 윌 테이크?"
+      },
+      {
+        "speaker": "emily",
+        "text": "The physical setup takes about one day. After that, we usually need two or three days for software configuration and testing.",
+        "korean": "더 피지컬 세텁 테익스 어바웃 원 데이. 애프터 댓, 위 유주얼리 니드 투 오어 쓰리 데이즈 포어 소프트웨어 컨피겨레이션 앤 테스팅."
+      },
+      {
+        "speaker": "drlee",
+        "text": "Will our radiology staff need training once it is installed?",
+        "korean": "윌 아워 레이디올러지 스태프 니드 트레이닝 원스 잇 이즈 인스톨드?"
+      },
+      {
+        "speaker": "sarah",
+        "text": "Yes. We provide on-site training sessions. Typically, it takes two days to train your key staff members, and we can schedule follow-up support sessions if needed.",
+        "korean": "예스. 위 프로바이드 온사이트 트레이닝 세션즈. 티피컬리, 잇 테익스 투 데이즈 투 트레인 유어 키 스태프 멤버즈, 앤 위 캔 스케줄 팔로업 서포트 세션즈 이프 니디드."
+      },
+      {
+        "speaker": "john",
+        "text": "Once the equipment is installed, how do we verify that everything is working properly?",
+        "korean": "원스 디 이큅먼트 이즈 인스톨드, 하우 두 위 베리파이 댓 에브리씽 이즈 워킹 프로퍼리?"
+      },
+      {
+        "speaker": "emily",
+        "text": "We have a standard checklist. We will run test scans, check image quality, and validate data transfer to the AWS Cloud. After everything passes our tests, we will ask the hospital team to confirm the results.",
+        "korean": "위 햅 어 스탠더드 체크리스트. 위 윌 런 테스트 스캔즈, 체크 이미지 콸리티, 앤 밸리데이트 데이터 트랜스퍼 투 디 에이더블유에스 클라우드. 애프터 에브리씽 패시즈 아워 테스트, 위 윌 아스크 더 하스피틀 팀 투 컨펌 더 리절츠."
+      },
+      {
+        "speaker": "drlee",
+        "text": "That sounds thorough. Our radiologists will be ready to review the test images.",
+        "korean": "댓 사운즈 써로우. 아워 레이디올러지스트즈 윌 비 레디 투 리뷰 더 테스트 이미지즈."
+      },
+      {
+        "speaker": "john",
+        "text": "So, the next steps: Emily, you will share the network requirements, and we will coordinate with our network team. After that, we can schedule the installation date. Sarah, you will provide the training schedule once we confirm the installation timeline.",
+        "korean": "소우, 더 넥스트 스텝스: 에밀리, 유 윌 셰어 더 네트워크 리콰이어먼츠, 앤 위 윌 코오디네이트 윗 아워 네트워크 팀. 애프터 댓, 위 캔 스케줄 디 인스톨레이션 데이트. 사라, 유 윌 프로바이드 더 트레이닝 스케줄 원스 위 컨펌 디 인스톨레이션 타임라인."
+      },
+      {
+        "speaker": "sarah",
+        "text": "Exactly. We will send a detailed plan for both installation and training by the end of this week.",
+        "korean": "이그재클리. 위 윌 센드 어 디테일드 플랜 포어 보스 인스톨레이션 앤 트레이닝 바이 디 엔드 옵 디스 위크."
+      },
+      {
+        "speaker": "drlee",
+        "text": "Perfect. Thank you for organizing everything, John.",
+        "korean": "퍼펙트. 땡큐 포 오거나이징 에브리씽, 존."
+      },
+      {
+        "speaker": "john",
+        "text": "Thank you, everyone. I believe that covers our main topics. If there are no further questions, we can adjourn the meeting.",
+        "korean": "땡큐, 에브리원. 아이 빌리브 댓 커버즈 아워 메인 토픽스. 이프 데어 아 노 퍼더 퀘스천즈, 위 캔 어저른 더 미팅."
+      },
+      {
+        "speaker": "emily",
+        "text": "No further questions from me. I am looking forward to working with you all.",
+        "korean": "노 퍼더 퀘스천즈 프럼 미. 아이 엠 루킹 포워드 투 워킹 윗 유 올."
+      },
+      {
+        "speaker": "sarah",
+        "text": "Me too. Thank you for your time.",
+        "korean": "미 투. 땡큐 포 유어 타임."
+      },
+      {
+        "speaker": "drlee",
+        "text": "Likewise. Have a great day!",
+        "korean": "라이크와이즈. 해브 어 그레이트 데이!"
+      }
+    ]
+  }
+  

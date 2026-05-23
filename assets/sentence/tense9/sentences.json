@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She maintains the server every Sunday during the scheduled downtime.",
+    "She does not maintain the server during peak-traffic hours to avoid disruptions.",
+    "Does she maintain the server whenever a security patch is released?",
+    "Doesn't she maintain the server when the monitoring alerts go off?",
+
+    "She is maintaining the server right now while most users are asleep.",
+    "She is not maintaining the server at the moment because a full backup is running.",
+    "Is she maintaining the server from the remote data center this evening?",
+    "Isn't she maintaining the server even though the CPU is spiking?",
+
+    "She has maintained the server for five years without a single critical outage.",
+    "She has not maintained the server since it was migrated to the cloud.",
+    "Has she maintained the server according to the new compliance rules?",
+    "Hasn't she maintained the server since the firewall update?",
+
+    "She has been maintaining the server all night to meet the SLA.",
+    "She has not been maintaining the server because the credentials expired.",
+    "Has she been maintaining the server through the holiday weekend?",
+    "Hasn't she been maintaining the server continuously during the penetration test?",
+
+    "She maintained the server yesterday when the data center lost power.",
+    "She did not maintain the server last Friday because she was on leave.",
+    "Did she maintain the server when the patch window opened?",
+    "Didn't she maintain the server before the clients noticed the bug?",
+
+    "She was maintaining the server when the security team reported a breach.",
+    "She was not maintaining the server that afternoon; she was drafting documentation.",
+    "Was she maintaining the server at two a.m. again?",
+    "Wasn't she maintaining the server while the rest of the staff slept?",
+
+    "She had maintained the server before the auditors arrived for inspection.",
+    "She had not maintained the server by the time the vulnerability scan began.",
+    "Had she maintained the server according to the old retention policy?",
+    "Hadn't she maintained the server before the licence expired?",
+
+    "She had been maintaining the server for hours when the root cause was finally found.",
+    "She had not been maintaining the server because the network link was down.",
+    "Had she been maintaining the server remotely until the VPN disconnected?",
+    "Hadn't she been maintaining the server until the change-freeze began?",
+
+    "She will maintain the server tomorrow during the planned maintenance window.",
+    "She will not maintain the server tonight because a major deployment is scheduled.",
+    "Will she maintain the server if the patch is released early?",
+    "Won't she maintain the server once the risk is approved?",
+
+    "She will be maintaining the server at this time next Monday.",
+    "She will not be maintaining the server during the global summit.",
+    "Will she be maintaining the server when the auditors connect?",
+    "Won't she be maintaining the server while the backup runs?",
+
+    "She will have maintained the server by Friday, clearing all pending alerts.",
+    "She will not have maintained the server if the ticket backlog keeps growing.",
+    "Will she have maintained the server before the quarterly review?",
+    "Won't she have maintained the server by the time we launch?",
+
+    "She will have been maintaining the server for twelve hours by the cutoff.",
+    "She will not have been maintaining the server all day if the automation succeeds.",
+    "Will she have been maintaining the server continuously until the migration finishes?",
+    "Won't she have been maintaining the server for weeks when the audit ends?"
+  ],
+  "korean": [
+    "그녀는 예정된 일요일 다운타임마다 서버를 유지 보수한다.",
+    "트래픽 피크 시간대에는 서버를 유지 보수하지 않는다.",
+    "보안 패치가 배포되면 그녀가 서버를 유지 보수하나요?",
+    "모니터링 경보가 울리면 그녀는 서버를 유지 보수하지 않나요?",
+
+    "그녀는 지금 대부분의 사용자가 잠든 사이에 서버를 유지 보수하고 있다.",
+    "전체 백업이 진행 중이라 현재 서버를 유지 보수하고 있지 않다.",
+    "오늘 저녁 원격 데이터 센터에서 그녀가 서버를 유지 보수하고 있나요?",
+    "CPU 사용률이 급등하는데도 그녀는 서버를 유지 보수하고 있지 않나요?",
+
+    "그녀는 지난 5년 동안 단 한 번의 중대한 장애도 없이 서버를 유지 보수해 왔다.",
+    "클라우드로 옮긴 뒤로는 서버를 유지 보수해 오지 않았다.",
+    "새 준수 규정에 따라 그녀가 서버를 유지 보수해 왔나요?",
+    "방화벽 업데이트 이후로 서버를 유지 보수해 오지 않았나요?",
+
+    "SLA를 맞추기 위해 그녀는 밤새 서버를 유지 보수해 오고 있다.",
+    "자격 증명이 만료되어 서버를 유지 보수해 오지 못하고 있다.",
+    "휴일 주말 내내 그녀가 서버를 유지 보수해 오고 있었나요?",
+    "침투 테스트 동안 그녀는 계속 서버를 유지 보수해 오지 않았나요?",
+
+    "그녀는 어제 데이터 센터가 정전되었을 때 서버를 유지 보수했다.",
+    "지난 금요일 휴가 중이라 서버를 유지 보수하지 않았다.",
+    "패치 창이 열렸을 때 그녀가 서버를 유지 보수했나요?",
+    "고객이 버그를 알아차리기 전에 그녀는 서버를 유지 보수하지 않았나요?",
+
+    "보안팀이 침해를 보고했을 때 그녀는 서버를 유지 보수하고 있었다.",
+    "그 오후 그녀는 문서를 작성하느라 서버를 유지 보수하지 않고 있었다.",
+    "또 다시 새벽 두 시에 그녀는 서버를 유지 보수하고 있었나요?",
+    "다른 직원들이 자는 동안에도 그녀는 서버를 유지 보수하고 있지 않았나요?",
+
+    "감사관이 도착하기 전에 그녀는 이미 서버를 유지 보수해 두었다.",
+    "취약점 스캔이 시작될 때까지 그녀는 서버를 유지 보수하지 못했었다.",
+    "예전 보존 정책에 따라 그녀가 서버를 유지 보수해 두었었나요?",
+    "라이선스가 만료되기 전에 그녀는 서버를 유지 보수해 두지 않았었나요?",
+
+    "근본 원인이 밝혀질 때 그녀는 몇 시간째 서버를 유지 보수하고 있었다.",
+    "네트워크 링크가 끊겨 그녀는 서버를 유지 보수해 오지 못하고 있었다.",
+    "VPN이 끊길 때까지 그녀는 원격으로 서버를 유지 보수해 오고 있었나요?",
+    "변경 중지 기간이 시작될 때까지 그녀는 서버를 유지 보수해 오지 않았나요?",
+
+    "내일 예정된 점검 시간에 그녀는 서버를 유지 보수할 것이다.",
+    "오늘 밤 대규모 배포가 예정되어 있어 그녀는 서버를 유지 보수하지 않을 것이다.",
+    "패치가 일찍 나오면 그녀는 서버를 유지 보수할까요?",
+    "위험 승인이 나면 그녀는 서버를 유지 보수하지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 서버를 유지 보수하고 있을 것이다.",
+    "글로벌 서밋 기간에는 그녀가 서버를 유지 보수하고 있지 않을 것이다.",
+    "감사팀이 접속할 때 그녀는 서버를 유지 보수하고 있을까요?",
+    "백업이 실행되는 동안 그녀는 서버를 유지 보수하고 있지 않을까요?",
+
+    "금요일까지 그녀는 모든 경고를 해결하며 서버를 유지 보수해 둘 것이다.",
+    "티켓이 계속 쌓이면 그녀는 서버를 유지 보수해 두지 못할 것이다.",
+    "분기 리뷰 전에 그녀는 서버를 유지 보수해 둘까요?",
+    "출시할 때쯤 그녀는 서버를 유지 보수해 두지 않았을까요?",
+
+    "마감 시간이 되면 그녀는 12시간째 서버를 유지 보수하고 있게 될 것이다.",
+    "자동화가 성공하면 그녀는 하루 종일 서버를 유지 보수하고 있지 않을 것이다.",
+    "마이그레이션이 끝날 때까지 그녀는 계속 서버를 유지 보수하고 있게 될까요?",
+    "감사가 끝날 즈음 그녀는 몇 주째 서버를 유지 보수하고 있지 않을까요?"
+  ]
+}

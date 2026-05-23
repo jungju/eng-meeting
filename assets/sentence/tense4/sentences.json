@@ -1,0 +1,124 @@
+{
+  "sentences": [
+    "She writes code every morning before the stand-up meeting.",
+    "She does not write code on Sundays; she reviews pull requests instead.",
+    "Does she write code in Rust when performance is critical?",
+    "Doesn't she write code whenever a new bug ticket arrives?",
+
+    "She is writing code right now while sipping her third coffee.",
+    "She is not writing code at the moment because the CI pipeline is broken.",
+    "Is she writing code for the authentication service this evening?",
+    "Isn't she writing code even though the spec is finalized?",
+
+    "She has written code for dozens of microservices this year.",
+    "She has not written code for the front end lately due to other priorities.",
+    "Has she written code that handles every edge case?",
+    "Hasn't she written code to automate that task already?",
+
+    "She has been writing code since dawn and still hasn't taken a break.",
+    "She has not been writing code because the requirements keep changing.",
+    "Has she been writing code all morning without running the tests?",
+    "Hasn't she been writing code continuously during the hackathon?",
+
+    "She wrote code late into the night to fix the production outage.",
+    "She did not write code yesterday because she attended a workshop.",
+    "Did she write code when the server crashed?",
+    "Didn't she write code to handle that exception?",
+
+    "She was writing code when the office lights suddenly went out.",
+    "She was not writing code that week; she was mentoring interns instead.",
+    "Was she writing code at two a.m. again?",
+    "Wasn't she writing code while everyone else was asleep?",
+
+    "She had written code for the new feature before the PM even asked.",
+    "She had not written code for logging, so debugging became difficult.",
+    "Had she written code to support internationalization by then?",
+    "Hadn't she written code to back up the database earlier?",
+
+    "She had been writing code for six hours when the build finally succeeded.",
+    "She had not been writing code because the specs were unclear.",
+    "Had she been writing code without version control?",
+    "Hadn't she been writing code until the deployment window closed?",
+
+    "She will write code tomorrow to integrate the payment gateway.",
+    "She will not write code tonight because she needs rest.",
+    "Will she write code if the client approves the change?",
+    "Won't she write code once the blocker is resolved?",
+
+    "She will be writing code at this time next Monday.",
+    "She will not be writing code during the conference week.",
+    "Will she be writing code when the release goes live?",
+    "Won't she be writing code while QA tests the build?",
+
+    "She will have written code for the analytics module by Friday.",
+    "She will not have written code for the UI if designs arrive late.",
+    "Will she have written code to address scalability issues?",
+    "Won't she have written code to migrate the data by the deadline?",
+
+    "She will have been writing code for twelve hours by the time the demo starts.",
+    "She will not have been writing code all day if the servers stay down.",
+    "Will she have been writing code continuously until the release?",
+    "Won't she have been writing code for weeks without a break?"
+  ],
+  "korean": [
+    "그녀는 매일 아침 스탠드업 회의 전에 코드를 작성한다.",
+    "그녀는 일요일에는 코드를 작성하지 않는다. 대신 풀리퀘스트를 검토한다.",
+    "퍼포먼스가 중요할 때 그녀는 러스트로 코드를 작성하나요?",
+    "새 버그 티켓이 등록되면 그녀는 언제든 코드를 작성하지 않나요?",
+
+    "그녀는 지금 세 번째 커피를 마시며 코드를 작성하고 있다.",
+    "CI 파이프라인이 깨져서 그녀는 지금 코드를 작성하지 못하고 있다.",
+    "오늘 저녁 그녀는 인증 서비스를 위한 코드를 작성하고 있나요?",
+    "명세가 확정됐는데도 그녀는 코드를 작성하고 있지 않나요?",
+
+    "그녀는 올해만 수십 개의 마이크로서비스 코드를 작성했다.",
+    "우선순위가 바뀌어 최근에는 프런트엔드 코드를 작성하지 않았다.",
+    "모든 엣지 케이스를 처리하는 코드를 그녀가 작성했나요?",
+    "그 일을 자동화하는 코드를 그녀가 이미 작성하지 않았나요?",
+
+    "그녀는 새벽부터 코드를 작성해 왔고 아직 휴식을 취하지 않았다.",
+    "요구사항이 계속 바뀌어 그녀는 코드를 작성하지 못하고 있다.",
+    "오늘 오전 내내 테스트도 돌리지 않고 그녀는 코드를 작성해 왔나요?",
+    "해커톤 동안 그녀는 계속 코드를 작성하고 있지 않았나요?",
+
+    "그녀는 프로덕션 장애를 해결하려고 밤늦게까지 코드를 작성했다.",
+    "그녀는 워크숍에 참석하느라 어제 코드를 작성하지 않았다.",
+    "서버가 다운됐을 때 그녀는 코드를 작성했나요?",
+    "그 예외를 처리하는 코드를 그녀가 작성하지 않았나요?",
+
+    "사무실 불이 꺼졌을 때 그녀는 코드를 작성하고 있었다.",
+    "그 주에 그녀는 인턴을 멘토링하느라 코드를 작성하지 않았다.",
+    "또 새벽 두 시에 그녀는 코드를 작성하고 있었나요?",
+    "다른 모두가 자는 동안에도 그녀는 코드를 작성하고 있지 않았나요?",
+
+    "제품 담당자가 요청하기 전 이미 그녀는 기능 코드를 작성해 두었다.",
+    "그녀가 로그 코드를 작성해 두지 않았기 때문에 디버깅이 어려웠다.",
+    "그때까지 국제화 지원 코드를 그녀가 작성해 두었나요?",
+    "데이터베이스 백업 코드를 그녀가 미리 작성하지 않았었나요?",
+
+    "빌드가 마침내 성공했을 때 그녀는 여섯 시간째 코드를 작성 중이었다.",
+    "명세가 불분명해서 그녀는 코드를 작성해 오지 못하고 있었다.",
+    "버전 관리 없이 그녀는 코드를 작성하고 있었나요?",
+    "배포 시간이 다가올 때까지 그녀는 코드를 작성하고 있지 않았나요?",
+
+    "내일 그녀는 결제 게이트웨이 연동 코드를 작성할 것이다.",
+    "오늘 밤 그녀는 휴식이 필요해 코드를 작성하지 않을 것이다.",
+    "클라이언트가 승인하면 그녀는 코드를 작성할까요?",
+    "블로커가 해결되면 그녀는 코드를 작성하지 않을까요?",
+
+    "다음 주 월요일 이 시간에 그녀는 코드를 작성하고 있을 것이다.",
+    "컨퍼런스 주간에는 그녀가 코드를 작성하고 있지 않을 것이다.",
+    "릴리스가 라이브될 때 그녀는 코드를 작성하고 있을까요?",
+    "QA 팀이 빌드를 테스트하는 동안 그녀는 코드를 작성하고 있지 않을까요?",
+
+    "금요일까지 그녀는 분석 모듈 코드를 작성해 둘 것이다.",
+    "디자인이 늦게 도착하면 그녀는 UI 코드를 작성해 두지 못했을 것이다.",
+    "스케일 문제를 해결하는 코드를 그녀가 작성해 둘까요?",
+    "마감까지 그녀가 데이터 마이그레이션 코드를 작성해 두지 않았을까요?",
+
+    "데모가 시작될 때쯤 그녀는 12시간째 코드를 작성하고 있게 될 것이다.",
+    "서버가 계속 다운된다면 그녀는 하루 종일 코드를 작성해 오지 못했을 것이다.",
+    "릴리스까지 그녀는 계속 코드를 작성하고 있게 될까요?",
+    "몇 주 동안 쉬지 않고 그녀는 코드를 작성하고 있지 않을까요?"
+  ]
+}

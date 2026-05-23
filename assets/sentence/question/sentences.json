@@ -1,0 +1,18 @@
+{
+  "sentences": [
+    "What are your annual maintenance fees, and do they differ before and after FDA clearance?",
+    "Could the pricing increase based on the total lines of code?",
+    "Do you have any FDA De Novo success cases that involved Golang and Kubernetes?",
+    "Will we need to share our entire source code with you?",
+    "Does your assessment also include vulnerabilities in our Kubernetes configuration?",
+    "We currently use Semgrep for vulnerability scanning—would adopting your service require us to stop using Semgrep?"
+  ],
+  "korean": [
+    "연간 유지보수 비용은 어떻게 되나요? FDA 승인전과 후과 다른가요?",
+    "코드 줄에 따라 비용이 추가 될 수 있나요?",
+    "FDA De Novo 사례중 Golang, Kubernetes 사례가 있나요?",
+    "소스 코드를 전부 공개 해야하나요?",
+    "K8s 구성 취약성도 포함 되나요?",
+    "semgrep를 통해 취약성을 검사 하고 있습니다. 만약 당신의 서비스를 이용하면 semgrep 사용을 중단해야하나요"
+  ]
+}

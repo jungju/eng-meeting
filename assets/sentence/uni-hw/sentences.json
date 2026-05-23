@@ -1,0 +1,38 @@
+{
+  "sentences": [
+    "In South Korea’s 2025 presidential election, the Democratic Party’s Lee Jae-myung has pledged to expand renewable energy and reduce reliance on nuclear power.",
+    "Conversely, the People Power Party’s Kim Moon-soo supports increasing nuclear energy to boost energy security.",
+    "This reflects the ongoing debate over nuclear power’s role in the nation’s energy future.",
+    "Nuclear power has both advantages and disadvantages.",
+    "Nuclear power generates electricity with minimal greenhouse gas emissions compared to fossil fuels.",
+    "Nuclear power plants produce a large amount of energy reliably and consistently.",
+    "Nuclear power reduces dependence on imported fossil fuels, enhancing national energy security.",
+    "Accidents like Chernobyl and Fukushima have caused severe environmental and health impacts.",
+    "Managing and storing radioactive waste is challenging and poses long-term environmental risks.",
+    "Building and decommissioning nuclear power plants is expensive, with significant financial risks.",
+    "Each country weighs these factors differently based on its energy needs and maintenance.",
+    "Some countries, like Germany and Switzerland, are moving to phase out nuclear power due to safety concerns, waste management issues, and public opposition.",
+    "Conversely, countries like China, India, and Russia are expanding their nuclear power capabilities to ensure energy security and reduce carbon emissions.",
+    "There is a growing focus on developing safer and more efficient nuclear technologies, such as small modular reactors.",
+    "Many countries are investing more in renewable energy sources like wind and solar to diversify their energy mix and reduce reliance on nuclear power.",
+    "Overall, the global trend is towards a more balanced energy portfolio that includes both nuclear power and renewables, with an emphasis on safety and sustainability."
+  ],
+  "korean": [
+    "2025년 대한민국 대통령 선거에서 더불어민주당의 이재명은 재생 에너지를 확대하고 원자력 의존도를 줄이겠다고 약속했습니다.",
+    "반면 국민의힘의 김문수는 에너지 안보를 강화하기 위해 원자력 발전을 확대하는 것을 지지합니다.",
+    "이는 국가의 에너지 미래에서 원자력의 역할을 둘러싼 지속적인 논쟁을 반영합니다.",
+    "원자력 발전에는 장단점이 모두 있습니다.",
+    "원자력 발전은 화석 연료에 비해 온실가스 배출을 최소화하면서 전기를 생산합니다.",
+    "원자력 발전소는 많은 양의 에너지를 안정적이고 일관되게 생산합니다.",
+    "원자력 발전은 수입 화석 연료에 대한 의존도를 줄여 국가 에너지 안보를 강화합니다.",
+    "체르노빌과 후쿠시마와 같은 사고는 심각한 환경 및 건강 문제를 일으켰습니다.",
+    "방사성 폐기물을 관리하고 저장하는 것은 어려우며 장기적인 환경 위험을 초래합니다.",
+    "원자력 발전소를 건설하고 폐로하는 데는 상당한 비용과 재정적 위험이 따릅니다.",
+    "각 국가는 에너지 수요와 유지 관리에 따라 이러한 요소들을 다르게 평가합니다.",
+    "독일과 스위스와 같은 일부 국가는 안전 우려, 폐기물 관리 문제, 대중의 반대 때문에 원자력 발전을 단계적으로 축소하고 있습니다.",
+    "반면 중국, 인도, 러시아와 같은 국가는 에너지 안보를 보장하고 탄소 배출을 줄이기 위해 원자력 역량을 확대하고 있습니다.",
+    "소형 모듈 원자로(SMR)와 같은 더 안전하고 효율적인 원자력 기술 개발에 대한 관심이 증가하고 있습니다.",
+    "많은 국가가 에너지 믹스를 다변화하고 원자력 의존도를 줄이기 위해 풍력 및 태양광과 같은 재생 에너지에 더 많이 투자하고 있습니다.",
+    "전반적으로 전 세계적인 추세는 안전성과 지속 가능성에 중점을 두고 원자력과 재생 에너지를 모두 포함하는 보다 균형 잡힌 에너지 포트폴리오를 향하고 있습니다."
+  ]
+}
