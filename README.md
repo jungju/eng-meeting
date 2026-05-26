@@ -232,4 +232,8 @@ npm run build
 
 ## License
 
-Personal project. License TBD.
+Source code in this repository is licensed under the [MIT License](LICENSE).
+
+Non-code assets, including text content, images, photos, videos, audio, service
+names, logos, and brand materials, are not covered by the MIT License. See
+[ASSET-LICENSE.md](ASSET-LICENSE.md).
