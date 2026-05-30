@@ -33,6 +33,7 @@
 
 <svelte:head>
   <base href="{base}/" />
+  <title>{$routeMeta.title} | Eng Meeting</title>
 </svelte:head>
 
 <div class="app-shell">
