@@ -171,16 +171,16 @@ static/
 ## 6) 실행 방법
 
 ```bash
-npm install
-npm run dev
-npm run test
-npm run test:watch
-npm run test:e2e
-npm run test:all
-npm run build
+yarn install --frozen-lockfile
+yarn run dev
+yarn test
+yarn test:watch
+yarn test:e2e
+yarn test:all
+yarn build
 ```
 
-현재 기준 테스트: 4개 엔진 spec + 71개 유닛 테스트(구성 변경 시 갱신).
+Node 22와 Yarn 1을 사용합니다. 현재 기준 테스트: 4개 엔진 spec + 71개 유닛 테스트(구성 변경 시 갱신).
 
 ## 배포
 
