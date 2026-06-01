@@ -1,9 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const port = Number(process.env.PLAYWRIGHT_PORT || 8089);
+
 export default defineConfig({
 	webServer: {
-		command: 'yarn dev',
-		port: 8088,
+		command: `yarn dev --host 127.0.0.1 --port ${port}`,
+		port,
 		reuseExistingServer: !process.env.CI
 	},
 	testDir: 'e2e',
@@ -14,7 +16,7 @@ export default defineConfig({
 	workers: process.env.CI ? 1 : undefined,
 	reporter: 'html',
 	use: {
-		baseURL: 'http://localhost:8088',
+		baseURL: `http://127.0.0.1:${port}`,
 		trace: 'on-first-retry'
 	},
 	projects: [

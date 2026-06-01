@@ -10,7 +10,7 @@
     navigator.serviceWorker?.register('/service-worker.js');
   });
 
-  type Meta = { icon: string; title: string; detail?: string };
+  type Meta = { icon: string; title: string; detail?: string; isHome?: boolean };
   const routeMeta = derived(page, ($page): Meta => {
     const path = $page.url.pathname;
     const [, section = '', id = ''] = path.split('/');
@@ -21,7 +21,7 @@
     if (section === 'blank') return { icon: '⬜', title: 'Blank Quiz', detail: id };
     if (section === 'sentencemd') return { icon: '📄', title: 'Document Reader', detail: id };
     if (section === 'tense') return { icon: '🗓️', title: 'Tense Trainer' };
-    return { icon: '🏠', title: 'Home' };
+    return { icon: '🏠', title: 'Home', isHome: true };
   });
 
   const goHome = () => goto(`${base}/`);
@@ -29,6 +29,7 @@
     if (history.length > 1) history.back();
     else goHome();
   };
+
 </script>
 
 <svelte:head>
@@ -49,7 +50,9 @@
       </div>
     </div>
     <div class="header-actions">
-      <button class="ghost-btn" type="button" on:click={goBack}>Back</button>
+      {#if !$routeMeta.isHome}
+        <button class="ghost-btn" type="button" on:click={goBack}>Back</button>
+      {/if}
       <button class="home-btn" type="button" on:click={goHome}>
         <span class="icon">🏠</span>
         <span>Home</span>

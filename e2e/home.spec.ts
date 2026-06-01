@@ -22,7 +22,7 @@ test.describe('Home Page', () => {
 
 		const firstGroup = page.locator('.group-card').first();
 		await expect(firstGroup.locator('.group-header h2')).toBeVisible();
-		await expect(firstGroup.locator('.badge-slate')).toBeVisible();
+		await expect(firstGroup.locator('.group-header .badge-slate')).toBeVisible();
 	});
 
 	test('item cards have links to correct routes', async ({ page }) => {
@@ -30,7 +30,7 @@ test.describe('Home Page', () => {
 
 		const firstLink = page.locator('.item-card').first();
 		const href = await firstLink.getAttribute('href');
-		expect(href).toMatch(/^\/(sentence|flash|flash2|blank|dialogue|sentencemd|tense)/);
+		expect(href).toMatch(/^\.?\/(sentence|flash|flash2|blank|dialogue|sentencemd|tense)/);
 	});
 
 	test('item cards show type badges', async ({ page }) => {
@@ -41,5 +41,19 @@ test.describe('Home Page', () => {
 		await expect(firstBadge).toBeVisible();
 		const text = await firstBadge.textContent();
 		expect(text).toBeTruthy();
+	});
+
+	test('hides Back action on the home route', async ({ page }) => {
+		await page.goto('/');
+
+		await expect(page.getByRole('button', { name: 'Back' })).toHaveCount(0);
+		await expect(page.getByRole('button', { name: 'Home' })).toBeVisible();
+	});
+
+	test('keeps Back action on lesson routes', async ({ page }) => {
+		await page.goto('/sentence/uni');
+
+		await expect(page.getByRole('button', { name: 'Back' })).toBeVisible();
+		await expect(page.getByRole('button', { name: 'Home' })).toBeVisible();
 	});
 });
