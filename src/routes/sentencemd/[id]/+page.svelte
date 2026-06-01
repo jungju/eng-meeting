@@ -3,6 +3,7 @@ import { onMount, onDestroy, tick } from 'svelte';
 import { page } from '$app/stores';
 import { base } from '$app/paths';
 import { marked } from 'marked';
+import { sanitizeMarkdownHtml } from '$lib/engine/markdown';
 
 interface AudioItem { text: string; file: string }
 
@@ -23,7 +24,7 @@ let hideKorean = false;
 
 const id = $page.params.id;
 const ASSET_BASE = `${base}/assets/sentencemd/${id}`;
-const renderMarkdown = (text: string) => marked.parse(text, { async: false }) as string;
+const renderMarkdown = (text: string) => sanitizeMarkdownHtml(marked.parse(text, { async: false }) as string);
 
 onMount(async () => {
   const [mdRes, jsonRes] = await Promise.all([

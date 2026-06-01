@@ -9,3 +9,5 @@ export type { WordNode, BlankChoice, RevealState, PrepareResult, EvalResult } fr
 
 export { buildSections, linkFor, TYPE_META } from './navigation';
 export type { NavItem, GroupInfo, Section, TypeMeta } from './navigation';
+
+export { sanitizeMarkdownHtml } from './markdown';

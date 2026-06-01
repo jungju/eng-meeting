@@ -29,10 +29,10 @@
     "@playwright/test": "^1.58.2",
     "@sveltejs/adapter-auto": "^7.0.1",
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.53.4",
-    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@sveltejs/kit": "^2.61.1",
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.1",
+    "@tailwindcss/vite": "^4.3.0",
     "@types/node": "^24.10.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.3.1",
@@ -44,23 +44,34 @@
     "prettier": "^3.8.1",
     "prettier-plugin-svelte": "^3.5.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "svelte": "^5.53.6",
+    "svelte": "^5.55.7",
     "svelte-check": "^4.4.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-svelte-components": "^0.3.1",
-    "vite": "^7.3.1",
-    "vite-plugin-devtools-json": "^1.0.0",
-    "vitest": "^4.0.18"
+    "vite": "^8.0.15",
+    "vitest": "^4.1.7"
   },
   "dependencies": {
     "autoprefixer": "^10.4.27",
     "marked": "^17.0.3",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.10",
     "tailwindcss": "^4.2.1"
   },
   "resolutions": {
-    "cookie": "^0.7.0"
+    "cookie": "^0.7.0",
+    "eslint/brace-expansion": "^5.0.5",
+    "eslint/**/brace-expansion": "^5.0.5",
+    "devalue": "^5.8.1",
+    "flatted": "^3.4.2",
+    "picomatch": "^2.3.2",
+    "postcss": "^8.5.10",
+    "svelte": "^5.55.7",
+    "typescript-eslint/**/brace-expansion": "^5.0.5",
+    "unplugin-svelte-components/minimatch/brace-expansion": "^2.0.3",
+    "undici": "^7.24.0",
+    "uuid": "^11.1.1",
+    "yaml": "^2.9.0"
   }
 }
